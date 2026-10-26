@@ -9,14 +9,26 @@
 #                      (layout: activity) with `section: <id>` and `order: <n>`
 # =============================================================
 sections:
-  - id: getting-started
-    title: Getting Started
-    summary: Meet the course, learn how the materials fit together, and get your computer ready for the hands-on work.
+  - id: population-genomics
+    title: Foundations of Microbial Population Genomics
+    summary: Microbial evolution, mutation, recombination, population structure, genetic diversity, and species delineation.
 
-  - id: command-line
-    title: The Command Line
-    summary: Learn how the shell works, then practice moving around the file system and chaining commands together.
+  - id: classification-subtyping
+    title: Taxonomic Classification and Genomic Subtyping
+    summary: Genome-based species identification, MLST, k-mer-based methods, and other microbial typing approaches.
 
-  - id: sequence-data
-    title: Working with Sequence Data
-    summary: Understand FASTA and FASTQ files and use command-line tools to inspect and summarize real reads.
+  - id: genomic-relatedness
+    title: High-Resolution Genomic Relatedness
+    summary: Core genome MLST (cgMLST), core-SNP analysis, genomic distance, clustering, and analytical limitations.
+
+  - id: phylogenetic-methods
+    title: Phylogenetic Methods and Tree Building
+    summary: Evolutionary models, tree-building methods, rooting, branch lengths, support values, and tree interpretation.
+
+  - id: phylogenomic-evidence
+    title: Interpreting Phylogenomic Evidence in Outbreak Investigations
+    summary: Genomic clusters, background diversity, epidemiological integration, uncertainty, and transmission inference limitations.
+
+  - id: case-studies
+    title: Integrated Genomic Epidemiology Case Studies
+    summary: Applying typing, genomic relatedness, phylogenetics, and epidemiological evidence to outbreak investigation scenarios.
