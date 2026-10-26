@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="lesson lesson--activity" data-lesson-id="{{ page.url | relative_url }}">
+  {% include lesson-header.html kind="activity" %}
+
+  <div class="activity-progress" data-activity-progress hidden>
+    <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Activity progress">
+      <div class="progress-fill"></div>
+    </div>
+    <span class="progress-label">0 of 0 steps</span>
+    <button type="button" class="progress-reset" data-reset-steps>Reset</button>
+  </div>
+
+  <div class="lesson-body activity-body" data-steps>
+    {{ content }}
+  </div>
+
+  <div class="activity-done" data-activity-done hidden>
+    <p class="activity-done-title">{% include icon.html name="check" %} Activity complete</p>
+    <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
+  </div>
+
+  {% include lesson-pager.html %}
+</article>

@@ -1,0 +1,30 @@
+---
+layout: page
+title: Schedule
+permalink: /schedule/
+description: The agenda for the live, instructor-led version of this course. Edit it in _data/schedule.yml.
+---
+{%- for day in site.data.schedule.days -%}
+<details class="schedule-day"{% if forloop.first %} open{% endif %}>
+  <summary>{{ day.title }} <span class="day-date">{{ day.date }}</span></summary>
+  <div class="table-wrap">
+    <table class="schedule-table">
+      <thead><tr><th>Time</th><th>Session</th><th>Led by</th></tr></thead>
+      <tbody>
+      {%- for s in day.sessions -%}
+        <tr>
+          <td>{{ s.time }}</td>
+          <td>
+            {%- if s.link -%}
+              {%- if s.link contains "://" -%}<a href="{{ s.link }}">{{ s.item }}</a>{%- else -%}<a href="{{ s.link | relative_url }}">{{ s.item }}</a>{%- endif -%}
+            {%- else -%}{{ s.item }}{%- endif -%}
+            {%- if s.type -%}<span class="tag-pill tag-pill--{{ s.type }}">{{ s.type }}</span>{%- endif -%}
+          </td>
+          <td>{{ s.leader }}</td>
+        </tr>
+      {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</details>
+{%- endfor -%}

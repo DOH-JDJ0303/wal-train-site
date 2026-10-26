@@ -1,0 +1,131 @@
+# =============================================================
+#  Question bank
+#  Use in any page with:   {% include question.html id="<key>" %}
+#
+#  Fields
+#    type:          text | choice | open   (inferred if omitted)
+#    question:      the prompt (Markdown allowed)
+#    answers:       [text] list of accepted answers. Case, extra spaces,
+#                   a leading "$ " and a trailing period are ignored.
+#    options:       [choice] list of options (Markdown allowed)
+#    answer:        [choice] number of the correct option, starting at 1
+#    hint:          shown after two wrong attempts
+#    explanation:   shown once answered or revealed (Markdown allowed)
+#    sample_answer: [open] model answer shown on request
+#    placeholder:   [text] placeholder text in the answer box
+# =============================================================
+
+# ---- Getting Started --------------------------------------------
+setup-shell-name:
+  type: text
+  question: "Run `echo $SHELL`. What is the **last part** of the path it prints (the name of your shell)?"
+  answers: ["bash", "zsh", "/bin/bash", "/bin/zsh", "/usr/bin/bash", "/usr/bin/zsh"]
+  hint: "Look at the text after the final `/`."
+  explanation: "Most Linux and WSL systems use **bash**; recent macOS versions default to **zsh**. Everything in this course works in either."
+
+course-structure:
+  type: choice
+  question: "How is each section of this course organized?"
+  options:
+    - Lectures only, followed by a final exam
+    - A lecture that introduces ideas, then hands-on activities that apply them
+    - Activities first, then a lecture that explains what happened
+  answer: 2
+  explanation: "Each section opens with a short lecture and continues with one or more activities. The **Next** link at the bottom of every page walks you through them in order."
+
+# ---- The Command Line ---------------------------------------------
+shell-what-is-prompt:
+  type: choice
+  question: "In the line `user@laptop:~/course$ ls -l data`, which part is the **argument**?"
+  options:
+    - "`user@laptop:~/course$`"
+    - "`ls`"
+    - "`-l`"
+    - "`data`"
+  answer: 4
+  explanation: "`user@laptop:~/course$` is the prompt, `ls` is the command, `-l` is an option (flag) that changes how it behaves, and `data` is the argument it acts on."
+
+nav-pwd:
+  type: text
+  question: "Which command prints the full path of the directory you are currently in?"
+  answers: ["pwd"]
+  hint: "Three letters: **p**rint **w**orking **d**irectory."
+  explanation: "`pwd` prints the absolute path of your current working directory."
+
+nav-parent:
+  type: text
+  question: "Which command moves you **up one level** to the parent directory?"
+  answers: ["cd ..", "cd ../"]
+  hint: "Two dots always mean *the directory above this one*."
+  explanation: "`..` is a shortcut for the parent directory, so `cd ..` moves up one level. A single `.` means the current directory."
+
+nav-absolute-relative:
+  type: choice
+  question: "Which of these is an **absolute** path?"
+  options:
+    - "`data/raw`"
+    - "`../results`"
+    - "`/home/student/course/data`"
+    - "`./notes.txt`"
+  answer: 3
+  explanation: "Absolute paths start at the root of the file system, so they always begin with `/`. The others are relative to wherever you are now."
+
+pipes-count-lines:
+  type: text
+  question: "Which command counts the number of **lines** in `samplesheet.csv`?"
+  answers: ["wc -l samplesheet.csv", "cat samplesheet.csv | wc -l", "wc -l < samplesheet.csv"]
+  hint: "Use `wc` (word count) with the option for lines."
+  placeholder: "e.g. command filename"
+  explanation: "`wc -l` counts lines. The file has **4** lines: one header plus three samples."
+
+pipes-redirect:
+  type: choice
+  question: "What is the difference between `>` and `>>`?"
+  options:
+    - "`>` appends to a file; `>>` overwrites it"
+    - "`>` overwrites a file; `>>` appends to the end of it"
+    - "They are identical"
+  answer: 2
+  explanation: "`>` replaces the file's contents (creating it if needed). `>>` adds to the end, which is safer when you are building up a log or results file."
+
+pipes-reflect:
+  type: open
+  question: "In your own words, why is it useful to chain small commands together with `|` rather than having one big program for every task?"
+  sample_answer: "Each small tool does one job well, so you can combine them in new ways without writing new software. Pipes also pass data straight from one step to the next, so you don't need to create intermediate files."
+
+# ---- Working with Sequence Data -------------------------------------
+fastq-lines-per-record:
+  type: choice
+  question: "How many lines make up a single record (one read) in a standard FASTQ file?"
+  options: ["1", "2", "4", "It varies by read length"]
+  answer: 3
+  explanation: "Each record has four lines: a header starting with `@`, the sequence, a `+` separator, and a quality string the same length as the sequence."
+
+fastq-count-reads:
+  type: text
+  question: "Using the line count from the previous step, how many **reads** are in `sample01.fastq`?"
+  answers: ["8", "eight"]
+  hint: "Divide the number of lines by the number of lines per record."
+  explanation: "32 lines ÷ 4 lines per record = **8 reads**."
+
+fastq-grep-trap:
+  type: open
+  question: "`grep -c '^@' sample01.fastq` reports **10**, but the file has 8 reads. Why might counting lines that start with `@` give the wrong answer?"
+  sample_answer: "`@` is also a valid quality character (it encodes a Phred score of 31), so some quality lines happen to start with `@` and get counted too. Counting lines and dividing by four — or matching the full header pattern, such as `^@sample01_` — is more reliable."
+
+fastq-read-length:
+  type: text
+  question: "How long (in bases) is each read in this file?"
+  answers: ["50", "50 bp", "50bp", "50 bases"]
+  hint: "Print just one sequence line and pipe it to `wc -c`, then subtract 1 for the newline character."
+  explanation: "Each read is **50 bases** long. `wc -c` counts the newline at the end of the line too, which is why it reports 51."
+
+fastq-quality-meaning:
+  type: choice
+  question: "In Phred+33 encoding, a quality character with a **higher** ASCII value means…"
+  options:
+    - "the base call is less likely to be correct"
+    - "the base call is more likely to be correct"
+    - "the base is a G or C"
+  answer: 2
+  explanation: "The Phred score is the ASCII value minus 33. A score of 30 means a 1-in-1,000 chance the call is wrong; 40 means 1 in 10,000."

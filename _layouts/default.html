@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {%- include head.html -%}
+  <body class="layout-{{ page.layout | default: 'default' }}">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {%- include header.html -%}
+
+    {%- if page.course_nav -%}
+    <div class="wrapper course-shell">
+      {%- include sidebar.html -%}
+      <main class="page-content course-main" id="main-content" aria-label="Content">
+        {{ content }}
+      </main>
+    </div>
+    {%- else -%}
+    <main class="page-content" id="main-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+    {%- endif -%}
+
+    {%- include footer.html -%}
+  </body>
+</html>

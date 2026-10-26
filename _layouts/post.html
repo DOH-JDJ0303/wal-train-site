@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="plain-page post">
+  <header class="page-header">
+    <p class="update-date">{{ page.date | date: "%b %-d, %Y" }}</p>
+    <h1 class="page-title">{{ page.title | escape }}</h1>
+  </header>
+  <div class="page-body">
+    {{ content }}
+  </div>
+  <p><a href="{{ '/' | relative_url }}">‹ Back to home</a></p>
+</article>

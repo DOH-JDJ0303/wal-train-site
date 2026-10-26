@@ -1,0 +1,22 @@
+# =============================================================
+#  Course outline
+#  Sections appear in this order everywhere on the site (home page,
+#  sidebar, course overview, previous/next links).
+#
+#  Each section needs a folder under sections/ containing:
+#    index.md        – the section overview (layout: section)
+#    *.md            – lectures (layout: lecture) and activities
+#                      (layout: activity) with `section: <id>` and `order: <n>`
+# =============================================================
+sections:
+  - id: getting-started
+    title: Getting Started
+    summary: Meet the course, learn how the materials fit together, and get your computer ready for the hands-on work.
+
+  - id: command-line
+    title: The Command Line
+    summary: Learn how the shell works, then practice moving around the file system and chaining commands together.
+
+  - id: sequence-data
+    title: Working with Sequence Data
+    summary: Understand FASTA and FASTQ files and use command-line tools to inspect and summarize real reads.

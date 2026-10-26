@@ -1,0 +1,76 @@
+# =============================================================
+#  Site settings — edit these first
+# =============================================================
+title: Bioinformatics Training Course
+tagline: Hands-on training for public health laboratories
+description: >-
+  Lectures and step-by-step, hands-on activities that build from
+  command-line basics to working with sequencing data.
+
+# For a project site at https://<user>.github.io/<repo>/ set:
+#   url:     "https://<user>.github.io"
+#   baseurl: "/<repo>"
+# The GitHub Actions workflow overrides baseurl automatically on deploy.
+url: "https://your-username.github.io"
+baseurl: "/training-site"
+
+# Optional footer text (remove either line to hide it)
+funding: >-
+  This work is supported by [Funding Source] under award number
+  [Grant/Cooperative Agreement Number].
+disclaimer: >-
+  Course materials are provided for training purposes only.
+
+# Link shown in the header and footer (leave blank to hide)
+repository_url: "https://github.com/your-username/training-site"
+
+# Logo shown on the home page and in the header
+logo: /assets/images/logo.svg
+
+# =============================================================
+#  Navigation
+# =============================================================
+# Pages listed in the top header, in order
+header_pages:
+  - pages/course.html
+  - pages/schedule.html
+  - pages/resources.md
+  - pages/about.md
+
+# =============================================================
+#  Build settings
+# =============================================================
+theme: minima
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  # Everything under sections/ gets the course sidebar
+  - scope:
+      path: "sections"
+    values:
+      course_nav: true
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - AUTHORING.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - node_modules
+  - templates

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="plain-page">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title | escape }}</h1>
+    {%- if page.description -%}<p class="lesson-lede">{{ page.description }}</p>{%- endif -%}
+  </header>
+  <div class="page-body">
+    {{ content }}
+  </div>
+</article>

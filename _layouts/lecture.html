@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article class="lesson lesson--lecture" data-lesson-id="{{ page.url | relative_url }}">
+  {% include lesson-header.html kind="lecture" %}
+
+  {%- if page.video -%}
+  <div class="media-embed">
+    <iframe src="{{ page.video }}" title="Lecture video: {{ page.title | escape }}" loading="lazy" allowfullscreen></iframe>
+  </div>
+  {%- endif -%}
+
+  {%- if page.slides -%}
+  <div class="media-embed media-embed--slides">
+    <iframe src="{{ page.slides }}" title="Lecture slides: {{ page.title | escape }}" loading="lazy" allowfullscreen></iframe>
+  </div>
+  {%- endif -%}
+
+  {%- if page.slides_file or page.slides_link -%}
+  <p class="lesson-downloads">
+    {%- if page.slides_file -%}<a class="btn-link btn-quiet" href="{{ page.slides_file | relative_url }}">Download slides</a>{%- endif -%}
+    {%- if page.slides_link -%}<a class="btn-link btn-quiet" href="{{ page.slides_link }}">Open slides in a new tab</a>{%- endif -%}
+  </p>
+  {%- endif -%}
+
+  <div class="lesson-body">
+    {{ content }}
+  </div>
+
+  <div class="lesson-complete">
+    <button type="button" class="btn-link btn-primary" data-mark-complete>
+      {% include icon.html name="check" %} <span>Mark lecture complete</span>
+    </button>
+  </div>
+
+  {% include lesson-pager.html %}
+</article>

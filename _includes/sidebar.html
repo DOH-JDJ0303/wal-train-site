@@ -1,0 +1,48 @@
+{%- assign course_page = site.pages | where: "url", "/course/" | first -%}
+<aside class="course-sidebar" id="course-sidebar">
+  <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="course-nav">
+    {% include icon.html name="section" %} Course contents
+  </button>
+
+  <nav class="course-nav" id="course-nav" aria-label="Course contents">
+    <a class="course-nav-home{% if page.url == '/course/' %} current{% endif %}" href="{{ '/course/' | relative_url }}">Course overview</a>
+
+    <div class="course-progress-mini" data-course-progress hidden>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <span class="progress-label"></span>
+    </div>
+
+    <ol class="nav-sections">
+    {%- for s in site.data.course.sections -%}
+      {%- assign sec_page = site.pages | where: "section", s.id | where: "layout", "section" | first -%}
+      {%- assign s_items = site.pages | where: "section", s.id | where_exp: "p", "p.layout == 'lecture' or p.layout == 'activity'" | sort: "order", "last" -%}
+      {%- assign is_open = false -%}
+      {%- if page.section == s.id -%}{%- assign is_open = true -%}{%- endif -%}
+      <li class="nav-section">
+        <details{% if is_open %} open{% endif %}>
+          <summary>
+            <span class="nav-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="nav-section-title">{{ s.title }}</span>
+          </summary>
+          <ul class="nav-items">
+            {%- if sec_page -%}
+            <li class="nav-item nav-item--overview{% if page.url == sec_page.url %} current{% endif %}">
+              <a href="{{ sec_page.url | relative_url }}">Section overview</a>
+            </li>
+            {%- endif -%}
+            {%- for it in s_items -%}
+            <li class="nav-item nav-item--{{ it.layout }}{% if page.url == it.url %} current{% endif %}" data-lesson="{{ it.url | relative_url }}">
+              <a href="{{ it.url | relative_url }}"{% if page.url == it.url %} aria-current="page"{% endif %}>
+                {% include icon.html name=it.layout %}
+                <span class="nav-item-title">{{ it.nav_title | default: it.title }}</span>
+                <span class="nav-done" title="Completed">{% include icon.html name="check" %}</span>
+              </a>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </details>
+      </li>
+    {%- endfor -%}
+    </ol>
+  </nav>
+</aside>

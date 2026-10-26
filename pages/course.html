@@ -1,0 +1,41 @@
+---
+layout: page
+title: Course Overview
+nav_title: Course
+permalink: /course/
+course_nav: true
+description: The course is organized into sections. Each one opens with a lecture and continues with hands-on activities, and each section builds on the one before it.
+---
+{%- include course-sequence.html -%}
+{%- assign n_lec = course_items | where: "layout", "lecture" | size -%}
+{%- assign n_act = course_items | where: "layout", "activity" | size -%}
+<p class="overview-counts">
+  {{ site.data.course.sections.size }} sections · {{ n_lec }} lectures · {{ n_act }} hands-on activities
+</p>
+
+{%- for s in site.data.course.sections -%}
+{%- assign sec_page = site.pages | where: "section", s.id | where: "layout", "section" | first -%}
+{%- assign s_items = site.pages | where: "section", s.id | where_exp: "p", "p.layout == 'lecture' or p.layout == 'activity'" | sort: "order", "last" -%}
+<section class="overview-section">
+  <span class="overview-num">{{ forloop.index }}</span>
+  <div>
+    <h2><a href="{{ sec_page.url | default: '#' | relative_url }}">{{ s.title }}</a></h2>
+    <p class="overview-summary">{{ s.summary }}</p>
+    <ol class="item-list">
+      {%- for it in s_items -%}
+      <li>
+        <a class="item-card item-card--{{ it.layout }}" href="{{ it.url | relative_url }}" data-lesson="{{ it.url | relative_url }}">
+          <span class="item-main">
+            <span class="item-kind">{% include icon.html name=it.layout %} {{ it.layout | capitalize }}{% if it.duration %} · {{ it.duration }}{% endif %}</span>
+            <span class="item-title">{{ it.title }}</span>
+          </span>
+          <span class="nav-done" title="Completed">{% include icon.html name="check" %}</span>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+{%- endfor -%}
+
+<p class="overview-note">Your progress is saved in this browser only. Clearing your browser data resets it.</p>

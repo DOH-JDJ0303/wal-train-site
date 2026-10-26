@@ -1,0 +1,89 @@
+{%- comment -%}
+  Knowledge-check question.
+
+  From the question bank (_data/questions.yml):
+    {% include question.html id="ls-long-listing" %}
+
+  Or inline:
+    {% include question.html
+         type="choice"
+         question="Which command prints your current directory?"
+         options="ls|pwd|cd"
+         answer="2"
+         explanation="`pwd` stands for *print working directory*." %}
+
+  Types:
+    text    – learner types an answer; checked against `answers`
+    choice  – multiple choice; `answer` is the 1-based number of the right option
+    open    – open-ended / discussion; learner writes notes, then reveals a sample answer
+{%- endcomment -%}
+{%- assign q = nil -%}{%- assign q_answers = nil -%}{%- assign q_options = nil -%}
+{%- if include.id -%}
+  {%- assign q = site.data.questions[include.id] -%}
+{%- endif -%}
+
+{%- if include.id and q == nil -%}
+<p class="question-missing">Question <code>{{ include.id }}</code> was not found in <code>_data/questions.yml</code>.</p>
+{%- else -%}
+
+{%- assign q_text   = q.question    | default: include.question -%}
+{%- assign q_type   = q.type        | default: include.type -%}
+{%- assign q_hint   = q.hint        | default: include.hint -%}
+{%- assign q_expl   = q.explanation | default: include.explanation -%}
+{%- assign q_sample = q.sample_answer | default: include.sample_answer -%}
+{%- if q.answers -%}{%- assign q_answers = q.answers -%}{%- elsif include.answers -%}{%- assign q_answers = include.answers | split: "|" -%}{%- endif -%}
+{%- if q.options -%}{%- assign q_options = q.options -%}{%- elsif include.options -%}{%- assign q_options = include.options | split: "|" -%}{%- endif -%}
+{%- assign q_answer = q.answer | default: include.answer | default: 1 -%}
+{%- if q_type == nil or q_type == "" -%}
+  {%- if q_options -%}{%- assign q_type = "choice" -%}{%- elsif q_answers -%}{%- assign q_type = "text" -%}{%- else -%}{%- assign q_type = "open" -%}{%- endif -%}
+{%- endif -%}
+{%- assign q_uid = include.id | default: q_text | slugify | truncate: 40, "" | prepend: "q-" -%}
+
+<div class="question question--{{ q_type }}" data-question="{{ q_type }}" id="{{ q_uid }}"
+  {%- if q_type == "text" %} data-answers="{{ q_answers | jsonify | escape }}"{% endif -%}
+  {%- if q_type == "choice" %} data-correct="{{ q_answer }}"{% endif -%}
+  {%- if q_hint %} data-hint="{{ q_hint | escape }}"{% endif %}>
+  <p class="question-label">Question</p>
+  <div class="question-text">{{ q_text | markdownify }}</div>
+
+  {%- if q_type == "choice" -%}
+  <fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend>
+    {%- for opt in q_options -%}
+    <label class="question-option">
+      <input type="radio" name="{{ q_uid }}" value="{{ forloop.index }}">
+      <span>{{ opt | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+    </label>
+    {%- endfor -%}
+  </fieldset>
+  {%- elsif q_type == "text" -%}
+  <label class="visually-hidden" for="{{ q_uid }}-input">Your answer</label>
+  <input class="question-input" id="{{ q_uid }}-input" type="text" autocomplete="off" spellcheck="false" placeholder="{{ q.placeholder | default: include.placeholder | default: 'Type your answer' }}">
+  {%- else -%}
+  <label class="visually-hidden" for="{{ q_uid }}-input">Your notes</label>
+  <textarea class="question-input question-notes" id="{{ q_uid }}-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea>
+  {%- endif -%}
+
+  <div class="question-actions">
+    {%- if q_type == "open" -%}
+    <button type="button" class="btn-link btn-primary btn-small" data-q-reveal>{% if q_sample %}Show sample answer{% else %}Done{% endif %}</button>
+    {%- else -%}
+    <button type="button" class="btn-link btn-primary btn-small" data-q-check>Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal>Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset>Reset</button>
+    {%- endif -%}
+  </div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden>
+    {%- if q_type == "text" -%}<p class="question-answer"><strong>Answer:</strong> <code>{{ q_answers | first }}</code></p>{%- endif -%}
+    {%- if q_type == "choice" -%}
+      {%- assign ci = q_answer | minus: 1 -%}
+      <p class="question-answer"><strong>Answer:</strong> {{ q_options[ci] | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    {%- endif -%}
+    {%- if q_sample -%}<div class="question-sample"><strong>Sample answer:</strong> {{ q_sample | markdownify }}</div>{%- endif -%}
+    {%- if q_expl -%}<div class="question-why">{{ q_expl | markdownify }}</div>{%- endif -%}
+  </div>
+</div>
+{%- endif -%}

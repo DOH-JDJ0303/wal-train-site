@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- assign sec_num = 0 -%}
+{%- for s in site.data.course.sections -%}
+  {%- if s.id == page.section -%}{%- assign sec = s -%}{%- assign sec_num = forloop.index -%}{%- endif -%}
+{%- endfor -%}
+{%- assign s_items = site.pages | where: "section", page.section | where_exp: "p", "p.layout == 'lecture' or p.layout == 'activity'" | sort: "order", "last" -%}
+
+<article class="section-page">
+  <header class="lesson-header">
+    <p class="lesson-eyebrow"><a href="{{ '/course/' | relative_url }}">Section {{ sec_num }} of {{ site.data.course.sections.size }}</a></p>
+    <h1 class="lesson-title">{{ page.title | default: sec.title }}</h1>
+    {%- if sec.summary -%}<p class="lesson-lede">{{ sec.summary }}</p>{%- endif -%}
+  </header>
+
+  <div class="lesson-body">
+    {{ content }}
+  </div>
+
+  <h2 class="list-heading">In this section</h2>
+  <ol class="item-list">
+    {%- for it in s_items -%}
+    <li>
+      <a class="item-card item-card--{{ it.layout }}" href="{{ it.url | relative_url }}" data-lesson="{{ it.url | relative_url }}">
+        <span class="item-step">{{ forloop.index }}</span>
+        <span class="item-main">
+          <span class="item-kind">{% include icon.html name=it.layout %} {{ it.layout | capitalize }}{% if it.duration %} · {{ it.duration }}{% endif %}</span>
+          <span class="item-title">{{ it.title }}</span>
+          {%- if it.description -%}<span class="item-desc">{{ it.description }}</span>{%- endif -%}
+        </span>
+        <span class="nav-done" title="Completed">{% include icon.html name="check" %}</span>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ol>
+
+  {%- assign first_item = s_items | first -%}
+  {%- if first_item -%}
+  <p class="section-start"><a class="btn-link btn-primary" href="{{ first_item.url | relative_url }}">Start with: {{ first_item.title }} ›</a></p>
+  {%- endif -%}
+</article>

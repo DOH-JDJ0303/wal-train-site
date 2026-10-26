@@ -1,0 +1,58 @@
+---
+layout: default
+---
+{%- include course-sequence.html -%}
+{%- assign first_item = course_items | first -%}
+
+<section class="home-hero">
+  <div class="home-logo">
+    <img src="{{ site.logo | relative_url }}" alt="">
+  </div>
+  <div class="home-intro">
+    <p class="home-kicker">{{ site.tagline }}</p>
+    <h1 class="home-title">{{ site.title }}</h1>
+    <div class="home-text">{{ content }}</div>
+    <p class="home-actions">
+      {%- if first_item -%}<a class="btn-link btn-primary" href="{{ first_item.url | relative_url }}">Start the course ›</a>{%- endif -%}
+      <a class="btn-link btn-quiet" href="{{ '/course/' | relative_url }}">See all sections</a>
+      <span class="home-resume" data-resume hidden><a class="btn-link btn-quiet" href="#">Resume where you left off</a></span>
+    </p>
+  </div>
+</section>
+
+<section class="home-sections">
+  <h2 class="updates-heading">Course sections</h2>
+  <div class="section-grid">
+    {%- for s in site.data.course.sections -%}
+      {%- assign sec_page = site.pages | where: "section", s.id | where: "layout", "section" | first -%}
+      {%- assign lec = site.pages | where: "section", s.id | where: "layout", "lecture" -%}
+      {%- assign act = site.pages | where: "section", s.id | where: "layout", "activity" -%}
+      <a class="cell section-cell" href="{{ sec_page.url | default: '/course/' | relative_url }}">
+        <span class="cell-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <span class="cell-title">{{ s.title }}</span>
+        <span class="cell-desc">{{ s.summary }}</span>
+        <span class="cell-meta">
+          {% include icon.html name="lecture" %} {{ lec.size }} lecture{% if lec.size != 1 %}s{% endif %}
+          <span class="dot">·</span>
+          {% include icon.html name="activity" %} {{ act.size }} activit{% if act.size != 1 %}ies{% else %}y{% endif %}
+        </span>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{%- if site.posts.size > 0 -%}
+<section class="home-updates">
+  <h2 class="updates-heading">Updates</h2>
+  <ul class="update-list">
+    {%- for post in site.posts limit: 5 -%}
+    <li class="update-item">
+      <span class="update-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <a class="update-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {%- assign summary = post.excerpt | strip_html | strip -%}
+      {%- if summary != "" -%}<p class="update-excerpt">{{ summary | truncate: 160 }}</p>{%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+{%- endif -%}

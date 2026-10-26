@@ -1,0 +1,14 @@
+{%- comment -%}
+  Builds the ordered list of every lecture and activity in the course.
+  Sections come from _data/course.yml (in that order); items within a
+  section are pages whose front matter has `section: <id>`, sorted by
+  `order`. After including this file you can use:
+    course_items  – array of all lecture/activity pages, in course order
+{%- endcomment -%}
+{%- assign course_items = "" | split: "" -%}
+{%- for s in site.data.course.sections -%}
+  {%- assign s_items = site.pages | where: "section", s.id | where_exp: "p", "p.layout == 'lecture' or p.layout == 'activity'" | sort: "order", "last" -%}
+  {%- for it in s_items -%}
+    {%- assign course_items = course_items | push: it -%}
+  {%- endfor -%}
+{%- endfor -%}

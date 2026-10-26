@@ -1,0 +1,26 @@
+<header class="site-header" role="banner">
+  <div class="wrapper header-inner">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+      {%- if site.logo -%}<img class="site-logo" src="{{ site.logo | relative_url }}" alt="">{%- endif -%}
+      <span>{{ site.title | escape }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+      <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
+        <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
+      </label>
+      <div class="trigger">
+        {%- for path in site.header_pages -%}
+          {%- assign hp = site.pages | where: "path", path | first -%}
+          {%- if hp and hp.title -%}
+            {%- assign is_current = false -%}
+            {%- if page.url == hp.url -%}{%- assign is_current = true -%}{%- endif -%}
+            {%- if hp.url == '/course/' and page.course_nav -%}{%- assign is_current = true -%}{%- endif -%}
+            <a class="page-link{% if is_current %} current{% endif %}" href="{{ hp.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ hp.nav_title | default: hp.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </nav>
+  </div>
+</header>

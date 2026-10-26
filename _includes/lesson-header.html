@@ -1,0 +1,42 @@
+{%- assign sec_num = 0 -%}
+{%- for s in site.data.course.sections -%}
+  {%- if s.id == page.section -%}{%- assign sec = s -%}{%- assign sec_num = forloop.index -%}{%- endif -%}
+{%- endfor -%}
+{%- assign sec_page = site.pages | where: "section", page.section | where: "layout", "section" | first -%}
+{%- assign kind = include.kind | default: page.layout -%}
+
+<header class="lesson-header">
+  {%- if sec -%}
+  <p class="lesson-eyebrow">
+    <a href="{{ sec_page.url | default: '/course/' | relative_url }}">Section {{ sec_num }} · {{ sec.title }}</a>
+  </p>
+  {%- endif -%}
+  <h1 class="lesson-title">{{ page.title }}</h1>
+  <div class="lesson-meta">
+    <span class="type-badge type-badge--{{ kind }}">{% include icon.html name=kind %} {{ kind | capitalize }}</span>
+    {%- if page.duration -%}<span class="meta-item">{% include icon.html name="clock" %} {{ page.duration }}</span>{%- endif -%}
+    {%- if page.instructor -%}<span class="meta-item">{{ page.instructor }}</span>{%- endif -%}
+  </div>
+  {%- if page.description -%}<p class="lesson-lede">{{ page.description }}</p>{%- endif -%}
+</header>
+
+{%- if page.objectives or page.prerequisites -%}
+<div class="lesson-brief">
+  {%- if page.objectives -%}
+  <div class="brief-block">
+    <h2 class="brief-heading">{% if kind == 'activity' %}In this activity you will{% else %}Learning objectives{% endif %}</h2>
+    <ul>
+      {%- for o in page.objectives -%}<li>{{ o | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{%- endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+  {%- if page.prerequisites -%}
+  <div class="brief-block">
+    <h2 class="brief-heading">Before you start</h2>
+    <ul>
+      {%- for o in page.prerequisites -%}<li>{{ o | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{%- endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+</div>
+{%- endif -%}

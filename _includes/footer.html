@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="wrapper footer-inner">
+    {%- if site.disclaimer -%}
+    <p class="footer-disclaimer">{{ site.disclaimer }}</p>
+    {%- endif -%}
+    {%- if site.funding -%}
+    <p class="footer-funding">{{ site.funding }}</p>
+    {%- endif -%}
+    {%- if site.repository_url and site.repository_url != "" -%}
+    <p class="footer-links"><a href="{{ site.repository_url }}">Course source on GitHub</a></p>
+    {%- endif -%}
+    <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+  </div>
+</footer>
