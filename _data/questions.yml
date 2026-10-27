@@ -132,7 +132,6 @@ fastq-quality-meaning:
 
 # ---- Taxonomic Classification and Genomic Subtyping ------------------
 
-
 ecoli-shigella-ipah:
   type: choice
   question: "A genome is positive for *ipaH*. What can you conclude?"
@@ -142,16 +141,6 @@ ecoli-shigella-ipah:
     - "It is not *Shigella*"
   answer: 2
   explanation: "*ipaH* is carried by both *Shigella* and EIEC. It rules out other *E. coli* but cannot separate *Shigella* from EIEC on its own, which is why ShigaPass also checks the serotype-defining *rfb* genes and other markers."
-
-
-ecoli-shigella-fastani:
-  type: choice
-  question: "Is the ANI between the two genomes above or below the ~95% threshold normally used to define a bacterial species?"
-  options:
-    - "Above — by genome-wide similarity they are the same species"
-    - "Below — they are clearly different species"
-  answer: 1
-  explanation: "The two genomes share well over 95% ANI. By the usual genomic definition of a bacterial species, *E. coli* and *Shigella* are one species, even though they carry different genus names."
 
 flu-genome-ani:
   type: choice
@@ -208,28 +197,37 @@ abaum-stability:
   answer: 2
   explanation: "STs come from a global, curated database, so they never depend on the order in which genomes arrive. Floc finds the same groups, but numbers them in the order it discovers them, so a different history can give the same groups different numbers."
 
-ecoli-shigella-mash:
+ecoli-shigella-fastani:
   type: choice
-  question: "According to Mash, what species is the closest RefSeq genome to **genome A**?"
+  question: "Based on the ~95% ANI rule for bacteria, are the two isolates the same species?"
   options:
-    - "*Escherichia coli*"
+    - "Yes — they share more than 95% ANI"
+    - "No — they share less than 95% ANI"
+  answer: 1
+  explanation: "The isolates share well over 95% ANI, so by the usual genomic definition they look like the same species. Keep that in mind for the next step."
+
+ecoli-shigella-gambit:
+  type: choice
+  question: "What does GAMBIT identify **isolate A** as?"
+  options:
     - "*Shigella flexneri*"
+    - "*Escherichia coli*"
     - "*Salmonella enterica*"
   answer: 2
-  explanation: "The nearest RefSeq genome to genome A is labeled *Shigella flexneri*, so a top-hit approach would report genome A as *S. flexneri*. Keep this in mind as you run ShigaPass."
+  explanation: "GAMBIT identifies isolate A as *E. coli*, even though it was reported as *S. flexneri* and shares more than 95% ANI with a *S. flexneri* isolate."
 
 ecoli-shigella-which:
   type: choice
-  question: "Based on ShigaPass, which genome is *Shigella*?"
+  question: "Based on ShigaPass, which isolate is *Shigella*?"
   options:
-    - "Genome A"
-    - "Genome B"
+    - "Isolate A"
+    - "Isolate B"
     - "Both"
     - "Neither"
   answer: 2
-  explanation: "Only genome B carries *ipaH* and *Shigella* serotype genes. Genome A lacks them, so it is *E. coli* — even though its closest RefSeq genome is labeled *S. flexneri*."
+  explanation: "Only isolate B carries *ipaH* and *Shigella* serotype genes. Isolate A lacks them, confirming GAMBIT's call: it is *E. coli*."
 
 ecoli-shigella-why:
   type: open
-  question: "In your own words, why did Mash call genome A *Shigella flexneri* when it is actually *E. coli*?"
-  sample_answer: "Across the whole genome, *E. coli* and *Shigella* are so similar that they fall inside one species boundary and are intermixed on the same family tree. Mash reports the name of the closest genome in RefSeq, and for this *E. coli* the closest genome happens to be labeled *S. flexneri*. The *Shigella* name depends on a few specific genes such as *ipaH* and the serotype genes, which a genome-wide distance does not single out — so a targeted tool like ShigaPass is needed to decide."
+  question: "In your own words, why did FastANI suggest the two isolates were the same species, when one is *E. coli* and the other is *Shigella*?"
+  sample_answer: "Across the whole genome, *E. coli* and *Shigella* are so similar that they fall within one species boundary — *Shigella* lineages sit inside the *E. coli* family tree. The *Shigella* name depends on a few specific genes, such as *ipaH* and the serotype-defining genes, which a genome-wide identity score does not single out. A curated classifier like GAMBIT, and a targeted tool like ShigaPass, are needed to tell them apart."

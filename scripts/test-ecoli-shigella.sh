@@ -8,10 +8,10 @@
 #  are given, then checks the results the activity relies on:
 #
 #    1. Both assemblies download from NCBI
-#    2. Mash: the closest RefSeq genome to genome A is labeled Shigella flexneri
-#    3. ShigaPass: genome A is ipaH- / "Not Shigella/EIEC"
-#    4. ShigaPass: genome B is ipaH+ with a Shigella serotype
-#    5. FastANI: the two genomes share >= 95% ANI
+#    2. FastANI: the two isolates share >= 95% ANI
+#    3. GAMBIT: isolate A is Escherichia coli; isolate B is Shigella
+#    4. ShigaPass: isolate A is ipaH- / "Not Shigella/EIEC"
+#    5. ShigaPass: isolate B is ipaH+ with a Shigella serotype
 #
 #  It also writes expected_outputs.md, with text you can paste into the
 #  activity's "Expected output" blocks.
@@ -21,10 +21,12 @@
 #
 #  Options:
 #    -w DIR        Working directory (default: ./ecoli-shigella-test)
-#    -d DIR        Folder for the Mash RefSeq sketch; reused between runs
-#                  (default: <workdir>/db)
+#    -g DIR        Folder holding (or to download) the GAMBIT database files;
+#                  reused between runs. Can also be set with the
+#                  GAMBIT_DB_PATH environment variable. (default: <workdir>/db)
 #    -e NAME       micromamba environment to use (default: species-id)
-#    -c            Create the micromamba environment if it does not exist
+#    -c            Create the micromamba environment if it does not exist,
+#                  or add missing tools to it
 #    -t N          Threads for ShigaPass (default: 4)
 #    -h            Show this help
 #
@@ -32,24 +34,25 @@
 # =============================================================================
 set -euo pipefail
 
-GENOME_A="GCA_052160995.1"   # E. coli; closest RefSeq genome labeled S. flexneri
-GENOME_B="GCA_055444035.1"   # Shigella
+GENOME_A="GCA_052160995.1"   # reported as S. flexneri; actually E. coli
+GENOME_B="GCA_055444035.1"   # S. flexneri
 ANI_MIN=95
-MASH_URL="https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh"
+GAMBIT_DB_URL="https://storage.googleapis.com/jlumpe-gambit/public/databases/refseq-curated/1.0"
+GAMBIT_DB_FILES=(gambit-refseq-curated-1.0.gdb gambit-refseq-curated-1.0.gs)
 SHIGAPASS_REPO="https://github.com/imanyass/ShigaPass.git"
 
 WORKDIR="./ecoli-shigella-test"
-DBDIR=""
+DBDIR="${GAMBIT_DB_PATH:-}"
 ENV_NAME="species-id"
 CREATE_ENV=0
 THREADS=4
 
 usage() { sed -n '2,/^# ====/p' "$0" | sed 's/^# \{0,1\}//; /^====/d'; exit "${1:-0}"; }
 
-while getopts "w:d:e:ct:h" opt; do
+while getopts "w:g:e:ct:h" opt; do
   case $opt in
     w) WORKDIR=$OPTARG ;;
-    d) DBDIR=$OPTARG ;;
+    g) DBDIR=$OPTARG ;;
     e) ENV_NAME=$OPTARG ;;
     c) CREATE_ENV=1 ;;
     t) THREADS=$OPTARG ;;
@@ -57,6 +60,7 @@ while getopts "w:d:e:ct:h" opt; do
     *) usage 1 ;;
   esac
 done
+START_DIR=$(pwd)
 
 # ---- helpers -----------------------------------------------------------------
 step()  { printf '\n\033[1;33m== %s\033[0m\n' "$*"; }
@@ -73,7 +77,8 @@ check() {  # check "description" <command...>
   fi
 }
 
-TOOLS=(datasets mash fastANI blastn makeblastdb)
+TOOLS=(datasets gambit fastANI blastn makeblastdb python3)
+PACKAGES="ncbi-datasets-cli fastani gambit blast"
 missing_tools() { local t; for t in "${TOOLS[@]}"; do command -v "$t" > /dev/null || echo "$t"; done; }
 
 # ---- 0. software -------------------------------------------------------------
@@ -86,18 +91,23 @@ if [ -n "$(missing_tools)" ]; then
   if ! micromamba env list --json | grep -q "/envs/$ENV_NAME\""; then
     [ "$CREATE_ENV" = 1 ] || die "micromamba environment '$ENV_NAME' not found. Rerun with -c to create it."
     info "Creating micromamba environment '$ENV_NAME' ..."
-    micromamba create -y -n "$ENV_NAME" -c conda-forge -c bioconda ncbi-datasets-cli mash fastani blast
+    micromamba create -y -n "$ENV_NAME" -c conda-forge -c bioconda $PACKAGES
   fi
   micromamba activate "$ENV_NAME"
-  [ -z "$(missing_tools)" ] || die "Still missing after activating '$ENV_NAME': $(missing_tools | tr '\n' ' ')"
+  if [ -n "$(missing_tools)" ] && [ "$CREATE_ENV" = 1 ]; then
+    info "Adding missing tools to '$ENV_NAME' ..."
+    micromamba install -y -n "$ENV_NAME" -c conda-forge -c bioconda $PACKAGES
+  fi
+  [ -z "$(missing_tools)" ] || die "Still missing after activating '$ENV_NAME': $(missing_tools | tr '\n' ' ')(rerun with -c to install them)"
 fi
 info "datasets $(datasets --version 2>&1 | awk '{print $NF}')"
-info "mash     $(mash --version 2>&1)"
+info "gambit   $(gambit --version 2>&1 | head -n 1)"
 info "fastANI  $(fastANI --version 2>&1 | head -n 1)"
 
 mkdir -p "$WORKDIR"
 WORKDIR=$(cd "$WORKDIR" && pwd)
 DBDIR=${DBDIR:-$WORKDIR/db}
+case $DBDIR in /*) ;; *) DBDIR="$START_DIR/$DBDIR" ;; esac
 mkdir -p "$DBDIR"
 DBDIR=$(cd "$DBDIR" && pwd)
 cd "$WORKDIR"
@@ -109,18 +119,16 @@ fi
 chmod +x ShigaPass/SCRIPT/ShigaPass.sh
 info "$(ShigaPass/SCRIPT/ShigaPass.sh -v 2>&1 | grep -i version | head -n 1)"
 
-# ---- 1. Mash reference database ------------------------------------------------
-step "Mash RefSeq sketch"
-MSH="$DBDIR/refseq.genomes.k21s1000.msh"
-if [ -s "$MSH" ] && mash info -H "$MSH" > /dev/null 2>&1; then
-  info "Using existing $MSH"
-else
-  info "Downloading (large file; resumes if interrupted) ..."
-  curl -L -C - -o "$MSH" "$MASH_URL"
-fi
-if [ ! -s "$DBDIR/refseq.info.tsv" ]; then
-  mash info -t "$MSH" > "$DBDIR/refseq.info.tsv"
-fi
+# ---- 1. GAMBIT database -------------------------------------------------------
+step "GAMBIT database"
+for f in "${GAMBIT_DB_FILES[@]}"; do
+  if [ -s "$DBDIR/$f" ]; then
+    info "$f already installed in $DBDIR (skipping download)"
+  else
+    info "Downloading $f (large file; resumes if interrupted) ..."
+    curl -L -C - -o "$DBDIR/$f" "$GAMBIT_DB_URL/$f"
+  fi
+done
 
 # ---- 2. download assemblies ----------------------------------------------------
 step "Downloading assemblies $GENOME_A and $GENOME_B"
@@ -128,31 +136,44 @@ rm -rf ncbi_dataset genomes.zip
 datasets download genome accession "$GENOME_A" "$GENOME_B" \
   --include genome --filename genomes.zip
 unzip -o -q genomes.zip
-cp ncbi_dataset/data/"$GENOME_A"/*_genomic.fna genome_A.fna
-cp ncbi_dataset/data/"$GENOME_B"/*_genomic.fna genome_B.fna
-ls -lh genome_*.fna
-check "genome_A.fna downloaded ($GENOME_A)" test -s genome_A.fna
-check "genome_B.fna downloaded ($GENOME_B)" test -s genome_B.fna
+cp ncbi_dataset/data/"$GENOME_A"/*_genomic.fna isolate_A.fna
+cp ncbi_dataset/data/"$GENOME_B"/*_genomic.fna isolate_B.fna
+ls -lh isolate_*.fna
+check "isolate_A.fna downloaded ($GENOME_A)" test -s isolate_A.fna
+check "isolate_B.fna downloaded ($GENOME_B)" test -s isolate_B.fna
 
-# ---- 3. Mash -------------------------------------------------------------------
-step "Mash: closest RefSeq genomes"
-for g in genome_A genome_B; do
-  mash dist "$MSH" $g.fna | sort -gk3 > $g.mash.tsv
-done
-: > mash_top5.txt
-for g in genome_A genome_B; do
-  echo "== $g" | tee -a mash_top5.txt
-  head -n 5 $g.mash.tsv |
-    awk -F '\t' 'NR == FNR { desc[$3] = $4; next } { print $3 "\t" desc[$1] }' \
-      "$DBDIR/refseq.info.tsv" - | tee -a mash_top5.txt
-done
-TOP_A=$(head -n 1 genome_A.mash.tsv |
-  awk -F '\t' 'NR == FNR { desc[$3] = $4; next } { print desc[$1] }' "$DBDIR/refseq.info.tsv" -)
-check "Mash top hit for genome A is labeled Shigella flexneri" grep -qi "shigella flexneri" <<< "$TOP_A"
+# ---- 3. FastANI ----------------------------------------------------------------
+step "FastANI"
+fastANI -q isolate_A.fna -r isolate_B.fna -o isolates_ani.txt > fastani.log 2>&1
+cat isolates_ani.txt
+ANI=$(cut -f 3 isolates_ani.txt | head -n 1)
+check "FastANI: ANI >= $ANI_MIN (got ${ANI:-no result})" \
+  awk -v a="${ANI:-0}" -v m="$ANI_MIN" 'BEGIN { exit !(a >= m) }'
 
-# ---- 4. ShigaPass --------------------------------------------------------------
+# ---- 4. GAMBIT -----------------------------------------------------------------
+step "GAMBIT"
+gambit -d "$DBDIR" query -o gambit.csv isolate_A.fna isolate_B.fna
+# Print the key columns; descriptions can contain commas, so parse as CSV
+python3 - gambit.csv > gambit_short.txt << 'PY'
+import csv, sys
+rows = list(csv.DictReader(open(sys.argv[1])))
+cols = ["query", "predicted.name", "predicted.rank"]
+print("\t".join(cols))
+for r in rows:
+    print("\t".join(r.get(c, "") for c in cols))
+PY
+cat gambit_short.txt
+gambit_pred() {  # gambit_pred <row number, 1 = isolate A>
+  awk -F '\t' -v n="$1" 'NR == n + 1 { print $2 }' gambit_short.txt
+}
+PRED_A=$(gambit_pred 1)
+PRED_B=$(gambit_pred 2)
+check "GAMBIT: isolate A is Escherichia coli (got '${PRED_A:-none}')" grep -qi "escherichia coli" <<< "$PRED_A"
+check "GAMBIT: isolate B is Shigella (got '${PRED_B:-none}')" grep -qi "shigella" <<< "$PRED_B"
+
+# ---- 5. ShigaPass --------------------------------------------------------------
 step "ShigaPass"
-readlink -f genome_A.fna genome_B.fna > shigapass_list.txt
+readlink -f isolate_A.fna isolate_B.fna > shigapass_list.txt
 SP_UPDATE=""
 ls ShigaPass/SCRIPT/ShigaPass_DataBases/IPAH/*.nin > /dev/null 2>&1 || SP_UPDATE="-u"
 ShigaPass/SCRIPT/ShigaPass.sh -l shigapass_list.txt -o shigapass_results \
@@ -163,20 +184,12 @@ SUMMARY=shigapass_results/ShigaPass_summary.csv
 cut -d ';' -f 1,7,8,9 "$SUMMARY" | tee shigapass_short.txt
 
 sp_field() { awk -F ';' -v n="$1" -v f="$2" '$1 == n { print $f }' "$SUMMARY"; }
-check "ShigaPass: genome A is ipaH-"                      test "$(sp_field genome_A 7)" = "ipaH-"
-check "ShigaPass: genome A is 'Not Shigella/EIEC'"        test "$(sp_field genome_A 8)" = "Not Shigella/EIEC"
-check "ShigaPass: genome B is ipaH+"                      test "$(sp_field genome_B 7)" = "ipaH+"
-SERO_B=$(sp_field genome_B 8)
-check "ShigaPass: genome B has a Shigella serotype (got '${SERO_B:-none}')" \
+check "ShigaPass: isolate A is ipaH-"                      test "$(sp_field isolate_A 7)" = "ipaH-"
+check "ShigaPass: isolate A is 'Not Shigella/EIEC'"        test "$(sp_field isolate_A 8)" = "Not Shigella/EIEC"
+check "ShigaPass: isolate B is ipaH+"                      test "$(sp_field isolate_B 7)" = "ipaH+"
+SERO_B=$(sp_field isolate_B 8)
+check "ShigaPass: isolate B has a Shigella serotype (got '${SERO_B:-none}')" \
   bash -c "[[ '$SERO_B' =~ ^S[BDFS] ]]"
-
-# ---- 5. FastANI ----------------------------------------------------------------
-step "FastANI"
-fastANI -q genome_A.fna -r genome_B.fna -o ecoli_shigella_ani.txt > fastani.log 2>&1
-cat ecoli_shigella_ani.txt
-ANI=$(cut -f 3 ecoli_shigella_ani.txt | head -n 1)
-check "FastANI: ANI >= $ANI_MIN (got ${ANI:-no result})" \
-  awk -v a="${ANI:-0}" -v m="$ANI_MIN" 'BEGIN { exit !(a >= m) }'
 
 # ---- expected outputs for the activity page ------------------------------------
 {
@@ -184,12 +197,12 @@ check "FastANI: ANI >= $ANI_MIN (got ${ANI:-no result})" \
   echo
   echo "Generated $(date '+%Y-%m-%d %H:%M') by scripts/test-ecoli-shigella.sh"
   echo
-  echo "## Identify the species with Mash"
-  echo; echo '```text'; cat mash_top5.txt; echo '```'; echo '{: .output}'; echo
-  echo "## Identify the species with ShigaPass"
-  echo; echo '```text'; cat shigapass_short.txt; echo '```'; echo '{: .output}'; echo
-  echo "## Measure how similar the genomes really are"
-  echo; echo '```text'; cat ecoli_shigella_ani.txt; echo '```'; echo '{: .output}'
+  echo "## Compare the two isolates with FastANI"
+  echo; echo '```text'; cat isolates_ani.txt; echo '```'; echo '{: .output}'; echo
+  echo "## Identify each isolate with GAMBIT"
+  echo; echo '```text'; tr '\t' ',' < gambit_short.txt; echo '```'; echo '{: .output}'; echo
+  echo "## Confirm with ShigaPass"
+  echo; echo '```text'; cat shigapass_short.txt; echo '```'; echo '{: .output}'
 } > expected_outputs.md
 
 # ---- summary -------------------------------------------------------------------
@@ -197,6 +210,7 @@ step "Summary"
 for r in "${RESULTS[@]}"; do
   case $r in PASS*) printf '   \033[32m%s\033[0m\n' "$r" ;; *) printf '   \033[31m%s\033[0m\n' "$r" ;; esac
 done
+
 echo
 info "$PASSES passed, $FAILS failed"
 info "Expected-output blocks written to $WORKDIR/expected_outputs.md"
