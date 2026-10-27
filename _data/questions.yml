@@ -156,22 +156,6 @@ flu-label-subtype:
   question: "What subtype is each virus, according to LABEL? Which two segments determine the subtype?"
   sample_answer: "Virus 1 is H1N1 (`A_HA_H1` and `A_NA_N1`) and virus 2 is H3N2 (`A_HA_H3` and `A_NA_N2`). The subtype comes from the HA and NA segments; the other six are labeled only by segment (such as `A_PB2`)."
 
-flu-segment-most-different:
-  type: choice
-  question: "Which segments differ most between the two viruses?"
-  options:
-    - "The polymerase segments (PB2, PB1, PA)"
-    - "HA and NA"
-    - "MP and NS"
-    - "All segments differ about equally"
-  answer: 2
-  explanation: "HA and NA are so different between subtypes that FastANI cannot measure them (below ~80%). The internal segments are much more similar."
-
-flu-why-ha-na:
-  type: open
-  question: "Why are HA and NA so much more different than the other segments, and what does this mean for how we classify influenza?"
-  sample_answer: "HA and NA encode the surface proteins targeted by the immune system, so they change quickly, and the different subtypes have diverged a long way from one another. Because segments can also be swapped by reassortment, each segment has its own history. Since a single species contains such different viruses, influenza is described by subtype (from HA and NA), clade, and genotype rather than by species alone."
-
 ecoli-shigella-fastani:
   type: choice
   question: "Based on the ~95% ANI rule for bacteria, are the two isolates the same species?"
@@ -242,3 +226,8 @@ ecoli-floc-name:
     - "Only if the isolates share an ST"
   answer: 2
   explanation: "Floc numbers clusters in the order it finds them within one database. Another laboratory — or a rebuilt database, or a different distance threshold — can find the same group of genomes and give it a different number. That is what makes cluster names harder to communicate than STs."
+
+flu-why-subtype:
+  type: open
+  question: "Both viruses are influenza A. Why is it more useful to describe them by subtype than by species?"
+  sample_answer: "The species \"influenza A\" includes viruses whose genomes are very different — these two share only about 85% identity across the parts that could be compared at all. The subtype, based on the HA and NA surface proteins, tells you far more about the virus: how it interacts with the immune system, which vaccines and antivirals are relevant, and which other viruses it can sensibly be compared with."

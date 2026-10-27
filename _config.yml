@@ -74,4 +74,3 @@ exclude:
   - .bundle
   - node_modules
   - templates
-  - scripts

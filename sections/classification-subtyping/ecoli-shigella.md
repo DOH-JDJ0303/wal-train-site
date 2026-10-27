@@ -17,8 +17,7 @@ prerequisites:
   - A few GB of free disk space for the GAMBIT database
 ---
 
-<!-- TODO (instructor): fill in the expected-output blocks marked TODO.
-     scripts/test-ecoli-shigella.sh runs the whole activity and prints them. -->
+<!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
 Two bacterial isolates have been reported as ***Shigella flexneri***, and you've been asked to check whether they are the same species. In this activity you'll compare them in three ways — overall genome similarity, a curated species classifier, and a check for the genes that define *Shigella* — and see why the first answer is misleading.
 
@@ -92,7 +91,7 @@ cat isolates_ani.txt
 
 The output has five columns: the query, the reference, the **ANI**, the number of fragments that matched, and the total number of fragments in the query.
 
-<!-- TODO: paste the expected FastANI line here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected FastANI line here -->
 ```text
 isolate_A.fna    isolate_B.fna    ...
 ```
@@ -113,7 +112,7 @@ cut -d, -f 1-3 gambit.csv
 
 The columns show the isolate (`query`), GAMBIT's prediction (`predicted.name`), and how specific the prediction is (`predicted.rank`). The full `gambit.csv` also lists the closest reference genome for each isolate.
 
-<!-- TODO: paste the expected GAMBIT output here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected GAMBIT output here -->
 ```text
 query,predicted.name,predicted.rank
 isolate_A,Escherichia coli,species
@@ -148,7 +147,7 @@ The last command shows the four columns that matter here: the isolate (`Name`), 
 | `EIEC` | *ipaH* is present but no *Shigella* serotype matches — most likely enteroinvasive *E. coli* |
 | `Not Shigella/EIEC` | *ipaH* is absent — not *Shigella* and not EIEC |
 
-<!-- TODO: paste the expected ShigaPass summary here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected ShigaPass summary here -->
 ```text
 Name;ipaH;Predicted_Serotype;Predicted_FlexSerotype
 isolate_A;ipaH-;Not Shigella/EIEC;

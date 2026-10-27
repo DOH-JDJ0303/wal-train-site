@@ -15,8 +15,7 @@ prerequisites:
   - A Linux, macOS, or WSL terminal with [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html) installed
 ---
 
-<!-- TODO (instructor): fill in the expected-output blocks marked TODO.
-     scripts/test-ecoli-mlst-floc.sh runs the whole activity and prints them. -->
+<!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
 Subtyping is often used as a first grouping step: isolates that share a type are compared in more detail, and isolates that don't are set aside. In this activity you'll see what happens when that first step gives the wrong answer.
 
@@ -106,7 +105,7 @@ cut -f 1,3 mlst.tsv
 
 Each line shows the file and its ST.
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 ```text
 GCA_032856485.1.fna    ...
 GCA_040936765.1.fna    ...
@@ -124,7 +123,7 @@ An ST is just a name for one combination of seven alleles. Look at the full alle
 cut -f 1,3- mlst.tsv
 ```
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 ```text
 GCA_032856485.1.fna    ...    adk(...)  fumC(...)  gyrB(...)  icd(...)  mdh(...)  purA(...)  recA(...)
 ...
@@ -146,7 +145,7 @@ cat floc_db/clusters.csv
 
 `clusters.csv` lists each sample (`sid`) and its cluster number.
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 ```text
 sid,cluster
 ...
@@ -165,7 +164,7 @@ printf "sample\tST\tfloc\n"
 join -t $'\t' st.tsv floc.tsv
 ```
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 ```text
 sample             ST    floc
 GCA_032856485.1    ...   ...
