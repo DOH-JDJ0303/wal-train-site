@@ -16,7 +16,7 @@
 // ---- Palette -----------------------------------------------
 $page-bg:         #FCFAF5;
 $surface:         #F4EFE2;
-$mustard:         #DCAB4F;   // fills and rules only — never type
+$mustard:         #DCAB4F;   // fills and rules only, never type
 $mustard-deep:    #8B651C;   // links, buttons
 $mustard-hover:   #725217;
 $mustard-tint:    #F7EDDA;
@@ -110,7 +110,7 @@ hr { border: 0; border-top: 1px solid $hairline; margin: 2rem 0; }
   color: $ink; font-weight: 600; font-size: 1.15rem; letter-spacing: -0.012em;
   &:hover { text-decoration: none; color: $ink; }
 }
-.site-logo { width: 34px; height: 34px; }
+.site-logo { width: 42px; height: 42px; }
 .site-nav {
   float: none; line-height: 60px;
   .page-link {
@@ -137,6 +137,11 @@ hr { border: 0; border-top: 1px solid $hairline; margin: 2rem 0; }
   max-width: 62ch; margin: 0.4rem auto; font-size: 0.85rem; line-height: 1.55; color: $muted-text;
 }
 .footer-copy { margin: 1.1rem 0 0; font-size: 0.8rem; color: $muted-text; }
+.footer-name {
+  font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  color: $ink; margin: 0 0 0.8rem;
+}
+.site-nav .hub-link { color: $mustard-deep; font-weight: 600; }
 
 // ============================================================
 //  Buttons

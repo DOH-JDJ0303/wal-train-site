@@ -3,7 +3,7 @@ layout: lecture
 section: classification-subtyping
 order: 2
 title: Genome-Based Species Identification
-description: From a single marker gene to whole-genome k-mer methods — how each approach works and where it falls short.
+description: From a single marker gene to whole-genome k-mer methods: how each approach works and where it falls short.
 ---
 
 ## Single-gene identification: 16S rRNA
@@ -12,13 +12,13 @@ The 16S ribosomal RNA gene is present in all bacteria and contains conserved reg
 
 Its main limitation is resolution. **16S does not always resolve organisms to the species level**, because closely related species can have identical or nearly identical 16S sequences, and short partial-gene sequences resolve even less than the full gene [1]. Examples include:
 
-- *Escherichia coli* and *Shigella* spp. — 16S sequences are more than 99.5% similar and cannot separate them [2]
-- Members of the *Bacillus cereus* group, including *B. anthracis* — some strains differ by a single nucleotide [3]
-- *Streptococcus pneumoniae* and *S. mitis* — 16S sequences are more than 99% identical [4]
+- *Escherichia coli* and *Shigella* spp.: 16S sequences are more than 99.5% similar and cannot separate them [2]
+- Members of the *Bacillus cereus* group, including *B. anthracis*: some strains differ by a single nucleotide [3]
+- *Streptococcus pneumoniae* and *S. mitis*: 16S sequences are more than 99% identical [4]
 
 ![A circular bacterial genome of about 5 million base pairs, with seven short marks for the 16S rRNA gene copies, each about 1,500 base pairs]({{ '/assets/images/16s-genome.svg' | relative_url }})
 
-Many genomes also carry several copies of the 16S gene — up to 15 — and in most genomes the copies are not identical to one another [5, 6]. A single gene captures only a tiny fraction of the genome, so whole-genome methods such as average nucleotide identity (ANI) are generally preferred when a genome sequence is available [7–9].
+Many genomes also carry several copies of the 16S gene (up to 15), and in most genomes the copies are not identical to one another [5, 6]. A single gene captures only a tiny fraction of the genome, so whole-genome methods such as average nucleotide identity (ANI) are generally preferred when a genome sequence is available [7–9].
 
 <details class="hint" markdown="1">
 <summary>References for this section</summary>
@@ -45,7 +45,7 @@ A **k-mer** is a short sequence of fixed length *k*. A genome can be broken into
 
 ## Mash with a RefSeq sketch
 
-**Mash** reduces each genome to a small "sketch": a random subset of its k-mers chosen with a technique called MinHash. Comparing two sketches gives the **Mash distance**, which approximates how different the two genomes are — a Mash distance of about 0.05 roughly corresponds to 95% ANI.
+**Mash** reduces each genome to a small "sketch": a random subset of its k-mers chosen with a technique called MinHash. Comparing two sketches gives the **Mash distance**, which approximates how different the two genomes are; a Mash distance of about 0.05 roughly corresponds to 95% ANI.
 
 A common approach is to compare a sample against a pre-built sketch of the NCBI **RefSeq** genome collection and look at the closest hits.
 
@@ -61,7 +61,7 @@ A common approach is to compare a sample against a pre-built sketch of the NCBI 
 
 ## GAMBIT
 
-**GAMBIT** (Genomic Approximation Method for Bacterial Identification and Tracking) was designed for species identification of bacterial isolates in public health and clinical laboratories. It compares a fixed, targeted subset of each genome's k-mers — those that immediately follow a specific short sequence — against a curated database of about 50,000 RefSeq genomes.
+**GAMBIT** (Genomic Approximation Method for Bacterial Identification and Tracking) was designed for species identification of bacterial isolates in public health and clinical laboratories. It compares a fixed, targeted subset of each genome's k-mers (those that immediately follow a specific short sequence) against a curated database of about 50,000 RefSeq genomes.
 
 Its key difference from a simple closest-match approach is that it uses **species-specific thresholds**. Each species has its own cutoff, based on how diverse that species is in the database. If a sample is too far from every species to fall within a threshold, GAMBIT reports a less specific answer (for example, the genus) instead of forcing a species call.
 
@@ -74,7 +74,7 @@ No method is perfect, and in practice laboratories often use more than one:
 
 - Use a **whole-genome method** (Mash, GAMBIT) for the species call on an isolate.
 - Use a **read-level classifier** (Kraken2) to check for contamination or mixed samples.
-- When methods disagree, or the call is unexpected for the specimen, investigate before moving on — check sample quality, contamination, and whether the organism belongs to a group with known naming problems.
+- When methods disagree, or the call is unexpected for the specimen, investigate before moving on: check sample quality, contamination, and whether the organism belongs to a group with known naming problems.
 
 > A species call should match what you expected from the specimen and the laboratory work. A surprising result is a reason to investigate, not to accept the top hit.
 {: .tip}

@@ -4,7 +4,7 @@ section: classification-subtyping
 order: 3
 title: "When Names and Genomes Disagree: E. coli and Shigella"
 nav_title: "Activity: E. coli vs. Shigella"
-description: Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli.
+description: Two isolates thought to be Shigella flexneri look like the same species by FastANI, until GAMBIT and ShigaPass show that one of them is E. coli.
 objectives:
   - Download genome assemblies from NCBI with the `datasets` command-line tool
   - Compare genomes with FastANI and interpret the ~95% ANI species threshold
@@ -19,7 +19,7 @@ prerequisites:
 
 <!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
-Two bacterial isolates have been reported as ***Shigella flexneri***, and you've been asked to check whether they are the same species. In this activity you'll compare them in three ways — overall genome similarity, a curated species classifier, and a check for the genes that define *Shigella* — and see why the first answer is misleading.
+Two bacterial isolates have been reported as ***Shigella flexneri***, and you've been asked to check whether they are the same species. In this activity you'll compare them in three ways (overall genome similarity, a curated species classifier, and a check for the genes that define *Shigella*) and see why the first answer is misleading.
 
 ## Set up the software
 
@@ -144,8 +144,8 @@ The last command shows the four columns that matter here: the isolate (`Name`), 
 | `Predicted_Serotype` | Meaning |
 |----------------------|---------|
 | A serotype, such as `SS` or `SF1-5` | *Shigella* (`SB` *S. boydii*, `SD` *S. dysenteriae*, `SF` *S. flexneri*, `SS` *S. sonnei*) |
-| `EIEC` | *ipaH* is present but no *Shigella* serotype matches — most likely enteroinvasive *E. coli* |
-| `Not Shigella/EIEC` | *ipaH* is absent — not *Shigella* and not EIEC |
+| `EIEC` | *ipaH* is present but no *Shigella* serotype matches; most likely enteroinvasive *E. coli* |
+| `Not Shigella/EIEC` | *ipaH* is absent; not *Shigella* and not EIEC |
 
 <!-- TODO: paste the expected ShigaPass summary here -->
 ```text
@@ -164,7 +164,7 @@ isolate_B;ipaH+;SF...;...
 
 Both isolates were reported as *S. flexneri*, and FastANI placed them comfortably within the same species. Yet isolate A turned out to be *E. coli*: GAMBIT identified it as *E. coli*, and ShigaPass found none of the genes that define *Shigella*. Isolate B is the true *S. flexneri*.
 
-**Genome-wide, *Shigella* is *E. coli*.** By whole-genome similarity, *E. coli* and the four *Shigella* species fall within a single species boundary, and *Shigella* lineages sit *within* the *E. coli* family tree. *Shigella* is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes — most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species, so **an ANI above 95% cannot tell *E. coli* and *Shigella* apart**.
+**Genome-wide, *Shigella* is *E. coli*.** By whole-genome similarity, *E. coli* and the four *Shigella* species fall within a single species boundary, and *Shigella* lineages sit *within* the *E. coli* family tree. *Shigella* is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes, most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species, so **an ANI above 95% cannot tell *E. coli* and *Shigella* apart**.
 
 **GAMBIT uses a curated database and species-specific thresholds.** Rather than applying one cutoff to everything, GAMBIT sets a separate distance threshold for each species based on how diverse that species is, and its reference set is curated to keep names consistent. That lets it separate groups that overlap genome-wide, where a single ANI threshold cannot.
 
@@ -176,5 +176,5 @@ Both isolates were reported as *S. flexneri*, and FastANI placed them comfortabl
 
 - A species name is only as consistent as the definition behind it. *E. coli* and *Shigella* are separated by a few genes, not by genome-wide distance.
 - The ~95% ANI rule works for most bacteria, but not here: two isolates can pass it and still carry different genus names.
-- Classifiers built on curated references and species-specific thresholds, such as GAMBIT, handle these cases better than a single cutoff — but for organisms where a few genes define the name, confirm with an organism-specific tool like ShigaPass.
-- The species call drives the public health response — shigellosis and *E. coli* infections are reported and investigated differently — and decides what comes next: the reference genome, the typing scheme, and which samples are compared.
+- Classifiers built on curated references and species-specific thresholds, such as GAMBIT, handle these cases better than a single cutoff, but for organisms where a few genes define the name, confirm with an organism-specific tool like ShigaPass.
+- The species call drives the public health response (shigellosis and *E. coli* infections are reported and investigated differently) and decides what comes next: the reference genome, the typing scheme, and which samples are compared.

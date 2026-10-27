@@ -14,9 +14,9 @@ Taxonomy only helps when groups are defined consistently, and they are not alway
 
 ## In this course
 
-1. **What a species is** — and why species definitions differ between bacteria, fungi, and viruses.
-2. **How we identify species from genomes** — from 16S rRNA to k-mer-based methods.
-   - *Activity:* *E. coli* and *Shigella* — two genus names, one species by genome-wide similarity.
-3. **How we subtype below the species level** — from organism-specific schemes to general k-mer clustering, giving consistent, more granular labels that help us communicate and group samples before genome-wide analysis.
-   - *Activity:* *E. coli* — comparing MLST and Floc for closely related isolates that don't share a sequence type.
-   - *Optional activity:* Influenza A — one species, with genomes far more different than the bacterial species rule allows, classified by subtype instead.
+1. **What a species is**, and why species definitions differ between bacteria, fungi, and viruses.
+2. **How we identify species from genomes**, from 16S rRNA to k-mer-based methods.
+   - *Activity:* *E. coli* and *Shigella*: two genus names, one species by genome-wide similarity.
+3. **How we subtype below the species level**, from organism-specific schemes to general k-mer clustering, giving consistent, more granular labels that help us communicate and group samples before genome-wide analysis.
+   - *Activity:* *E. coli*: comparing MLST and Floc for closely related isolates that don't share a sequence type.
+   - *Optional activity:* Influenza A: one species, with genomes far more different than the bacterial species rule allows, classified by subtype instead.

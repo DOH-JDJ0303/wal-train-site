@@ -19,13 +19,13 @@ prerequisites:
 
 Subtyping is often used as a first grouping step: isolates that share a type are compared in more detail, and isolates that don't are set aside. In this activity you'll see what happens when that first step gives the wrong answer.
 
-You have three *Escherichia coli* isolates from the [NCBI Pathogen Detection](https://www.ncbi.nlm.nih.gov/pathogens/) project. NCBI's genome-wide comparison shows that they are very closely related — only 10 to 18 single-nucleotide polymorphisms (SNPs) apart:
+You have three *Escherichia coli* isolates from the [NCBI Pathogen Detection](https://www.ncbi.nlm.nih.gov/pathogens/) project. NCBI's genome-wide comparison shows that they are very closely related, only 10 to 18 single-nucleotide polymorphisms (SNPs) apart:
 
 | SNP differences | GCA_032856485.1 | GCA_040936765.1 | GCA_058079015.1 |
 |-----------------|:---------------:|:---------------:|:---------------:|
-| GCA_032856485.1 | — | 12 | 10 |
-| GCA_040936765.1 | 12 | — | 18 |
-| GCA_058079015.1 | 10 | 18 | — |
+| GCA_032856485.1 | 0 | 12 | 10 |
+| GCA_040936765.1 | 12 | 0 | 18 |
+| GCA_058079015.1 | 10 | 18 | 0 |
 
 Isolates this close together are the kind you would want to investigate as a possible cluster. You'll describe them in two ways:
 
@@ -130,7 +130,7 @@ GCA_032856485.1.fna    ...    adk(...)  fumC(...)  gyrB(...)  icd(...)  mdh(...)
 ```
 {: .output}
 
-Each allele number stands for one exact gene sequence. A single nucleotide change anywhere in one of the seven genes creates a different allele — and a different allele means a different ST. ST numbers are labels, not distances: two STs can differ by one SNP in one gene, or by many changes in all seven.
+Each allele number stands for one exact gene sequence. A single nucleotide change anywhere in one of the seven genes creates a different allele, and a different allele means a different ST. ST numbers are labels, not distances: two STs can differ by one SNP in one gene, or by many changes in all seven.
 
 {% include question.html id="ecoli-st-alleles" %}
 
@@ -196,7 +196,7 @@ As long as you keep adding to the same signatures, cluster numbers stay put. But
 ## What this shows
 {: .no-step}
 
-**An ST boundary can split isolates that belong together.** These three isolates are only 10–18 SNPs apart across the whole genome, but they don't all share an ST. If you used ST to decide which isolates to compare, you would set GCA_040936765.1 aside — and miss that it is closely related to the other two.
+**An ST boundary can split isolates that belong together.** These three isolates are only 10–18 SNPs apart across the whole genome, but they don't all share an ST. If you used ST to decide which isolates to compare, you would set GCA_040936765.1 aside and miss that it is closely related to the other two.
 
 **MLST names are stable and easy to communicate, but they depend on a catalogue.** An ST is defined once by curators and means the same thing everywhere, so "ST405" needs no further explanation. But STs are categories based on seven genes, not a measure of genome-wide distance: a single change in one gene gives a new ST. And when an isolate has a new allele or a new combination of alleles, it has no ST at all until someone submits it and a curator assigns one.
 
@@ -210,6 +210,6 @@ As long as you keep adding to the same signatures, cluster numbers stay put. But
 | Names come from | A curated, worldwide catalogue | The order clusters are found in one database |
 | New types | Need human curation before they have a name | Grouped immediately, no curation needed |
 | Closely related isolates | Can be split if one of the seven genes differs | Grouped by genome-wide similarity |
-| Communicating results | Easy — names mean the same thing everywhere | Harder — names are local and can change |
+| Communicating results | Easy: names mean the same thing everywhere | Harder: names are local and can change |
 
-**Use both.** Report the ST so partners know what you're talking about. Use genome-wide grouping, such as k-mer clusters, to decide which isolates to compare — and don't rule out a comparison just because the STs differ.
+**Use both.** Report the ST so partners know what you're talking about. Use genome-wide grouping, such as k-mer clusters, to decide which isolates to compare, and don't rule out a comparison just because the STs differ.

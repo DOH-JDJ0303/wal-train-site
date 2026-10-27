@@ -61,7 +61,7 @@
   <input class="question-input" id="{{ q_uid }}-input" type="text" autocomplete="off" spellcheck="false" placeholder="{{ q.placeholder | default: include.placeholder | default: 'Type your answer' }}">
   {%- else -%}
   <label class="visually-hidden" for="{{ q_uid }}-input">Your notes</label>
-  <textarea class="question-input question-notes" id="{{ q_uid }}-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea>
+  <textarea class="question-input question-notes" id="{{ q_uid }}-input" rows="3" placeholder="Jot down your answer. It stays in this browser only."></textarea>
   {%- endif -%}
 
   <div class="question-actions">

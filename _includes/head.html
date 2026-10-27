@@ -4,7 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  <link rel="icon" type="image/svg+xml" href="{{ site.logo | default: '/assets/images/logo.svg' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ site.favicon | default: site.logo | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ site.logo_small | default: site.logo | relative_url }}">
   {%- feed_meta -%}
   <script>
     window.COURSE = { baseurl: "{{ site.baseurl }}", page: "{{ page.url | relative_url }}" };

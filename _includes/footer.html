@@ -1,14 +1,19 @@
 <footer class="site-footer">
   <div class="wrapper footer-inner">
+    {%- if site.organization -%}
+    <p class="footer-name">{{ site.organization }}</p>
+    {%- endif -%}
     {%- if site.disclaimer -%}
     <p class="footer-disclaimer">{{ site.disclaimer }}</p>
     {%- endif -%}
     {%- if site.funding -%}
     <p class="footer-funding">{{ site.funding }}</p>
     {%- endif -%}
-    {%- if site.repository_url and site.repository_url != "" -%}
-    <p class="footer-links"><a href="{{ site.repository_url }}">Course source on GitHub</a></p>
-    {%- endif -%}
+    <p class="footer-links">
+      {%- if site.hub_url and site.hub_url != "" -%}<a href="{{ site.hub_url }}">{{ site.hub_name | default: "All training courses" }}</a>{%- endif -%}
+      {%- if site.hub_url and site.hub_url != "" and site.repository_url and site.repository_url != "" -%}<span class="footer-sep"> · </span>{%- endif -%}
+      {%- if site.repository_url and site.repository_url != "" -%}<a href="{{ site.repository_url }}">Course source on GitHub</a>{%- endif -%}
+    </p>
     <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
   </div>
 </footer>

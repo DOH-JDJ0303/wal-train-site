@@ -3,7 +3,7 @@ layout: lecture
 section: classification-subtyping
 order: 4
 title: Subtyping Below the Species Level
-description: Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis.
+description: Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering, and why subtyping comes before genome-wide analysis.
 ---
 
 ## Why subtype?
@@ -37,7 +37,7 @@ Because influenza A is a single, very diverse species, most of the useful classi
 
 ## Bacteria: multilocus sequence typing (MLST)
 
-**MLST** characterizes a bacterial isolate by the sequences of a small set of housekeeping genes — usually **seven**. Each distinct sequence of a gene is given an allele number, and the combination of seven allele numbers defines a **sequence type (ST)**.
+**MLST** characterizes a bacterial isolate by the sequences of a small set of housekeeping genes, usually **seven**. Each distinct sequence of a gene is given an allele number, and the combination of seven allele numbers defines a **sequence type (ST)**.
 
 ```text
 Gene:     adk  fumC  gyrB  icd  mdh  purA  recA
@@ -52,7 +52,7 @@ MLST is fast, widely used, and easy to communicate, but seven genes give limited
 
 ## Fungi: *Candida auris* clades
 
-*Candida auris* (recently renamed *Candidozyma auris*) is divided into **clades** — six have been described — that are strongly associated with geography. Isolates from different clades differ by tens of thousands of SNPs, whereas isolates within an outbreak typically differ by only a handful. This makes the clade both a useful epidemiological label and a natural first grouping step: genome-wide comparisons are usually performed within a clade, against a reference from the same clade.
+*Candida auris* (recently renamed *Candidozyma auris*) is divided into **clades** (six have been described) that are strongly associated with geography. Isolates from different clades differ by tens of thousands of SNPs, whereas isolates within an outbreak typically differ by only a handful. This makes the clade both a useful epidemiological label and a natural first grouping step: genome-wide comparisons are usually performed within a clade, against a reference from the same clade.
 
 **AuriClass** predicts the *C. auris* clade from either sequencing reads or an assembly by computing Mash distances to a set of reference genomes from each clade. It runs in seconds to minutes and reports the clade prediction, the closest reference, and quality checks.
 
@@ -66,7 +66,7 @@ The basic approach is:
 2. **Calculate pairwise distances** between genomes from their shared k-mers.
 3. **Group genomes** that fall within a chosen distance threshold of one another.
 
-Because these methods need no scheme or curated catalogue, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced — without waiting for anyone to assign it a name.
+Because these methods need no scheme or curated catalogue, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced, without waiting for anyone to assign it a name.
 
 | Tool | How it measures distance | Clustering and naming |
 |------|--------------------------|-----------------------|
@@ -99,6 +99,6 @@ Because these methods need no scheme or curated catalogue, they work for any org
 - Subtyping gives a **shared language** for describing organisms below the species level.
 - **K-mer clustering** offers scheme-free grouping for any organism, but thresholds and cluster names need care.
 - Subtyping groups closely related samples so that **genome-wide analysis** compares like with like.
-- The same subtype is **not evidence of an outbreak** on its own — that requires the higher-resolution methods in the next course.
+- The same subtype is **not evidence of an outbreak** on its own; that requires the higher-resolution methods in the next course.
 
 In the next activity you'll put this into practice by typing a set of *E. coli* isolates with both MLST and Floc. An optional activity at the end of the section classifies influenza A segments and subtypes with LABEL.

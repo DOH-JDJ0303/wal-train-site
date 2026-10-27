@@ -13,7 +13,7 @@ When a sample is sequenced, the first question is usually *what organism is this
 - **Which reference genome** to compare against
 - **Which typing scheme** applies (an MLST scheme, a clade system, an influenza subtype)
 - **Which samples** can meaningfully be compared with each other
-- **Which interpretation guidelines** apply — for example, what counts as "closely related" for that organism
+- **Which interpretation guidelines** apply (for example, what counts as "closely related" for that organism)
 
 An incorrect or overly broad species call carries forward into every later step, so it is worth understanding what a species call actually means.
 
@@ -35,7 +35,7 @@ As a result, two organisms in the "same species" may be far more different from 
 
 ## Bacteria: the ~95% ANI convention
 
-For bacteria, the most widely used genomic yardstick is **average nucleotide identity (ANI)** — the average identity of the regions two genomes share. Genomes that share roughly **95–96% ANI** or more are generally considered the same species.
+For bacteria, the most widely used genomic yardstick is **average nucleotide identity (ANI)**: the average identity of the regions two genomes share. Genomes that share roughly **95–96% ANI** or more are generally considered the same species.
 
 This works well for most bacteria, but there are well-known exceptions where names and genomes disagree:
 
@@ -51,7 +51,7 @@ This works well for most bacteria, but there are well-known exceptions where nam
 
 Viral species are defined differently, and the ~95% identity idea does not carry over. A single viral species can contain viruses that are genetically very different from one another.
 
-**Influenza A is a clear example.** All influenza A viruses belong to one species (*Alphainfluenzavirus influenzae* in current virus taxonomy), yet that species includes many hemagglutinin (HA) and neuraminidase (NA) subtypes — H1N1, H3N2, H5N1, and others. HA genes from different subtypes differ far more than two bacteria of the same species would. Influenza viruses can also swap whole gene segments (reassortment), so different segments of the same virus can have different histories.
+**Influenza A is a clear example.** All influenza A viruses belong to one species (*Alphainfluenzavirus influenzae* in current virus taxonomy), yet that species includes many hemagglutinin (HA) and neuraminidase (NA) subtypes, including H1N1, H3N2, and H5N1. HA genes from different subtypes differ far more than two bacteria of the same species would. Influenza viruses can also swap whole gene segments (reassortment), so different segments of the same virus can have different histories.
 
 For influenza, then, "species" tells us relatively little on its own. The useful information comes from the next level down: subtype, lineage, clade, and genotype.
 

@@ -6,7 +6,7 @@ layout: default
 
 <section class="home-hero">
   <div class="home-logo">
-    <img src="{{ site.logo | relative_url }}" alt="">
+    <img src="{{ site.logo | relative_url }}" alt="Western Region AMD Leads logo">
   </div>
   <div class="home-intro">
     <p class="home-kicker">{{ site.tagline }}</p>
@@ -32,9 +32,13 @@ layout: default
         <span class="cell-title">{{ s.title }}</span>
         <span class="cell-desc">{{ s.summary }}</span>
         <span class="cell-meta">
+          {%- if lec.size == 0 and act.size == 0 -%}
+          Content forthcoming
+          {%- else -%}
           {% include icon.html name="lecture" %} {{ lec.size }} lecture{% if lec.size != 1 %}s{% endif %}
           <span class="dot">·</span>
           {% include icon.html name="activity" %} {{ act.size }} activit{% if act.size != 1 %}ies{% else %}y{% endif %}
+          {%- endif -%}
         </span>
       </a>
     {%- endfor -%}

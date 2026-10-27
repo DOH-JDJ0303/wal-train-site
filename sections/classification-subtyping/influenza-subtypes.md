@@ -21,7 +21,7 @@ prerequisites:
 > This activity is **optional**. It extends the ideas from the rest of the section to viruses, and nothing later in the course depends on it.
 {: .note}
 
-In the *E. coli* and *Shigella* activity, two bacteria with different names turned out to be nearly identical across the genome. In this activity you'll see the opposite: two viruses that belong to the **same species** — influenza A — but are far more different from each other than the ~95% ANI rule for bacteria would allow.
+In the *E. coli* and *Shigella* activity, two bacteria with different names turned out to be nearly identical across the genome. In this activity you'll see the opposite: two viruses that belong to the **same species** (influenza A) but are far more different from each other than the ~95% ANI rule for bacteria would allow.
 
 Influenza A genomes are made of **eight separate RNA segments**, each carrying one or two genes:
 
@@ -34,7 +34,7 @@ Influenza A genomes are made of **eight separate RNA segments**, each carrying o
 | MP | Matrix proteins | Structure and assembly |
 | NS | Non-structural proteins | Counter the host immune response |
 
-Influenza A **subtypes** — H1N1, H3N2, H5N1, and so on — are named after the HA and NA segments.
+Influenza A **subtypes**, such as H1N1, H3N2, and H5N1, are named after the HA and NA segments.
 
 ## Set up the software
 
@@ -78,7 +78,7 @@ cp ncbi_dataset/data/GCF_000865725.1/*_genomic.fna virus_1.fna
 cp ncbi_dataset/data/GCF_000865085.1/*_genomic.fna virus_2.fna
 ```
 
-Each file should contain eight sequences — one per segment. Check:
+Each file should contain eight sequences, one per segment. Check:
 
 ```bash
 grep -c ">" virus_1.fna virus_2.fna
@@ -99,14 +99,14 @@ fastANI -q virus_1.fna -r virus_2.fna --fragLen 500 -o flu_genome_ani.txt
 cat flu_genome_ani.txt
 ```
 
-Note the `--fragLen 500` option. FastANI normally splits genomes into 3,000 bp fragments, but every influenza segment is shorter than that — the longest is about 2,300 bp — so with the default setting, no fragments would be compared at all.
+Note the `--fragLen 500` option. FastANI normally splits genomes into 3,000 bp fragments, but every influenza segment is shorter than that (the longest is about 2,300 bp), so with the default setting, no fragments would be compared at all.
 
 ```text
 virus_1.fna    virus_2.fna    85.5116    16    23
 ```
 {: .output}
 
-The two genomes share about **85.5%** ANI. Look at the last two columns too: only **16 of the 23** fragments found a match at all. The other 7 were too different to be matched, so the 85.5% describes only the parts of the genomes that FastANI *could* compare — the true genome-wide identity is lower still.
+The two genomes share about **85.5%** ANI. Look at the last two columns too: only **16 of the 23** fragments found a match at all. The other 7 were too different to be matched, so the 85.5% describes only the parts of the genomes that FastANI *could* compare. The true genome-wide identity is lower still.
 
 > FastANI does not report a result when two sequences are much less than about 80% identical. An **empty** output file means the sequences are too different for FastANI to measure.
 {: .important}
@@ -115,7 +115,7 @@ The two genomes share about **85.5%** ANI. Look at the last two columns too: onl
 
 ## Classify the segments with LABEL
 
-LABEL identifies what each sequence is by scoring it against statistical models (profile hidden Markov models) of known influenza segments and subtypes. The `irma-FLU` module — the same one used by CDC's IRMA assembler — labels each sequence by virus type, segment, and, for HA and NA, subtype.
+LABEL identifies what each sequence is by scoring it against statistical models (profile hidden Markov models) of known influenza segments and subtypes. The `irma-FLU` module, the same one used by CDC's IRMA assembler, labels each sequence by virus type, segment, and, for HA and NA, subtype.
 
 Run LABEL on each virus separately:
 
@@ -153,14 +153,14 @@ NC_007373.1_Influenza_A_virus_(A/New_York/392/2004(H3N2))_segment_1_complete_seq
 ```
 {: .output}
 
-Each segment is labeled `A_` (influenza A) followed by the segment name. HA and NA segments also carry their subtype — for example, `A_HA_H3` and `A_NA_N2` together mean the virus is H3N2.
+Each segment is labeled `A_` (influenza A) followed by the segment name. HA and NA segments also carry their subtype. For example, `A_HA_H3` and `A_NA_N2` together mean the virus is H3N2.
 
 {% include question.html id="flu-label-subtype" %}
 
 ## What this shows
 {: .no-step}
 
-**One species, very different genomes.** Both viruses are influenza A — a single species — yet their genomes share only about 85% identity, and roughly a third of the genome was too different for FastANI to compare at all. Two bacteria this different would never be called the same species. Viral species are defined by different rules, so an identity threshold that works for bacteria does not carry over.
+**One species, very different genomes.** Both viruses are influenza A, a single species, yet their genomes share only about 85% identity, and roughly a third of the genome was too different for FastANI to compare at all. Two bacteria this different would never be called the same species. Viral species are defined by different rules, so an identity threshold that works for bacteria does not carry over.
 
 **The subtype comes from HA and NA.** LABEL separated the two viruses by their HA and NA segments: H1 and N1 in one, H3 and N2 in the other. These segments encode the two surface proteins, which are the main targets of the immune response and change rapidly to escape it, so HA and NA genes from different subtypes are very different from one another.
 

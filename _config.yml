@@ -1,18 +1,26 @@
 # =============================================================
-#  Site settings — edit these first
+#  Site settings: edit these first
 # =============================================================
-title: Bioinformatics Training Course
-tagline: Hands-on training for public health laboratories
+title: Microbial Population Genomics and Phylogenetics
+tagline: Genomic epidemiology for public health outbreak investigations
 description: >-
-  Lectures and step-by-step, hands-on activities that build from
-  command-line basics to working with sequencing data.
+  Lectures and hands-on activities on microbial population genomics,
+  genomic typing, genomic relatedness, and phylogenetics for public
+  health outbreak investigations.
+
+# Who developed and maintains this training
+organization: Western Region AMD Leads
+
+# Link back to the central training hub (leave blank to hide)
+hub_url: ""
+hub_name: "All training courses"
 
 # For a project site at https://<user>.github.io/<repo>/ set:
 #   url:     "https://<user>.github.io"
 #   baseurl: "/<repo>"
 # The GitHub Actions workflow overrides baseurl automatically on deploy.
-url: "https://your-username.github.io"
-baseurl: "/training-site"
+url: "https://doh-jdj0303.github.io"
+baseurl: "/wal-train-site"
 
 # Optional footer text (remove either line to hide it)
 funding: >-
@@ -22,10 +30,12 @@ disclaimer: >-
   Course materials are provided for training purposes only.
 
 # Link shown in the header and footer (leave blank to hide)
-repository_url: "https://github.com/your-username/training-site"
+repository_url: "https://github.com/DOH-JDJ0303/wal-train-site"
 
-# Logo shown on the home page and in the header
-logo: /assets/images/logo.svg
+# Logos: full size (home page), small (header and app icon), browser tab icon
+logo: /assets/images/logo.png
+logo_small: /assets/images/logo-192.png
+favicon: /assets/images/favicon-48.png
 
 # =============================================================
 #  Navigation
@@ -33,7 +43,6 @@ logo: /assets/images/logo.svg
 # Pages listed in the top header, in order
 header_pages:
   - pages/course.html
-  - pages/schedule.html
   - pages/resources.md
   - pages/about.md
 
