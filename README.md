@@ -57,7 +57,6 @@ sections/<section-id>/
     *.md                 lectures           (layout: lecture)
                          and activities     (layout: activity)
 pages/                   Course overview, Resources, About
-_posts/                  optional "Updates" shown on the home page (create the folder to use it)
 assets/files/            data files learners download
 templates/               copy these to start new pages
 ```

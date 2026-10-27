@@ -30,7 +30,7 @@ Sections build on each other, so working through them in order is recommended. S
 - **Follow the sections in order.** The *Next* link at the bottom of every page takes you to the next lecture or activity, and on into the next section.
 - **Activities are step by step.** Tick off each step as you finish it; the progress bar at the top of the activity tracks where you are.
 - **Answer the questions as you go.** Check your answer, ask for a hint, or reveal the answer if you are stuck.
-- **Copy commands with one click.** Every code block has a *Copy* button. Blocks labelled *Terminal* are meant to be run in your shell.
+- **Copy commands with one click.** Every code block has a *Copy* button. Blocks labeled *Terminal* are meant to be run in your shell.
 
 Your progress is stored only in your own browser. Nothing is sent anywhere.
 

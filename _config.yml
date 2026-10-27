@@ -59,7 +59,6 @@ kramdown:
 permalink: pretty
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
 
 defaults:
@@ -68,11 +67,6 @@ defaults:
       path: "sections"
     values:
       course_nav: true
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post
 
 exclude:
   - README.md

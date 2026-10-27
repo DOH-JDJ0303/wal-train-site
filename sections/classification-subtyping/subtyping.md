@@ -66,7 +66,7 @@ The basic approach is:
 2. **Calculate pairwise distances** between genomes from their shared k-mers.
 3. **Group genomes** that fall within a chosen distance threshold of one another.
 
-Because these methods need no scheme or curated catalogue, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced, without waiting for anyone to assign it a name.
+Because these methods need no scheme or curated catalog, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced, without waiting for anyone to assign it a name.
 
 | Tool | How it measures distance | Clustering and naming |
 |------|--------------------------|-----------------------|

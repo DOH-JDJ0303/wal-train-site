@@ -44,19 +44,3 @@ layout: default
     {%- endfor -%}
   </div>
 </section>
-
-{%- if site.posts.size > 0 -%}
-<section class="home-updates">
-  <h2 class="updates-heading">Updates</h2>
-  <ul class="update-list">
-    {%- for post in site.posts limit: 5 -%}
-    <li class="update-item">
-      <span class="update-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <a class="update-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {%- assign summary = post.excerpt | strip_html | strip -%}
-      {%- if summary != "" -%}<p class="update-excerpt">{{ summary | truncate: 160 }}</p>{%- endif -%}
-    </li>
-    {%- endfor -%}
-  </ul>
-</section>
-{%- endif -%}

@@ -2,7 +2,7 @@
 layout: activity
 section: classification-subtyping
 order: 6
-title: "Catalogued Names vs. Agnostic Clusters: MLST and Floc"
+title: "Cataloged Names vs. Agnostic Clusters: MLST and Floc"
 nav_title: "Activity: MLST vs. Floc"
 description: Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared.
 objectives:
@@ -29,8 +29,8 @@ You have three *Escherichia coli* isolates from the [NCBI Pathogen Detection](ht
 
 Isolates this close together are the kind you would want to investigate as a possible cluster. You'll describe them in two ways:
 
-- **MLST**, which assigns each isolate a **sequence type (ST)** from seven housekeeping genes. ST numbers come from a curated, worldwide catalogue, so the same ST means the same thing in every laboratory.
-- **Floc**, which groups isolates into **clusters** by comparing k-mers across the whole genome. No catalogue is involved: clusters are created directly from the data.
+- **MLST**, which assigns each isolate a **sequence type (ST)** from seven housekeeping genes. ST numbers come from a curated, worldwide catalog, so the same ST means the same thing in every laboratory.
+- **Floc**, which groups isolates into **clusters** by comparing k-mers across the whole genome. No catalog is involved: clusters are created directly from the data.
 
 ## Set up the software
 
@@ -198,16 +198,16 @@ As long as you keep adding to the same signatures, cluster numbers stay put. But
 
 **An ST boundary can split isolates that belong together.** These three isolates are only 10–18 SNPs apart across the whole genome, but they don't all share an ST. If you used ST to decide which isolates to compare, you would set GCA_040936765.1 aside and miss that it is closely related to the other two.
 
-**MLST names are stable and easy to communicate, but they depend on a catalogue.** An ST is defined once by curators and means the same thing everywhere, so "ST405" needs no further explanation. But STs are categories based on seven genes, not a measure of genome-wide distance: a single change in one gene gives a new ST. And when an isolate has a new allele or a new combination of alleles, it has no ST at all until someone submits it and a curator assigns one.
+**MLST names are stable and easy to communicate, but they depend on a catalog.** An ST is defined once by curators and means the same thing everywhere, so "ST405" needs no further explanation. But STs are categories based on seven genes, not a measure of genome-wide distance: a single change in one gene gives a new ST. And when an isolate has a new allele or a new combination of alleles, it has no ST at all until someone submits it and a curator assigns one.
 
-**K-mer clustering is agnostic.** Floc needs no catalogue and no curators. It compares genomes directly, so every genome is placed into a group as soon as it is sequenced, and isolates that are close across the genome end up together regardless of their ST. This makes k-mer clustering useful for any organism, with or without an established scheme.
+**K-mer clustering is agnostic.** Floc needs no catalog and no curators. It compares genomes directly, so every genome is placed into a group as soon as it is sequenced, and isolates that are close across the genome end up together regardless of their ST. This makes k-mer clustering useful for any organism, with or without an established scheme.
 
 **But cluster names are harder to communicate.** A cluster number is just a label in one database. It depends on which genomes the database has seen, in what order, and with what settings, so it is not stable across laboratories or over time unless everyone shares the same database. "Cluster 1" means nothing to a partner who hasn't seen your data.
 
 | | MLST | Floc |
 |---|---|---|
 | Based on | 7 housekeeping genes | k-mers across the whole genome |
-| Names come from | A curated, worldwide catalogue | The order clusters are found in one database |
+| Names come from | A curated, worldwide catalog | The order clusters are found in one database |
 | New types | Need human curation before they have a name | Grouped immediately, no curation needed |
 | Closely related isolates | Can be split if one of the seven genes differs | Grouped by genome-wide similarity |
 | Communicating results | Easy: names mean the same thing everywhere | Harder: names are local and can change |
