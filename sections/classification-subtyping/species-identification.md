@@ -63,4 +63,4 @@ No method is perfect, and in practice laboratories often use more than one:
 > A species call should match what you expected from the specimen and the laboratory work. A surprising result is a reason to investigate, not to accept the top hit.
 {: .tip}
 
-Once the species is established, the next step is to describe the organism at a finer scale. That is the subject of the next lecture.
+In the next activity you'll run several of these methods on two genomes where species names and genome similarity don't line up. After that, once the species is established, we'll look at how to describe organisms at a finer scale.

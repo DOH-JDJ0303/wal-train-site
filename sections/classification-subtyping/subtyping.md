@@ -1,9 +1,9 @@
 ---
 layout: lecture
 section: classification-subtyping
-order: 3
+order: 4
 title: Subtyping Below the Species Level
-description: Influenza subtypes and genotypes, bacterial MLST, and C. auris clades — and why subtyping comes before genome-wide analysis.
+description: Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis.
 ---
 
 ## Why subtype?
@@ -56,6 +56,36 @@ MLST is fast, widely used, and easy to communicate, but seven genes give limited
 
 **AuriClass** predicts the *C. auris* clade from either sequencing reads or an assembly by computing Mash distances to a set of reference genomes from each clade. It runs in seconds to minutes and reports the clade prediction, the closest reference, and quality checks.
 
+## General-purpose clustering with k-mers
+
+The methods above all rely on an **organism-specific scheme**: a set of MLST genes, an agreed clade nomenclature, or a curated reference set. Many organisms have no such scheme, and some schemes are too coarse to be useful. A general alternative is to **cluster genomes directly by k-mer distance**, using the same kind of fast genome comparison described for species identification, but applied *within* a species.
+
+The basic approach is:
+
+1. **Sketch** each genome (reduce it to a sample of its k-mers).
+2. **Calculate pairwise distances** between genomes from their shared k-mers.
+3. **Group genomes** that fall within a chosen distance threshold of one another.
+
+Because these methods need no scheme, they work for any organism with genome sequences, and they can be tuned to a finer or coarser resolution than a fixed scheme provides.
+
+| Tool | How it measures distance | Clustering and naming |
+|------|--------------------------|-----------------------|
+| **Mash** | MinHash sketches; Mash distance approximates 1 − ANI | Distances only. Clusters are formed by applying a threshold yourself, or visualized as a quick tree (for example with Mashtree) |
+| **PopPUNK** | Compares k-mers at several lengths to separate differences in **shared (core) sequence** from differences in **gene content (accessory genome)** | Defines clusters (strains) automatically from the distance distribution; new genomes can be assigned to an existing database without re-running everything |
+| **Floc** | Sourmash k-mer sketches and containment | Iterative clustering for routine surveillance: new assemblies join existing clusters or start new ones, using a distance threshold (0.03 by default) |
+
+**PopPUNK** is especially useful for bacteria with a large accessory genome, where two strains may share almost identical core sequence but carry different genes. PopPUNK databases can be shared, so different laboratories can assign genomes to the same named clusters. For example, the Global Pneumococcal Sequence Clusters (GPSCs) are an international PopPUNK-based naming system for *Streptococcus pneumoniae* lineages.
+
+**Floc** (from the NW-PaGe group) is built for routine, ongoing surveillance. Each new batch of genomes is compared with the stored k-mer sketches from previous batches and placed into an existing cluster or a new one. It accepts assemblies, reads, or sourmash signatures, and can produce a quick tree or ordination plot of each run.
+
+### Things to watch for
+
+- **Thresholds are choices.** A distance cutoff that separates meaningful groups in one species may lump or split another. Thresholds should be set per organism and checked against known epidemiology or established typing.
+- **Cluster stability matters.** When clusters are rebuilt from scratch each time, adding new genomes can merge two clusters or reshuffle cluster numbers. Tools that **assign new genomes to existing clusters** (as PopPUNK and Floc do) keep names stable, which is essential for surveillance.
+- **Chaining.** If a cluster grows by linking each new genome to its nearest neighbor, a series of small steps can join genomes that are quite distant from one another. Check the spread of distances within a cluster, not only whether a genome joined it.
+- **Clusters are local labels.** A cluster number from one laboratory's database means nothing elsewhere unless the database is shared, unlike an MLST sequence type or a published clade name.
+- **K-mer clusters are a grouping step, not a relatedness call.** They narrow down which genomes to compare. Methods such as core-SNP analysis, cgMLST, or split k-mer analysis (SKA) are then used to measure relatedness at outbreak resolution.
+
 ## Summary
 
 | Organism | Subtyping level | Example tools |
@@ -63,8 +93,12 @@ MLST is fast, widely used, and easy to communicate, but seven genes give limited
 | Influenza A | Subtype, HA clade, genotype | LABEL, GenoFLU |
 | Bacteria | Sequence type (ST) | `mlst` |
 | *C. auris* | Clade | AuriClass |
+| Any organism | K-mer distance clusters | Mash, PopPUNK, Floc |
 
 - Species identification tells you **which subtyping scheme applies**.
 - Subtyping gives a **shared language** for describing organisms below the species level.
+- **K-mer clustering** offers scheme-free grouping for any organism, but thresholds and cluster names need care.
 - Subtyping groups closely related samples so that **genome-wide analysis** compares like with like.
 - The same subtype is **not evidence of an outbreak** on its own — that requires the higher-resolution methods in the next course.
+
+In the next two activities you'll put this into practice: first classifying influenza A segments and subtypes with LABEL, then typing a set of *Acinetobacter baumannii* genomes with both MLST and Floc.

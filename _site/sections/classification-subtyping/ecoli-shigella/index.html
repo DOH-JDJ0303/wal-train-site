@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>When Names and Genomes Disagree: E. coli and Shigella | Bioinformatics Training Course</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree." />
+<meta name="twitter:description" property="og:description" content="Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree." />
+<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
+<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
+<meta property="og:site_name" content="Bioinformatics Training Course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree.","headline":"When Names and Genomes Disagree: E. coli and Shigella","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/training-site/assets/main.css">
+  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
+    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/ecoli-shigella/" };
+  </script>
+  <script src="/training-site/assets/js/course.js" defer></script>
+</head>
+<body class="layout-activity">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+  <div class="wrapper header-inner">
+    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+      <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
+        <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
+      </label>
+      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+    </nav>
+  </div>
+</header>
+<div class="wrapper course-shell"><aside class="course-sidebar" id="course-sidebar">
+  <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="course-nav">
+    <svg class="icon icon-section" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4 4h12M4 10h12M4 16h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Course contents
+  </button>
+
+  <nav class="course-nav" id="course-nav" aria-label="Course contents">
+    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+
+    <div class="course-progress-mini" data-course-progress hidden>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <span class="progress-label"></span>
+    </div>
+
+    <ol class="nav-sections"><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">01</span>
+            <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/population-genomics/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details open>
+          <summary>
+            <span class="nav-num">02</span>
+            <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/training-site/sections/classification-subtyping/species-concept/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">What Is a Species?</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
+              <a href="/training-site/sections/classification-subtyping/species-identification/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">Genome-Based Species Identification</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity current" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/" aria-current="page">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
+              <a href="/training-site/sections/classification-subtyping/subtyping/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">Subtyping Below the Species Level</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: Influenza A subtypes</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/abaumannii-mlst-floc/">
+              <a href="/training-site/sections/classification-subtyping/abaumannii-mlst-floc/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: MLST vs. Floc</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">03</span>
+            <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">04</span>
+            <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">05</span>
+            <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">06</span>
+            <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/case-studies/">Section overview</a>
+            </li></ul>
+        </details>
+      </li></ol>
+  </nav>
+</aside>
+<main class="page-content course-main" id="main-content" aria-label="Content">
+        <article class="lesson lesson--activity" data-lesson-id="/training-site/sections/classification-subtyping/ecoli-shigella/">
+  <header class="lesson-header"><p class="lesson-eyebrow">
+    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+  </p><h1 class="lesson-title">When Names and Genomes Disagree: E. coli and Shigella</h1>
+  <div class="lesson-meta">
+    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree.</p></header><div class="lesson-brief"><div class="brief-block">
+    <h2 class="brief-heading">In this activity you will</h2>
+    <ul><li>Download genome assemblies from NCBI with the <code class="language-plaintext highlighter-rouge">datasets</code> command-line tool</li><li>Identify species from the closest RefSeq genome with Mash</li><li>Identify <em>Shigella</em> and its serotype with ShigaPass</li><li>Measure genome-wide similarity with FastANI</li><li>Explain why whole-genome methods struggle to separate <em>E. coli</em> from <em>Shigella</em></li></ul>
+  </div><div class="brief-block">
+    <h2 class="brief-heading">Before you start</h2>
+    <ul><li>Completed the lecture <a href="../species-identification/">Genome-Based Species Identification</a></li><li>A Linux, macOS, or WSL terminal with <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">micromamba</a> installed</li><li>Several GB of free disk space for the Mash reference database</li></ul>
+  </div></div>
+
+  <div class="activity-progress" data-activity-progress hidden>
+    <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Activity progress">
+      <div class="progress-fill"></div>
+    </div>
+    <span class="progress-label">0 of 0 steps</span>
+    <button type="button" class="progress-reset" data-reset-steps>Reset</button>
+  </div>
+
+  <div class="lesson-body activity-body" data-steps>
+    <!-- TODO (instructor): fill in the expected-output blocks marked TODO.
+     scripts/test-ecoli-shigella.sh runs the whole activity and prints them. -->
+
+<p>You have two bacterial genome assemblies from NCBI. In this activity you’ll identify their species in two different ways — by finding the most similar genome in a large reference database, and by looking for the specific genes that define <em>Shigella</em> — and compare the answers. Along the way you’ll see why <em>Escherichia coli</em> and <em>Shigella</em>, named as different genera, are one of the most confusing cases in bacterial taxonomy.</p>
+
+<h2 id="set-up-the-software">Set up the software</h2>
+
+<p>Create a micromamba environment with the NCBI <code class="language-plaintext highlighter-rouge">datasets</code> tool, Mash, FastANI, and BLAST (which ShigaPass needs):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micromamba create <span class="nt">-y</span> <span class="nt">-n</span> species-id <span class="nt">-c</span> conda-forge <span class="nt">-c</span> bioconda ncbi-datasets-cli mash fastani blast
+micromamba activate species-id
+</code></pre></div></div>
+
+<p>ShigaPass is a shell script distributed on GitHub. Download it into a folder for this activity:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/course/ecoli-shigella <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/course/ecoli-shigella
+git clone https://github.com/imanyass/ShigaPass.git
+<span class="nb">chmod</span> +x ShigaPass/SCRIPT/ShigaPass.sh
+</code></pre></div></div>
+
+<p>Check that each tool runs:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datasets <span class="nt">--version</span>
+mash <span class="nt">--version</span>
+fastANI <span class="nt">--version</span>
+ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h2 id="download-the-mash-reference-database">Download the Mash reference database</h2>
+
+<p>Mash compares your genomes against a pre-built <em>sketch</em> of every genome in NCBI RefSeq. Download it into a <code class="language-plaintext highlighter-rouge">db</code> folder. The file is large, so this step can take a while.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> db
+curl <span class="nt">-L</span> <span class="nt">-o</span> db/refseq.genomes.k21s1000.msh <span class="se">\</span>
+  https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh
+</code></pre></div></div>
+
+<blockquote class="tip">
+  <p>If the download stops part-way, rerun the same <code class="language-plaintext highlighter-rouge">curl</code> command with <code class="language-plaintext highlighter-rouge">-C -</code> added to resume it.</p>
+</blockquote>
+
+<h2 id="download-the-two-assemblies">Download the two assemblies</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">datasets</code> tool downloads genomes from NCBI by accession number. Download both assemblies in one package:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datasets download genome accession GCA_052160995.1 GCA_055444035.1 <span class="se">\</span>
+  <span class="nt">--include</span> genome <span class="nt">--filename</span> genomes.zip
+unzip <span class="nt">-o</span> genomes.zip
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">datasets</code> puts each assembly in its own folder under <code class="language-plaintext highlighter-rouge">ncbi_dataset/data/</code>. Copy them to short, simple names:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ncbi_dataset/data/GCA_052160995.1/<span class="k">*</span>_genomic.fna genome_A.fna
+<span class="nb">cp </span>ncbi_dataset/data/GCA_055444035.1/<span class="k">*</span>_genomic.fna genome_B.fna
+<span class="nb">ls</span> <span class="nt">-lh</span> genome_<span class="k">*</span>.fna
+</code></pre></div></div>
+
+<blockquote class="note">
+  <p>We won’t look at the species names attached to these assemblies yet. The point is to see what each method concludes on its own.</p>
+</blockquote>
+
+<h2 id="identify-the-species-with-mash">Identify the species with Mash</h2>
+
+<p>Compare each genome to every genome in the RefSeq sketch. <code class="language-plaintext highlighter-rouge">mash dist</code> reports the reference, the query, the Mash distance, a p-value, and the number of shared hashes. Sorting on the distance (column 3) puts the closest genomes first:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>g <span class="k">in </span>genome_A genome_B<span class="p">;</span> <span class="k">do
+  </span>mash dist db/refseq.genomes.k21s1000.msh <span class="nv">$g</span>.fna | <span class="nb">sort</span> <span class="nt">-gk3</span> <span class="o">&gt;</span> <span class="nv">$g</span>.mash.tsv
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>The reference IDs are file names, not species names. The species names are stored in the sketch’s metadata. Extract the metadata once, then print the five closest genomes for each assembly with their distance and description:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mash info <span class="nt">-t</span> db/refseq.genomes.k21s1000.msh <span class="o">&gt;</span> db/refseq.info.tsv
+<span class="k">for </span>g <span class="k">in </span>genome_A genome_B<span class="p">;</span> <span class="k">do
+  </span><span class="nb">echo</span> <span class="s2">"== </span><span class="nv">$g</span><span class="s2">"</span>
+  <span class="nb">head</span> <span class="nt">-n</span> 5 <span class="nv">$g</span>.mash.tsv |
+    <span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">'\t'</span> <span class="s1">'NR == FNR { desc[$3] = $4; next } { print $3 "\t" desc[$1] }'</span> <span class="se">\</span>
+      db/refseq.info.tsv -
+<span class="k">done</span>
+</code></pre></div></div>
+
+<!-- TODO: paste the expected top hits here (scripts/test-ecoli-shigella.sh prints them) -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>== genome_A
+0.00...    [...] NZ_... Shigella flexneri ...
+== genome_B
+...
+</code></pre></div></div>
+
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-mash" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>According to Mash, what species is the closest RefSeq genome to <strong>genome A</strong>?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-mash" value="1" />
+      <span><em>Escherichia coli</em></span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-mash" value="2" />
+      <span><em>Shigella flexneri</em></span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-mash" value="3" />
+      <span><em>Salmonella enterica</em></span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> <em>Shigella flexneri</em></p><div class="question-why"><p>The nearest RefSeq genome to genome A is labeled <em>Shigella flexneri</em>, so a top-hit approach would report genome A as <em>S. flexneri</em>. Keep this in mind as you run ShigaPass.</p>
+</div></div>
+</div>
+
+<h2 id="identify-the-species-with-shigapass">Identify the species with ShigaPass</h2>
+
+<p>ShigaPass is built specifically to tell <em>Shigella</em> apart from <em>E. coli</em>. Instead of comparing whole genomes, it looks for particular genes:</p>
+
+<ul>
+  <li><strong><em>ipaH</em></strong>, an invasion gene carried by <em>Shigella</em> and by enteroinvasive <em>E. coli</em> (EIEC), but not by other <em>E. coli</em></li>
+  <li><strong><em>rfb</em></strong> genes, which make the O-antigen and define <em>Shigella</em> serotypes</li>
+  <li>Supporting markers: the <em>fliC</em> flagellin allele, MLST, and CRISPR spacers</li>
+</ul>
+
+<p>ShigaPass takes a text file listing the full paths to the assemblies. On the first run, add <code class="language-plaintext highlighter-rouge">-u</code> to build its internal databases:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">readlink</span> <span class="nt">-f</span> genome_A.fna genome_B.fna <span class="o">&gt;</span> shigapass_list.txt
+ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-l</span> shigapass_list.txt <span class="nt">-o</span> shigapass_results <span class="se">\</span>
+  <span class="nt">-p</span> ShigaPass/SCRIPT/ShigaPass_DataBases <span class="nt">-u</span>
+<span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">';'</span> <span class="nt">-f</span> 1,7,8,9 shigapass_results/ShigaPass_summary.csv
+</code></pre></div></div>
+
+<p>The last command shows the four columns that matter here: the genome (<code class="language-plaintext highlighter-rouge">Name</code>), whether <em>ipaH</em> was found, and the predicted serotype. The prediction is one of three kinds:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">Predicted_Serotype</code></th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A serotype, such as <code class="language-plaintext highlighter-rouge">SS</code> or <code class="language-plaintext highlighter-rouge">SF1-5</code></td>
+      <td><em>Shigella</em> (<code class="language-plaintext highlighter-rouge">SB</code> <em>S. boydii</em>, <code class="language-plaintext highlighter-rouge">SD</code> <em>S. dysenteriae</em>, <code class="language-plaintext highlighter-rouge">SF</code> <em>S. flexneri</em>, <code class="language-plaintext highlighter-rouge">SS</code> <em>S. sonnei</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EIEC</code></td>
+      <td><em>ipaH</em> is present but no <em>Shigella</em> serotype matches — most likely enteroinvasive <em>E. coli</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Not Shigella/EIEC</code></td>
+      <td><em>ipaH</em> is absent — not <em>Shigella</em> and not EIEC</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- TODO: paste the expected ShigaPass summary here (scripts/test-ecoli-shigella.sh prints it) -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name;ipaH;Predicted_Serotype;Predicted_FlexSerotype
+genome_A;ipaH-;Not Shigella/EIEC;
+genome_B;ipaH+;...;...
+</code></pre></div></div>
+
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-ipah" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>A genome is positive for <em>ipaH</em>. What can you conclude?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-ipah" value="1" />
+      <span>It is definitely <em>Shigella</em></span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-ipah" value="2" />
+      <span>It is <em>Shigella</em> or enteroinvasive <em>E. coli</em> (EIEC), but not another kind of <em>E. coli</em></span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-ipah" value="3" />
+      <span>It is not <em>Shigella</em></span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> It is <em>Shigella</em> or enteroinvasive <em>E. coli</em> (EIEC), but not another kind of <em>E. coli</em></p><div class="question-why"><p><em>ipaH</em> is carried by both <em>Shigella</em> and EIEC. It rules out other <em>E. coli</em> but cannot separate <em>Shigella</em> from EIEC on its own, which is why ShigaPass also checks the serotype-defining <em>rfb</em> genes and other markers.</p>
+</div></div>
+</div>
+
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-which" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>Based on ShigaPass, which genome is <em>Shigella</em>?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-which" value="1" />
+      <span>Genome A</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-which" value="2" />
+      <span>Genome B</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-which" value="3" />
+      <span>Both</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-which" value="4" />
+      <span>Neither</span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Genome B</p><div class="question-why"><p>Only genome B carries <em>ipaH</em> and <em>Shigella</em> serotype genes. Genome A lacks them, so it is <em>E. coli</em> — even though its closest RefSeq genome is labeled <em>S. flexneri</em>.</p>
+</div></div>
+</div>
+
+<h2 id="measure-how-similar-the-genomes-really-are">Measure how similar the genomes really are</h2>
+
+<p>So far, each tool has given a <em>label</em>. Now measure how similar the two genomes actually are with <strong>FastANI</strong>, which estimates average nucleotide identity (ANI). FastANI cuts the query genome into 3,000 bp fragments, finds the matching region for each one in the reference genome, and averages the identity of the matches.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastANI <span class="nt">-q</span> genome_A.fna <span class="nt">-r</span> genome_B.fna <span class="nt">-o</span> ecoli_shigella_ani.txt
+<span class="nb">cat </span>ecoli_shigella_ani.txt
+</code></pre></div></div>
+
+<p>The output has five columns: the query, the reference, the <strong>ANI</strong>, the number of fragments that matched, and the total number of fragments in the query.</p>
+
+<!-- TODO: paste the expected FastANI line here (scripts/test-ecoli-shigella.sh prints it) -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genome_A.fna    genome_B.fna    ...
+</code></pre></div></div>
+
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-fastani" data-correct="1">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>Is the ANI between the two genomes above or below the ~95% threshold normally used to define a bacterial species?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-fastani" value="1" />
+      <span>Above — by genome-wide similarity they are the same species</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-fastani" value="2" />
+      <span>Below — they are clearly different species</span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Above — by genome-wide similarity they are the same species</p><div class="question-why"><p>The two genomes share well over 95% ANI. By the usual genomic definition of a bacterial species, <em>E. coli</em> and <em>Shigella</em> are one species, even though they carry different genus names.</p>
+</div></div>
+</div>
+
+<blockquote class="note">
+  <p>For comparison, FastANI’s own documentation reports an ANI of about 97.8% between <em>Shigella flexneri</em> 2a and <em>E. coli</em> K-12 — well above the ~95% line normally used to separate bacterial species.</p>
+</blockquote>
+
+<h2 class="no-step" id="why-did-the-answers-disagree">Why did the answers disagree?</h2>
+
+<p>Mash’s closest RefSeq genome for genome A is labeled <em>Shigella flexneri</em>, yet ShigaPass found no <em>ipaH</em> and no <em>Shigella</em> serotype genes in it. Genome A is an <em>E. coli</em> that the nearest-genome approach misidentified as <em>S. flexneri</em>; genome B is the true <em>Shigella</em>. Neither tool is broken — they are answering different questions.</p>
+
+<p><strong>Genome-wide, <em>Shigella</em> is <em>E. coli</em>.</strong> As your FastANI result shows, by whole-genome similarity <em>E. coli</em> and the four <em>Shigella</em> species fall within a single species boundary (around 95% average nucleotide identity), and <em>Shigella</em> lineages sit <em>within</em> the <em>E. coli</em> family tree. <em>Shigella</em> is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes — most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species.</p>
+
+<p><strong>Mash reports the nearest labeled genome.</strong> A Mash top hit is simply the closest genome in the database, and the “species” is whatever name that reference genome carries. Because <em>E. coli</em> and <em>Shigella</em> are intermixed across the same family tree, the closest genome to an <em>E. coli</em> can easily be one labeled <em>Shigella</em> — and the reverse. The distance is small either way. Reference labels are also not always correct, which adds to the problem.</p>
+
+<p><strong>ShigaPass checks the genes that define the name.</strong> Because the <em>Shigella</em> label rests on specific genes rather than overall similarity, a targeted tool that looks for <em>ipaH</em> and the serotype-defining <em>rfb</em> genes is the right way to decide. Even <em>ipaH</em> alone is not enough, because EIEC carries it too; ShigaPass combines several markers to separate <em>Shigella</em> from EIEC.</p>
+
+<div class="question question--open" data-question="open" id="q-ecoli-shigella-why">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>In your own words, why did Mash call genome A <em>Shigella flexneri</em> when it is actually <em>E. coli</em>?</p>
+</div><label class="visually-hidden" for="q-ecoli-shigella-why-input">Your notes</label>
+  <textarea class="question-input question-notes" id="q-ecoli-shigella-why-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Across the whole genome, <em>E. coli</em> and <em>Shigella</em> are so similar that they fall inside one species boundary and are intermixed on the same family tree. Mash reports the name of the closest genome in RefSeq, and for this <em>E. coli</em> the closest genome happens to be labeled <em>S. flexneri</em>. The <em>Shigella</em> name depends on a few specific genes such as <em>ipaH</em> and the serotype genes, which a genome-wide distance does not single out — so a targeted tool like ShigaPass is needed to decide.</p>
+</div></div>
+</div>
+
+<h3 id="takeaways">Takeaways</h3>
+
+<ul>
+  <li>A species name is only as consistent as the definition behind it. <em>E. coli</em> and <em>Shigella</em> are separated by a few genes, not by genome-wide distance.</li>
+  <li>Nearest-genome methods are excellent for most species calls, but their answer is only as good as the reference labels behind them.</li>
+  <li>When a species call drives the public health response — shigellosis and <em>E. coli</em> infections are reported and investigated differently — confirm it with an organism-specific tool.</li>
+  <li>The species call decides what comes next: the reference genome, the typing scheme, and which samples are compared. An error here carries through every later step.</li>
+</ul>
+
+  </div>
+
+  <div class="activity-done" data-activity-done hidden>
+    <p class="activity-done-title"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity complete</p>
+    <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
+  </div>
+
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/species-identification/">
+    <span class="pager-dir">‹ Previous lecture</span>
+    <span class="pager-title">Genome-Based Species Identification</span>
+  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/subtyping/">
+    <span class="pager-dir">Next lecture ›</span>
+    <span class="pager-title">Subtyping Below the Species Level</span></a></nav>
+
+</article>
+
+      </main>
+    </div><footer class="site-footer">
+  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

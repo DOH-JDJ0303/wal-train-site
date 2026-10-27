@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Course logo">
+  <circle cx="100" cy="100" r="96" fill="#DCAB4F"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#2E2B25" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+  <rect x="44" y="58" width="112" height="84" rx="8" fill="#FCFAF5" stroke="#2E2B25" stroke-width="5"/>
+  <path d="M44 76h112" stroke="#2E2B25" stroke-width="5"/>
+  <circle cx="56" cy="67" r="3.2" fill="#2E2B25"/>
+  <circle cx="66" cy="67" r="3.2" fill="#2E2B25"/>
+  <path d="M60 94l14 12-14 12" fill="none" stroke="#2E2B25" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M84 120h22" stroke="#8B651C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M118 90c12 6 12 18 0 24s-12 18 0 24" fill="none" stroke="#2E2B25" stroke-width="3.5" stroke-linecap="round" transform="translate(6 -6)"/>
+  <path d="M142 90c-12 6-12 18 0 24s12 18 0 24" fill="none" stroke="#8B651C" stroke-width="3.5" stroke-linecap="round" transform="translate(-6 -6)"/>
+</svg>

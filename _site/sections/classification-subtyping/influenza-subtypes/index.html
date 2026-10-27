@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>One Species, Many Subtypes: Influenza A | Bioinformatics Training Course</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="One Species, Many Subtypes: Influenza A" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compare two influenza A genomes with FastANI, classify their segments with CDC LABEL, and see how differences are concentrated in the HA and NA segments." />
+<meta name="twitter:description" property="og:description" content="Compare two influenza A genomes with FastANI, classify their segments with CDC LABEL, and see how differences are concentrated in the HA and NA segments." />
+<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/influenza-subtypes/" />
+<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/influenza-subtypes/" />
+<meta property="og:site_name" content="Bioinformatics Training Course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="One Species, Many Subtypes: Influenza A" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compare two influenza A genomes with FastANI, classify their segments with CDC LABEL, and see how differences are concentrated in the HA and NA segments.","headline":"One Species, Many Subtypes: Influenza A","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/influenza-subtypes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/training-site/assets/main.css">
+  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
+    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/influenza-subtypes/" };
+  </script>
+  <script src="/training-site/assets/js/course.js" defer></script>
+</head>
+<body class="layout-activity">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+  <div class="wrapper header-inner">
+    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+      <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
+        <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
+      </label>
+      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+    </nav>
+  </div>
+</header>
+<div class="wrapper course-shell"><aside class="course-sidebar" id="course-sidebar">
+  <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="course-nav">
+    <svg class="icon icon-section" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4 4h12M4 10h12M4 16h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Course contents
+  </button>
+
+  <nav class="course-nav" id="course-nav" aria-label="Course contents">
+    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+
+    <div class="course-progress-mini" data-course-progress hidden>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <span class="progress-label"></span>
+    </div>
+
+    <ol class="nav-sections"><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">01</span>
+            <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/population-genomics/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details open>
+          <summary>
+            <span class="nav-num">02</span>
+            <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/training-site/sections/classification-subtyping/species-concept/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">What Is a Species?</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
+              <a href="/training-site/sections/classification-subtyping/species-identification/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">Genome-Based Species Identification</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
+              <a href="/training-site/sections/classification-subtyping/subtyping/">
+                <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
+                <span class="nav-item-title">Subtyping Below the Species Level</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity current" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/" aria-current="page">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: Influenza A subtypes</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/abaumannii-mlst-floc/">
+              <a href="/training-site/sections/classification-subtyping/abaumannii-mlst-floc/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Activity: MLST vs. Floc</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">03</span>
+            <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">04</span>
+            <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">05</span>
+            <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+            </li></ul>
+        </details>
+      </li><li class="nav-section">
+        <details>
+          <summary>
+            <span class="nav-num">06</span>
+            <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
+          </summary>
+          <ul class="nav-items"><li class="nav-item nav-item--overview">
+              <a href="/training-site/sections/case-studies/">Section overview</a>
+            </li></ul>
+        </details>
+      </li></ol>
+  </nav>
+</aside>
+<main class="page-content course-main" id="main-content" aria-label="Content">
+        <article class="lesson lesson--activity" data-lesson-id="/training-site/sections/classification-subtyping/influenza-subtypes/">
+  <header class="lesson-header"><p class="lesson-eyebrow">
+    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+  </p><h1 class="lesson-title">One Species, Many Subtypes: Influenza A</h1>
+  <div class="lesson-meta">
+    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Compare two influenza A genomes with FastANI, classify their segments with CDC LABEL, and see how differences are concentrated in the HA and NA segments.</p></header><div class="lesson-brief"><div class="brief-block">
+    <h2 class="brief-heading">In this activity you will</h2>
+    <ul><li>Download influenza genomes from NCBI with the <code class="language-plaintext highlighter-rouge">datasets</code> command-line tool</li><li>Measure whole-genome and per-segment similarity with FastANI</li><li>Classify influenza segments and subtypes with CDC LABEL</li><li>Explain why the ~95% ANI species rule does not apply to influenza</li></ul>
+  </div><div class="brief-block">
+    <h2 class="brief-heading">Before you start</h2>
+    <ul><li>Completed the lecture <a href="../subtyping/">Subtyping Below the Species Level</a></li><li>Completed <a href="../ecoli-shigella/">When Names and Genomes Disagree: E. coli and Shigella</a>, including the <code class="language-plaintext highlighter-rouge">species-id</code> micromamba environment</li><li>A Linux or macOS terminal with Perl installed (LABEL does not run natively on Windows; use WSL)</li></ul>
+  </div></div>
+
+  <div class="activity-progress" data-activity-progress hidden>
+    <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Activity progress">
+      <div class="progress-fill"></div>
+    </div>
+    <span class="progress-label">0 of 0 steps</span>
+    <button type="button" class="progress-reset" data-reset-steps>Reset</button>
+  </div>
+
+  <div class="lesson-body activity-body" data-steps>
+    <!-- TODO (instructor): replace FLU_1_ACCESSION and FLU_2_ACCESSION in the
+     "Download the two genomes" step, then fill in the expected-output
+     blocks marked TODO with the real results. -->
+
+<p>In the <em>E. coli</em> and <em>Shigella</em> activity, two bacteria with different names turned out to be nearly identical across the genome. In this activity you’ll see the opposite: two viruses that belong to the <strong>same species</strong> — influenza A — but are far more different from each other than the ~95% ANI rule for bacteria would allow.</p>
+
+<p>Influenza A genomes are made of <strong>eight separate RNA segments</strong>, each carrying one or two genes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Segment</th>
+      <th>Gene(s)</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PB2, PB1, PA</td>
+      <td>Polymerase subunits</td>
+      <td>Copy the viral genome</td>
+    </tr>
+    <tr>
+      <td><strong>HA</strong></td>
+      <td>Hemagglutinin</td>
+      <td>Surface protein; binds host cells; main target of antibodies</td>
+    </tr>
+    <tr>
+      <td>NP</td>
+      <td>Nucleoprotein</td>
+      <td>Packages the viral RNA</td>
+    </tr>
+    <tr>
+      <td><strong>NA</strong></td>
+      <td>Neuraminidase</td>
+      <td>Surface protein; releases new virus from cells</td>
+    </tr>
+    <tr>
+      <td>MP</td>
+      <td>Matrix proteins</td>
+      <td>Structure and assembly</td>
+    </tr>
+    <tr>
+      <td>NS</td>
+      <td>Non-structural proteins</td>
+      <td>Counter the host immune response</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Influenza A <strong>subtypes</strong> — H1N1, H3N2, H5N1, and so on — are named after the HA and NA segments.</p>
+
+<h2 id="set-up-the-software">Set up the software</h2>
+
+<p>Activate the environment from the <em>E. coli</em> and <em>Shigella</em> activity. It already contains the NCBI <code class="language-plaintext highlighter-rouge">datasets</code> tool and FastANI:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micromamba activate species-id
+<span class="nb">mkdir</span> <span class="nt">-p</span> ~/course/influenza <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/course/influenza
+</code></pre></div></div>
+
+<details class="hint">
+  <summary>Don't have the <code>species-id</code> environment?</summary>
+
+  <p>Create a smaller one with just the tools needed here:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micromamba create <span class="nt">-y</span> <span class="nt">-n</span> species-id <span class="nt">-c</span> conda-forge <span class="nt">-c</span> bioconda ncbi-datasets-cli fastani
+micromamba activate species-id
+</code></pre></div>  </div>
+</details>
+
+<p>LABEL is distributed by CDC on GitHub, with the third-party programs it needs already bundled. Download it and check that it runs by listing its modules:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/CDCgov/label.git
+label/LABEL <span class="nt">-S</span>
+</code></pre></div></div>
+
+<blockquote class="note">
+  <p>On macOS, CDC recommends downloading LABEL from its <a href="https://github.com/CDCgov/label/releases">releases page</a> instead of cloning. Docker users can run <code class="language-plaintext highlighter-rouge">docker run --rm -itv $(pwd):/data ghcr.io/cdcgov/label:latest LABEL</code> in place of <code class="language-plaintext highlighter-rouge">label/LABEL</code>.</p>
+</blockquote>
+
+<h2 id="download-the-two-genomes">Download the two genomes</h2>
+
+<p>Download both influenza genomes from NCBI in one package:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datasets download genome accession FLU_1_ACCESSION FLU_2_ACCESSION <span class="se">\</span>
+  <span class="nt">--include</span> genome <span class="nt">--filename</span> flu.zip
+unzip <span class="nt">-o</span> flu.zip
+<span class="nb">cp </span>ncbi_dataset/data/FLU_1_ACCESSION/<span class="k">*</span>_genomic.fna virus_1.fna
+<span class="nb">cp </span>ncbi_dataset/data/FLU_2_ACCESSION/<span class="k">*</span>_genomic.fna virus_2.fna
+</code></pre></div></div>
+
+<p>Each file should contain eight sequences — one per segment. Check:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-c</span> <span class="s2">"&gt;"</span> virus_1.fna virus_2.fna
+</code></pre></div></div>
+
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virus_1.fna:8
+virus_2.fna:8
+</code></pre></div></div>
+
+<h2 id="compare-the-whole-genomes-with-fastani">Compare the whole genomes with FastANI</h2>
+
+<p>Run FastANI on the two complete genomes, the same way you compared <em>E. coli</em> and <em>Shigella</em>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastANI <span class="nt">-q</span> virus_1.fna <span class="nt">-r</span> virus_2.fna <span class="nt">--fragLen</span> 500 <span class="nt">-o</span> flu_genome_ani.txt
+<span class="nb">cat </span>flu_genome_ani.txt
+</code></pre></div></div>
+
+<p>Note the <code class="language-plaintext highlighter-rouge">--fragLen 500</code> option. FastANI normally splits genomes into 3,000 bp fragments, but every influenza segment is shorter than that — the longest is about 2,300 bp — so with the default setting, no fragments would be compared at all.</p>
+
+<!-- TODO: paste the expected FastANI line here once accessions are set -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virus_1.fna    virus_2.fna    ...
+</code></pre></div></div>
+
+<p>Look at the last two columns as well as the ANI: how many of the fragments found a match at all?</p>
+
+<blockquote class="important">
+  <p>FastANI does not report a result when two genomes are much less than about 80% identical. If the output file is <strong>empty</strong>, that is the answer: the genomes are too different for FastANI to measure.</p>
+</blockquote>
+
+<div class="question question--choice" data-question="choice" id="q-flu-genome-ani" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>Would these two viruses count as the same species under the ~95% ANI rule used for bacteria?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-flu-genome-ani" value="1" />
+      <span>Yes — they share more than 95% ANI</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-flu-genome-ani" value="2" />
+      <span>No — they are far below 95%, even though both are influenza A</span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> No — they are far below 95%, even though both are influenza A</p><div class="question-why"><p>The two genomes are far below 95% identity, and part of each genome is too different for FastANI to match at all. Yet both viruses belong to the same species, influenza A. Viral species are not defined by a fixed identity threshold.</p>
+</div></div>
+</div>
+
+<h2 id="classify-the-segments-with-label">Classify the segments with LABEL</h2>
+
+<p>LABEL identifies what each sequence is by scoring it against statistical models (profile hidden Markov models) of known influenza segments and subtypes. The <code class="language-plaintext highlighter-rouge">irma-FLU</code> module — the same one used by CDC’s IRMA assembler — labels each sequence by virus type, segment, and, for HA and NA, subtype.</p>
+
+<p>Run LABEL on each virus separately:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> label_out
+label/LABEL <span class="nt">-O</span> label_out virus_1.fna virus_1 irma-FLU
+label/LABEL <span class="nt">-O</span> label_out virus_2.fna virus_2 irma-FLU
+</code></pre></div></div>
+
+<p>Each run prints a table of results and saves it as <code class="language-plaintext highlighter-rouge">label_out/&lt;project&gt;_final.txt</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>label_out/virus_1_final.txt label_out/virus_2_final.txt
+</code></pre></div></div>
+
+<!-- TODO: paste the expected LABEL tables here once accessions are set -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    VIRUS STRAIN                CLADE
+   ...segment 1...                              A_PB2
+   ...segment 4...                              A_HA_H?
+   ...segment 6...                              A_NA_N?
+   ...
+</code></pre></div></div>
+
+<p>Each segment is labeled <code class="language-plaintext highlighter-rouge">A_</code> (influenza A) followed by the segment name. HA and NA segments also carry their subtype — for example, <code class="language-plaintext highlighter-rouge">A_HA_H3</code> and <code class="language-plaintext highlighter-rouge">A_NA_N2</code> together mean the virus is H3N2.</p>
+
+<div class="question question--open" data-question="open" id="q-flu-label-subtype">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>What subtype is each virus, according to LABEL? Which two segments determine the subtype?</p>
+</div><label class="visually-hidden" for="q-flu-label-subtype-input">Your notes</label>
+  <textarea class="question-input question-notes" id="q-flu-label-subtype-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>The subtype comes from the HA and NA labels: for example, <code class="language-plaintext highlighter-rouge">A_HA_H1</code> with <code class="language-plaintext highlighter-rouge">A_NA_N1</code> is H1N1, and <code class="language-plaintext highlighter-rouge">A_HA_H3</code> with <code class="language-plaintext highlighter-rouge">A_NA_N2</code> is H3N2. The other six segments are labeled only by segment (such as <code class="language-plaintext highlighter-rouge">A_PB2</code>).</p>
+</div></div>
+</div>
+
+<h2 id="split-the-genomes-into-segments">Split the genomes into segments</h2>
+
+<p>LABEL also saves each segment as a separate FASTA file, inside a zip archive. Extract them and give each one a simple name, such as <code class="language-plaintext highlighter-rouge">virus_1_HA.fa</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> segments
+<span class="k">for </span>v <span class="k">in </span>virus_1 virus_2<span class="p">;</span> <span class="k">do
+  </span>unzip <span class="nt">-o</span> <span class="nt">-q</span> label_out/<span class="nv">$v</span>.zip <span class="nt">-d</span> label_out/
+  <span class="k">for </span>f <span class="k">in </span>label_out/<span class="nv">$v</span>/FASTA/<span class="k">${</span><span class="nv">v</span><span class="k">}</span>_clade_<span class="k">*</span>.fas<span class="p">;</span> <span class="k">do
+    </span><span class="nv">seg</span><span class="o">=</span><span class="si">$(</span><span class="nb">basename</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> .fas | <span class="nb">sed</span> <span class="s2">"s/^</span><span class="k">${</span><span class="nv">v</span><span class="k">}</span><span class="s2">_clade_A_//; s/_.*//"</span><span class="si">)</span>
+    <span class="nb">cp</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> segments/<span class="k">${</span><span class="nv">v</span><span class="k">}</span>_<span class="k">${</span><span class="nv">seg</span><span class="k">}</span>.fa
+  <span class="k">done
+done
+</span><span class="nb">ls </span>segments
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">sed</code> command trims a file name like <code class="language-plaintext highlighter-rouge">virus_1_clade_A_HA_H3.fas</code> down to just the segment, <code class="language-plaintext highlighter-rouge">HA</code>.</p>
+
+<blockquote class="checkpoint">
+  <p>You should see <strong>16 files</strong>: PB2, PB1, PA, HA, NP, NA, MP, and NS for each virus. If any are missing, check the LABEL output for that segment before continuing.</p>
+</blockquote>
+
+<h2 id="compare-each-segment-with-fastani">Compare each segment with FastANI</h2>
+
+<p>Now compare the two viruses one segment at a time, and collect the results in a table:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">printf</span> <span class="s2">"segment</span><span class="se">\t</span><span class="s2">ANI</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&gt;</span> segment_ani.tsv
+<span class="k">for </span>seg <span class="k">in </span>PB2 PB1 PA HA NP NA MP NS<span class="p">;</span> <span class="k">do
+  </span>fastANI <span class="nt">-q</span> segments/virus_1_<span class="k">${</span><span class="nv">seg</span><span class="k">}</span>.fa <span class="nt">-r</span> segments/virus_2_<span class="k">${</span><span class="nv">seg</span><span class="k">}</span>.fa <span class="se">\</span>
+    <span class="nt">--fragLen</span> 500 <span class="nt">-o</span> ani_<span class="k">${</span><span class="nv">seg</span><span class="k">}</span>.txt 2&gt; /dev/null
+  <span class="nv">ani</span><span class="o">=</span><span class="si">$(</span><span class="nb">cut</span> <span class="nt">-f</span> 3 ani_<span class="k">${</span><span class="nv">seg</span><span class="k">}</span>.txt<span class="si">)</span>
+  <span class="nb">printf</span> <span class="s2">"%s</span><span class="se">\t</span><span class="s2">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$seg</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">ani</span><span class="k">:-</span><span class="nv">below</span><span class="p"> ~80% (no result)</span><span class="k">}</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> segment_ani.tsv
+<span class="k">done
+</span><span class="nb">cat </span>segment_ani.tsv
+</code></pre></div></div>
+
+<p>When FastANI has no result for a segment, the table records <code class="language-plaintext highlighter-rouge">below ~80% (no result)</code>.</p>
+
+<!-- TODO: paste the expected per-segment table here once accessions are set -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>segment   ANI
+PB2       ...
+PB1       ...
+PA        ...
+HA        below ~80% (no result)
+NP        ...
+NA        below ~80% (no result)
+MP        ...
+NS        ...
+</code></pre></div></div>
+
+<div class="question question--choice" data-question="choice" id="q-flu-segment-most-different" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>Which segments differ most between the two viruses?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-flu-segment-most-different" value="1" />
+      <span>The polymerase segments (PB2, PB1, PA)</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-flu-segment-most-different" value="2" />
+      <span>HA and NA</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-flu-segment-most-different" value="3" />
+      <span>MP and NS</span>
+    </label><label class="question-option">
+      <input type="radio" name="q-flu-segment-most-different" value="4" />
+      <span>All segments differ about equally</span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> HA and NA</p><div class="question-why"><p>HA and NA are so different between subtypes that FastANI cannot measure them (below ~80%). The internal segments are much more similar.</p>
+</div></div>
+</div>
+
+<h2 class="no-step" id="what-this-shows">What this shows</h2>
+
+<p><strong>One species, very different genomes.</strong> Both viruses are influenza A — a single species — yet their genomes are far below the ~95% identity that would make two bacteria the same species. Viral species are defined by different rules, so an identity threshold that works for bacteria does not carry over.</p>
+
+<p><strong>The differences are concentrated in HA and NA.</strong> These segments encode the two surface proteins, which are the main targets of the immune response and change rapidly to escape it. HA and NA genes from different subtypes are so different that FastANI cannot even measure them. The internal segments, which are under less of this pressure, are much more alike.</p>
+
+<p><strong>Segments have their own histories.</strong> Influenza viruses can swap whole segments when two viruses infect the same cell (reassortment). Each segment can therefore come from a different ancestor, and the similarity between two viruses can vary greatly from one segment to the next — as your table shows.</p>
+
+<p><strong>This is why influenza is classified below the species level.</strong> Because “influenza A” groups together such different viruses, the useful labels are the <strong>subtype</strong> (from HA and NA), and below that the <strong>clade</strong> and <strong>genotype</strong>. These are what LABEL and similar tools assign.</p>
+
+<div class="question question--open" data-question="open" id="q-flu-why-ha-na">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>Why are HA and NA so much more different than the other segments, and what does this mean for how we classify influenza?</p>
+</div><label class="visually-hidden" for="q-flu-why-ha-na-input">Your notes</label>
+  <textarea class="question-input question-notes" id="q-flu-why-ha-na-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>HA and NA encode the surface proteins targeted by the immune system, so they change quickly, and the different subtypes have diverged a long way from one another. Because segments can also be swapped by reassortment, each segment has its own history. Since a single species contains such different viruses, influenza is described by subtype (from HA and NA), clade, and genotype rather than by species alone.</p>
+</div></div>
+</div>
+
+  </div>
+
+  <div class="activity-done" data-activity-done hidden>
+    <p class="activity-done-title"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity complete</p>
+    <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
+  </div>
+
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/subtyping/">
+    <span class="pager-dir">‹ Previous lecture</span>
+    <span class="pager-title">Subtyping Below the Species Level</span>
+  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/abaumannii-mlst-floc/">
+    <span class="pager-dir">Next activity ›</span>
+    <span class="pager-title">Stable Names vs. Fine Resolution: MLST and Floc</span></a></nav>
+
+</article>
+
+      </main>
+    </div><footer class="site-footer">
+  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

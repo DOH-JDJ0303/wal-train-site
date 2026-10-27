@@ -129,3 +129,107 @@ fastq-quality-meaning:
     - "the base is a G or C"
   answer: 2
   explanation: "The Phred score is the ASCII value minus 33. A score of 30 means a 1-in-1,000 chance the call is wrong; 40 means 1 in 10,000."
+
+# ---- Taxonomic Classification and Genomic Subtyping ------------------
+
+
+ecoli-shigella-ipah:
+  type: choice
+  question: "A genome is positive for *ipaH*. What can you conclude?"
+  options:
+    - "It is definitely *Shigella*"
+    - "It is *Shigella* or enteroinvasive *E. coli* (EIEC), but not another kind of *E. coli*"
+    - "It is not *Shigella*"
+  answer: 2
+  explanation: "*ipaH* is carried by both *Shigella* and EIEC. It rules out other *E. coli* but cannot separate *Shigella* from EIEC on its own, which is why ShigaPass also checks the serotype-defining *rfb* genes and other markers."
+
+
+ecoli-shigella-fastani:
+  type: choice
+  question: "Is the ANI between the two genomes above or below the ~95% threshold normally used to define a bacterial species?"
+  options:
+    - "Above — by genome-wide similarity they are the same species"
+    - "Below — they are clearly different species"
+  answer: 1
+  explanation: "The two genomes share well over 95% ANI. By the usual genomic definition of a bacterial species, *E. coli* and *Shigella* are one species, even though they carry different genus names."
+
+flu-genome-ani:
+  type: choice
+  question: "Would these two viruses count as the same species under the ~95% ANI rule used for bacteria?"
+  options:
+    - "Yes — they share more than 95% ANI"
+    - "No — they are far below 95%, even though both are influenza A"
+  answer: 2
+  explanation: "The two genomes are far below 95% identity, and part of each genome is too different for FastANI to match at all. Yet both viruses belong to the same species, influenza A. Viral species are not defined by a fixed identity threshold."
+
+flu-label-subtype:
+  type: open
+  question: "What subtype is each virus, according to LABEL? Which two segments determine the subtype?"
+  sample_answer: "The subtype comes from the HA and NA labels: for example, `A_HA_H1` with `A_NA_N1` is H1N1, and `A_HA_H3` with `A_NA_N2` is H3N2. The other six segments are labeled only by segment (such as `A_PB2`)."
+
+flu-segment-most-different:
+  type: choice
+  question: "Which segments differ most between the two viruses?"
+  options:
+    - "The polymerase segments (PB2, PB1, PA)"
+    - "HA and NA"
+    - "MP and NS"
+    - "All segments differ about equally"
+  answer: 2
+  explanation: "HA and NA are so different between subtypes that FastANI cannot measure them (below ~80%). The internal segments are much more similar."
+
+flu-why-ha-na:
+  type: open
+  question: "Why are HA and NA so much more different than the other segments, and what does this mean for how we classify influenza?"
+  sample_answer: "HA and NA encode the surface proteins targeted by the immune system, so they change quickly, and the different subtypes have diverged a long way from one another. Because segments can also be swapped by reassortment, each segment has its own history. Since a single species contains such different viruses, influenza is described by subtype (from HA and NA), clade, and genotype rather than by species alone."
+
+abaum-st-count:
+  type: open
+  question: "How many different STs are in the dataset, and which ST is most common?"
+  sample_answer: "Most genomes belong to one dominant ST (typically ST2, International Clone 2), with a few genomes in other STs. A large share of a dataset falling into one ST is common for *A. baumannii* in healthcare settings."
+
+abaum-resolution:
+  type: choice
+  question: "How do Floc clusters relate to the most common ST?"
+  options:
+    - "The ST and the Floc cluster are always the same group"
+    - "The ST is split into several Floc clusters"
+    - "Each Floc cluster contains several different STs"
+  answer: 2
+  explanation: "Because Floc compares k-mers across the whole genome rather than seven genes, it can separate genomes that share an ST but differ elsewhere. Floc has **higher resolution** than MLST."
+
+abaum-stability:
+  type: choice
+  question: "When the same genomes were processed in a different order, which labels stayed the same?"
+  options:
+    - "Both the STs and the Floc cluster numbers"
+    - "The STs, but not necessarily the Floc cluster numbers"
+    - "The Floc cluster numbers, but not the STs"
+  answer: 2
+  explanation: "STs come from a global, curated database, so they never depend on the order in which genomes arrive. Floc finds the same groups, but numbers them in the order it discovers them, so a different history can give the same groups different numbers."
+
+ecoli-shigella-mash:
+  type: choice
+  question: "According to Mash, what species is the closest RefSeq genome to **genome A**?"
+  options:
+    - "*Escherichia coli*"
+    - "*Shigella flexneri*"
+    - "*Salmonella enterica*"
+  answer: 2
+  explanation: "The nearest RefSeq genome to genome A is labeled *Shigella flexneri*, so a top-hit approach would report genome A as *S. flexneri*. Keep this in mind as you run ShigaPass."
+
+ecoli-shigella-which:
+  type: choice
+  question: "Based on ShigaPass, which genome is *Shigella*?"
+  options:
+    - "Genome A"
+    - "Genome B"
+    - "Both"
+    - "Neither"
+  answer: 2
+  explanation: "Only genome B carries *ipaH* and *Shigella* serotype genes. Genome A lacks them, so it is *E. coli* — even though its closest RefSeq genome is labeled *S. flexneri*."
+
+ecoli-shigella-why:
+  type: open
+  question: "In your own words, why did Mash call genome A *Shigella flexneri* when it is actually *E. coli*?"
+  sample_answer: "Across the whole genome, *E. coli* and *Shigella* are so similar that they fall inside one species boundary and are intermixed on the same family tree. Mash reports the name of the closest genome in RefSeq, and for this *E. coli* the closest genome happens to be labeled *S. flexneri*. The *Shigella* name depends on a few specific genes such as *ipaH* and the serotype genes, which a genome-wide distance does not single out — so a targeted tool like ShigaPass is needed to decide."
