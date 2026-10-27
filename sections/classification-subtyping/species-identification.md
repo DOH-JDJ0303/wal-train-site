@@ -10,13 +10,29 @@ description: From a single marker gene to whole-genome k-mer methods — how eac
 
 The 16S ribosomal RNA gene is present in all bacteria and contains conserved regions, which make it easy to amplify, alongside variable regions that differ between taxa. For decades it was the standard molecular method for bacterial identification, and it remains widely used for mixed-community (amplicon) studies.
 
-Its main limitation is resolution. **16S does not always resolve organisms to the species level**, because closely related species can have identical or nearly identical 16S sequences. Examples include:
+Its main limitation is resolution. **16S does not always resolve organisms to the species level**, because closely related species can have identical or nearly identical 16S sequences, and short partial-gene sequences resolve even less than the full gene [1]. Examples include:
 
-- *Escherichia coli* and *Shigella* spp.
-- Members of the *Bacillus cereus* group, including *B. anthracis*
-- *Streptococcus pneumoniae* and *S. mitis*
+- *Escherichia coli* and *Shigella* spp. — 16S sequences are more than 99.5% similar and cannot separate them [2]
+- Members of the *Bacillus cereus* group, including *B. anthracis* — some strains differ by a single nucleotide [3]
+- *Streptococcus pneumoniae* and *S. mitis* — 16S sequences are more than 99% identical [4]
 
-Many genomes also carry several copies of the 16S gene that are not identical to one another. A single gene captures only a tiny fraction of the genome, so whole-genome methods are generally preferred when a genome sequence is available.
+![A circular bacterial genome of about 5 million base pairs, with seven short marks for the 16S rRNA gene copies, each about 1,500 base pairs]({{ '/assets/images/16s-genome.svg' | relative_url }})
+
+Many genomes also carry several copies of the 16S gene — up to 15 — and in most genomes the copies are not identical to one another [5, 6]. A single gene captures only a tiny fraction of the genome, so whole-genome methods such as average nucleotide identity (ANI) are generally preferred when a genome sequence is available [7–9].
+
+<details class="hint" markdown="1">
+<summary>References for this section</summary>
+
+1. Johnson JS, *et al.* (2019). Evaluation of 16S rRNA gene sequencing for species and strain-level microbiome analysis. *Nature Communications* 10:5029. [doi:10.1038/s41467-019-13036-1](https://doi.org/10.1038/s41467-019-13036-1)
+2. Devanga Ragupathi NK, *et al.* (2018). Accurate differentiation of *Escherichia coli* and *Shigella* serogroups: challenges and strategies. *New Microbes and New Infections* 21:58–62. [doi:10.1016/j.nmni.2017.09.003](https://doi.org/10.1016/j.nmni.2017.09.003)
+3. Ash C, *et al.* (1991). Comparative analysis of *Bacillus anthracis*, *Bacillus cereus*, and related species on the basis of reverse transcriptase sequencing of 16S rRNA. *International Journal of Systematic Bacteriology* 41:343–346. [doi:10.1099/00207713-41-3-343](https://doi.org/10.1099/00207713-41-3-343)
+4. Scholz CFP, Poulsen K, Kilian M (2012). Novel molecular method for identification of *Streptococcus pneumoniae* applicable to clinical microbiology and 16S rRNA sequence-based microbiome studies. *Journal of Clinical Microbiology* 50:1968–1973. [doi:10.1128/JCM.00365-12](https://doi.org/10.1128/JCM.00365-12)
+5. Větrovský T, Baldrian P (2013). The variability of the 16S rRNA gene in bacterial genomes and its consequences for bacterial community analyses. *PLoS ONE* 8:e57923. [doi:10.1371/journal.pone.0057923](https://doi.org/10.1371/journal.pone.0057923)
+6. Pei AY, *et al.* (2010). Diversity of 16S rRNA genes within individual prokaryotic genomes. *Applied and Environmental Microbiology* 76:3886–3897. [PMID 20418441](https://pubmed.ncbi.nlm.nih.gov/20418441/)
+7. Richter M, Rosselló-Móra R (2009). Shifting the genomic gold standard for the prokaryotic species definition. *PNAS* 106:19126–19131. [doi:10.1073/pnas.0906412106](https://doi.org/10.1073/pnas.0906412106)
+8. Jain C, *et al.* (2018). High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. *Nature Communications* 9:5114. [doi:10.1038/s41467-018-07641-9](https://doi.org/10.1038/s41467-018-07641-9)
+9. Chun J, *et al.* (2018). Proposed minimal standards for the use of genome data for the taxonomy of prokaryotes. *International Journal of Systematic and Evolutionary Microbiology* 68:461–466. [doi:10.1099/ijsem.0.002516](https://doi.org/10.1099/ijsem.0.002516)
+</details>
 
 ## Whole-genome identification with k-mers
 

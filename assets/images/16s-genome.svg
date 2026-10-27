@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-labelledby="t d" font-family="Futura, 'Century Gothic', 'Avenir Next', 'Segoe UI', system-ui, sans-serif">
+  <title id="t">A bacterial genome with several copies of the 16S rRNA gene</title>
+  <desc id="d">A circular chromosome of about 5 million base pairs, with seven short marks showing the 16S rRNA gene copies. Each copy is about 1,500 base pairs, roughly 0.03% of the genome. Not to scale.</desc>
+  <circle cx="150" cy="150" r="100" fill="none" stroke="#E7E0CD" stroke-width="14"/>
+  <g fill="none" stroke="#8B651C" stroke-width="22" stroke-linecap="butt">
+    <path d="M170.8 52.2 A100 100 0 0 1 177.6 53.9"/>
+    <path d="M224.3 83.1 A100 100 0 0 1 228.8 88.4"/>
+    <path d="M249.6 158.7 A100 100 0 0 1 248.8 165.6"/>
+    <path d="M214.3 226.6 A100 100 0 0 1 208.8 230.9"/>
+    <path d="M107.7 240.6 A100 100 0 0 1 101.5 237.5"/>
+    <path d="M51.0 163.9 A100 100 0 0 1 50.2 157.0"/>
+    <path d="M83.1 75.7 A100 100 0 0 1 88.4 71.2"/>
+  </g>
+  <text x="150" y="146" text-anchor="middle" font-size="15" font-weight="600" fill="#2E2B25">Genome</text>
+  <text x="150" y="166" text-anchor="middle" font-size="13" fill="#6C6963">~5,000,000 bp</text>
+
+  <g font-size="15" fill="#2E2B25">
+    <rect x="310" y="92" width="22" height="10" fill="#E7E0CD"/>
+    <text x="344" y="102">Rest of the genome</text>
+    <rect x="310" y="132" width="22" height="14" fill="#8B651C"/>
+    <text x="344" y="144">16S rRNA gene copies</text>
+    <text x="344" y="166" font-size="13" fill="#6C6963">~1,500 bp each (~0.03% of the genome)</text>
+    <text x="344" y="186" font-size="13" fill="#6C6963"><tspan font-style="italic">E. coli</tspan> has 7 copies, not always identical</text>
+  </g>
+  <text x="590" y="290" text-anchor="end" font-size="11" fill="#6C6963">Not to scale</text>
+</svg>
