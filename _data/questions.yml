@@ -154,7 +154,7 @@ flu-genome-ani:
 flu-label-subtype:
   type: open
   question: "What subtype is each virus, according to LABEL? Which two segments determine the subtype?"
-  sample_answer: "The subtype comes from the HA and NA labels: for example, `A_HA_H1` with `A_NA_N1` is H1N1, and `A_HA_H3` with `A_NA_N2` is H3N2. The other six segments are labeled only by segment (such as `A_PB2`)."
+  sample_answer: "Virus 1 is H1N1 (`A_HA_H1` and `A_NA_N1`) and virus 2 is H3N2 (`A_HA_H3` and `A_NA_N2`). The subtype comes from the HA and NA segments; the other six are labeled only by segment (such as `A_PB2`)."
 
 flu-segment-most-different:
   type: choice

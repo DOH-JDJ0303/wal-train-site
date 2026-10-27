@@ -16,9 +16,8 @@ prerequisites:
   - "A Linux or macOS terminal with Perl installed (LABEL does not run natively on Windows; use WSL)"
 ---
 
-<!-- TODO (instructor): replace FLU_1_ACCESSION and FLU_2_ACCESSION in the
-     "Download the two genomes" step, then fill in the expected-output
-     blocks marked TODO with the real results. -->
+<!-- TODO (instructor): fill in the expected-output blocks marked TODO.
+     virus_1 = GCF_000865725.1 (H1N1); virus_2 = GCF_000865085.1 (H3N2). -->
 
 In the *E. coli* and *Shigella* activity, two bacteria with different names turned out to be nearly identical across the genome. In this activity you'll see the opposite: two viruses that belong to the **same species** — influenza A — but are far more different from each other than the ~95% ANI rule for bacteria would allow.
 
@@ -70,11 +69,11 @@ label/LABEL -S
 Download both influenza genomes from NCBI in one package:
 
 ```bash
-datasets download genome accession FLU_1_ACCESSION FLU_2_ACCESSION \
+datasets download genome accession GCF_000865725.1 GCF_000865085.1 \
   --include genome --filename flu.zip
 unzip -o flu.zip
-cp ncbi_dataset/data/FLU_1_ACCESSION/*_genomic.fna virus_1.fna
-cp ncbi_dataset/data/FLU_2_ACCESSION/*_genomic.fna virus_2.fna
+cp ncbi_dataset/data/GCF_000865725.1/*_genomic.fna virus_1.fna
+cp ncbi_dataset/data/GCF_000865085.1/*_genomic.fna virus_2.fna
 ```
 
 Each file should contain eight sequences — one per segment. Check:
@@ -100,7 +99,7 @@ cat flu_genome_ani.txt
 
 Note the `--fragLen 500` option. FastANI normally splits genomes into 3,000 bp fragments, but every influenza segment is shorter than that — the longest is about 2,300 bp — so with the default setting, no fragments would be compared at all.
 
-<!-- TODO: paste the expected FastANI line here once accessions are set -->
+<!-- TODO: paste the expected FastANI line here -->
 ```text
 virus_1.fna    virus_2.fna    ...
 ```
@@ -131,7 +130,7 @@ Each run prints a table of results and saves it as `label_out/<project>_final.tx
 cat label_out/virus_1_final.txt label_out/virus_2_final.txt
 ```
 
-<!-- TODO: paste the expected LABEL tables here once accessions are set -->
+<!-- TODO: paste the expected LABEL tables here -->
 ```text
                     VIRUS STRAIN                CLADE
    ...segment 1...                              A_PB2
@@ -183,7 +182,7 @@ cat segment_ani.tsv
 
 When FastANI has no result for a segment, the table records `below ~80% (no result)`.
 
-<!-- TODO: paste the expected per-segment table here once accessions are set -->
+<!-- TODO: paste the expected per-segment table here -->
 ```text
 segment   ANI
 PB2       ...
