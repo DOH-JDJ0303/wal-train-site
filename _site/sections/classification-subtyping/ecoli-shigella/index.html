@@ -94,16 +94,16 @@
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
-                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="nav-item-title">Activity: Influenza A subtypes</span>
-                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </a>
             </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
               <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
             </li></ul>
@@ -174,8 +174,7 @@
   </div>
 
   <div class="lesson-body activity-body" data-steps>
-    <!-- TODO (instructor): fill in the expected-output blocks marked TODO.
-     scripts/test-ecoli-shigella.sh runs the whole activity and prints them. -->
+    <!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
 <p>Two bacterial isolates have been reported as <strong><em>Shigella flexneri</em></strong>, and you’ve been asked to check whether they are the same species. In this activity you’ll compare them in three ways — overall genome similarity, a curated species classifier, and a check for the genes that define <em>Shigella</em> — and see why the first answer is misleading.</p>
 
@@ -243,7 +242,7 @@ unzip <span class="nt">-o</span> genomes.zip
 
 <p>The output has five columns: the query, the reference, the <strong>ANI</strong>, the number of fragments that matched, and the total number of fragments in the query.</p>
 
-<!-- TODO: paste the expected FastANI line here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected FastANI line here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isolate_A.fna    isolate_B.fna    ...
 </code></pre></div></div>
 
@@ -279,7 +278,7 @@ unzip <span class="nt">-o</span> genomes.zip
 
 <p>The columns show the isolate (<code class="language-plaintext highlighter-rouge">query</code>), GAMBIT’s prediction (<code class="language-plaintext highlighter-rouge">predicted.name</code>), and how specific the prediction is (<code class="language-plaintext highlighter-rouge">predicted.rank</code>). The full <code class="language-plaintext highlighter-rouge">gambit.csv</code> also lists the closest reference genome for each isolate.</p>
 
-<!-- TODO: paste the expected GAMBIT output here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected GAMBIT output here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>query,predicted.name,predicted.rank
 isolate_A,Escherichia coli,species
 isolate_B,...
@@ -351,7 +350,7 @@ ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-l</span> shigapass_list.txt <spa
   </tbody>
 </table>
 
-<!-- TODO: paste the expected ShigaPass summary here (scripts/test-ecoli-shigella.sh prints it) -->
+<!-- TODO: paste the expected ShigaPass summary here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name;ipaH;Predicted_Serotype;Predicted_FlexSerotype
 isolate_A;ipaH-;Not Shigella/EIEC;
 isolate_B;ipaH+;SF...;...

@@ -94,16 +94,16 @@
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
-                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="nav-item-title">Activity: Influenza A subtypes</span>
-                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </a>
             </li><li class="nav-item nav-item--activity current" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
               <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/" aria-current="page">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
+                <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+                <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
             </li></ul>
@@ -174,8 +174,7 @@
   </div>
 
   <div class="lesson-body activity-body" data-steps>
-    <!-- TODO (instructor): fill in the expected-output blocks marked TODO.
-     scripts/test-ecoli-mlst-floc.sh runs the whole activity and prints them. -->
+    <!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
 <p>Subtyping is often used as a first grouping step: isolates that share a type are compared in more detail, and isolates that don’t are set aside. In this activity you’ll see what happens when that first step gives the wrong answer.</p>
 
@@ -287,7 +286,7 @@ unzip <span class="nt">-o</span> <span class="nt">-q</span> ecoli.zip
 
 <p>Each line shows the file and its ST.</p>
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GCA_032856485.1.fna    ...
 GCA_040936765.1.fna    ...
 GCA_058079015.1.fna    ...
@@ -326,7 +325,7 @@ GCA_058079015.1.fna    ...
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cut</span> <span class="nt">-f</span> 1,3- mlst.tsv
 </code></pre></div></div>
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GCA_032856485.1.fna    ...    adk(...)  fumC(...)  gyrB(...)  icd(...)  mdh(...)  purA(...)  recA(...)
 ...
 </code></pre></div></div>
@@ -355,7 +354,7 @@ GCA_058079015.1.fna    ...
 
 <p><code class="language-plaintext highlighter-rouge">clusters.csv</code> lists each sample (<code class="language-plaintext highlighter-rouge">sid</code>) and its cluster number.</p>
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sid,cluster
 ...
 </code></pre></div></div>
@@ -371,7 +370,7 @@ GCA_058079015.1.fna    ...
 <span class="nb">join</span> <span class="nt">-t</span> <span class="s1">$'</span><span class="se">\t</span><span class="s1">'</span> st.tsv floc.tsv
 </code></pre></div></div>
 
-<!-- TODO: paste the expected output here (scripts/test-ecoli-mlst-floc.sh prints it) -->
+<!-- TODO: paste the expected output here -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sample             ST    floc
 GCA_032856485.1    ...   ...
 GCA_040936765.1    ...   ...
@@ -494,13 +493,12 @@ GCA_058079015.1    ...   ...
     <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
   </div>
 
-  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/influenza-subtypes/">
-    <span class="pager-dir">‹ Previous activity</span>
-    <span class="pager-title">One Species, Many Subtypes: Influenza A</span>
-  </a><a class="pager-link pager-next pager-finish" href="/training-site/course/">
-    <span class="pager-dir">Finished ›</span>
-    <span class="pager-title">Back to the course overview</span>
-  </a></nav>
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/subtyping/">
+    <span class="pager-dir">‹ Previous lecture</span>
+    <span class="pager-title">Subtyping Below the Species Level</span>
+  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+    <span class="pager-dir">Next activity ›</span>
+    <span class="pager-title">Optional: One Species, Many Subtypes: Influenza A</span></a></nav>
 
 </article>
 

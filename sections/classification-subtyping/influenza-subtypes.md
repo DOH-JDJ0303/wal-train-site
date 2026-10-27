@@ -1,9 +1,9 @@
 ---
 layout: activity
 section: classification-subtyping
-order: 5
-title: "One Species, Many Subtypes: Influenza A"
-nav_title: "Activity: Influenza A subtypes"
+order: 7
+title: "Optional: One Species, Many Subtypes: Influenza A"
+nav_title: "Optional activity: Influenza A"
 description: Compare two influenza A genomes with FastANI and classify their segments with CDC LABEL to see why one species can contain very different viruses.
 objectives:
   - Download influenza genomes from NCBI with the `datasets` command-line tool
@@ -17,6 +17,9 @@ prerequisites:
 ---
 
 <!-- Instructor note: virus_1 = GCF_000865725.1 (H1N1); virus_2 = GCF_000865085.1 (H3N2). -->
+
+> This activity is **optional**. It extends the ideas from the rest of the section to viruses, and nothing later in the course depends on it.
+{: .note}
 
 In the *E. coli* and *Shigella* activity, two bacteria with different names turned out to be nearly identical across the genome. In this activity you'll see the opposite: two viruses that belong to the **same species** — influenza A — but are far more different from each other than the ~95% ANI rule for bacteria would allow.
 

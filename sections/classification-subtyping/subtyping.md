@@ -101,4 +101,4 @@ Because these methods need no scheme or curated catalogue, they work for any org
 - Subtyping groups closely related samples so that **genome-wide analysis** compares like with like.
 - The same subtype is **not evidence of an outbreak** on its own — that requires the higher-resolution methods in the next course.
 
-In the next two activities you'll put this into practice: first classifying influenza A segments and subtypes with LABEL, then typing a set of *E. coli* isolates with both MLST and Floc.
+In the next activity you'll put this into practice by typing a set of *E. coli* isolates with both MLST and Floc. An optional activity at the end of the section classifies influenza A segments and subtypes with LABEL.
