@@ -172,31 +172,6 @@ flu-why-ha-na:
   question: "Why are HA and NA so much more different than the other segments, and what does this mean for how we classify influenza?"
   sample_answer: "HA and NA encode the surface proteins targeted by the immune system, so they change quickly, and the different subtypes have diverged a long way from one another. Because segments can also be swapped by reassortment, each segment has its own history. Since a single species contains such different viruses, influenza is described by subtype (from HA and NA), clade, and genotype rather than by species alone."
 
-abaum-st-count:
-  type: open
-  question: "How many different STs are in the dataset, and which ST is most common?"
-  sample_answer: "Most genomes belong to one dominant ST (typically ST2, International Clone 2), with a few genomes in other STs. A large share of a dataset falling into one ST is common for *A. baumannii* in healthcare settings."
-
-abaum-resolution:
-  type: choice
-  question: "How do Floc clusters relate to the most common ST?"
-  options:
-    - "The ST and the Floc cluster are always the same group"
-    - "The ST is split into several Floc clusters"
-    - "Each Floc cluster contains several different STs"
-  answer: 2
-  explanation: "Because Floc compares k-mers across the whole genome rather than seven genes, it can separate genomes that share an ST but differ elsewhere. Floc has **higher resolution** than MLST."
-
-abaum-stability:
-  type: choice
-  question: "When the same genomes were processed in a different order, which labels stayed the same?"
-  options:
-    - "Both the STs and the Floc cluster numbers"
-    - "The STs, but not necessarily the Floc cluster numbers"
-    - "The Floc cluster numbers, but not the STs"
-  answer: 2
-  explanation: "STs come from a global, curated database, so they never depend on the order in which genomes arrive. Floc finds the same groups, but numbers them in the order it discovers them, so a different history can give the same groups different numbers."
-
 ecoli-shigella-fastani:
   type: choice
   question: "Based on the ~95% ANI rule for bacteria, are the two isolates the same species?"
@@ -231,3 +206,39 @@ ecoli-shigella-why:
   type: open
   question: "In your own words, why did FastANI suggest the two isolates were the same species, when one is *E. coli* and the other is *Shigella*?"
   sample_answer: "Across the whole genome, *E. coli* and *Shigella* are so similar that they fall within one species boundary — *Shigella* lineages sit inside the *E. coli* family tree. The *Shigella* name depends on a few specific genes, such as *ipaH* and the serotype-defining genes, which a genome-wide identity score does not single out. A curated classifier like GAMBIT, and a targeted tool like ShigaPass, are needed to tell them apart."
+
+ecoli-st-compare:
+  type: choice
+  question: "If you only compared isolates that share an ST, which isolate would you leave out?"
+  options:
+    - "GCA_032856485.1"
+    - "GCA_040936765.1"
+    - "GCA_058079015.1"
+    - "None — they all share an ST"
+  answer: 2
+  explanation: "GCA_040936765.1 has a different ST from the other two, so an ST-based grouping would set it aside — even though it is only 12 and 18 SNPs from them across the whole genome."
+
+ecoli-st-alleles:
+  type: open
+  question: "How many of the seven alleles differ between GCA_040936765.1 and the other two isolates? How can isolates that are only 12–18 SNPs apart have different STs?"
+  sample_answer: "Only a small number of alleles differ — possibly just one. Each allele number stands for an exact gene sequence, so a single SNP in one of the seven MLST genes creates a new allele and therefore a new ST. ST numbers are labels for allele combinations, not measures of genome-wide distance."
+
+ecoli-floc-together:
+  type: choice
+  question: "Where did Floc place GCA_040936765.1?"
+  options:
+    - "In a cluster of its own"
+    - "In the same cluster as the other two isolates"
+    - "Nowhere — Floc could not cluster it"
+  answer: 2
+  explanation: "Floc grouped all three isolates together. It compares genomes directly across the whole genome, so isolates this closely related cluster together regardless of their ST."
+
+ecoli-floc-name:
+  type: choice
+  question: "If another laboratory clustered these same three isolates in its own Floc database, would it give them the same cluster number?"
+  options:
+    - "Yes — cluster numbers are fixed, like STs"
+    - "Not necessarily — numbers depend on each database's history"
+    - "Only if the isolates share an ST"
+  answer: 2
+  explanation: "Floc numbers clusters in the order it finds them within one database. Another laboratory — or a rebuilt database, or a different distance threshold — can find the same group of genomes and give it a different number. That is what makes cluster names harder to communicate than STs."

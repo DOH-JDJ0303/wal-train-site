@@ -7,8 +7,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree." />
-<meta name="twitter:description" property="og:description" content="Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree." />
+<meta name="description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli." />
+<meta name="twitter:description" property="og:description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli." />
 <link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
 <meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
 <meta property="og:site_name" content="Bioinformatics Training Course" />
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree.","headline":"When Names and Genomes Disagree: E. coli and Shigella","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli.","headline":"When Names and Genomes Disagree: E. coli and Shigella","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/training-site/assets/main.css">
   <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
@@ -157,12 +157,12 @@
     <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
   </p><h1 class="lesson-title">When Names and Genomes Disagree: E. coli and Shigella</h1>
   <div class="lesson-meta">
-    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Download two genome assemblies, identify their species with Mash and ShigaPass, measure their similarity with FastANI, and work out why the answers disagree.</p></header><div class="lesson-brief"><div class="brief-block">
+    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli.</p></header><div class="lesson-brief"><div class="brief-block">
     <h2 class="brief-heading">In this activity you will</h2>
-    <ul><li>Download genome assemblies from NCBI with the <code class="language-plaintext highlighter-rouge">datasets</code> command-line tool</li><li>Identify species from the closest RefSeq genome with Mash</li><li>Identify <em>Shigella</em> and its serotype with ShigaPass</li><li>Measure genome-wide similarity with FastANI</li><li>Explain why whole-genome methods struggle to separate <em>E. coli</em> from <em>Shigella</em></li></ul>
+    <ul><li>Download genome assemblies from NCBI with the <code class="language-plaintext highlighter-rouge">datasets</code> command-line tool</li><li>Compare genomes with FastANI and interpret the ~95% ANI species threshold</li><li>Identify species with GAMBIT</li><li>Confirm <em>Shigella</em> identification and serotype with ShigaPass</li><li>Explain why genome-wide similarity cannot separate <em>E. coli</em> from <em>Shigella</em></li></ul>
   </div><div class="brief-block">
     <h2 class="brief-heading">Before you start</h2>
-    <ul><li>Completed the lecture <a href="../species-identification/">Genome-Based Species Identification</a></li><li>A Linux, macOS, or WSL terminal with <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">micromamba</a> installed</li><li>Several GB of free disk space for the Mash reference database</li></ul>
+    <ul><li>Completed the lecture <a href="../species-identification/">Genome-Based Species Identification</a></li><li>A Linux, macOS, or WSL terminal with <a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">micromamba</a> installed</li><li>A few GB of free disk space for the GAMBIT database</li></ul>
   </div></div>
 
   <div class="activity-progress" data-activity-progress hidden>
@@ -177,13 +177,13 @@
     <!-- TODO (instructor): fill in the expected-output blocks marked TODO.
      scripts/test-ecoli-shigella.sh runs the whole activity and prints them. -->
 
-<p>You have two bacterial genome assemblies from NCBI. In this activity you’ll identify their species in two different ways — by finding the most similar genome in a large reference database, and by looking for the specific genes that define <em>Shigella</em> — and compare the answers. Along the way you’ll see why <em>Escherichia coli</em> and <em>Shigella</em>, named as different genera, are one of the most confusing cases in bacterial taxonomy.</p>
+<p>Two bacterial isolates have been reported as <strong><em>Shigella flexneri</em></strong>, and you’ve been asked to check whether they are the same species. In this activity you’ll compare them in three ways — overall genome similarity, a curated species classifier, and a check for the genes that define <em>Shigella</em> — and see why the first answer is misleading.</p>
 
 <h2 id="set-up-the-software">Set up the software</h2>
 
-<p>Create a micromamba environment with the NCBI <code class="language-plaintext highlighter-rouge">datasets</code> tool, Mash, FastANI, and BLAST (which ShigaPass needs):</p>
+<p>Create a micromamba environment with the NCBI <code class="language-plaintext highlighter-rouge">datasets</code> tool, FastANI, GAMBIT, and BLAST (which ShigaPass needs):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micromamba create <span class="nt">-y</span> <span class="nt">-n</span> species-id <span class="nt">-c</span> conda-forge <span class="nt">-c</span> bioconda ncbi-datasets-cli mash fastani blast
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micromamba create <span class="nt">-y</span> <span class="nt">-n</span> species-id <span class="nt">-c</span> conda-forge <span class="nt">-c</span> bioconda ncbi-datasets-cli fastani gambit blast
 micromamba activate species-id
 </code></pre></div></div>
 
@@ -197,27 +197,29 @@ git clone https://github.com/imanyass/ShigaPass.git
 <p>Check that each tool runs:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datasets <span class="nt">--version</span>
-mash <span class="nt">--version</span>
 fastANI <span class="nt">--version</span>
+gambit <span class="nt">--version</span>
 ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-v</span>
 </code></pre></div></div>
 
-<h2 id="download-the-mash-reference-database">Download the Mash reference database</h2>
+<h2 id="download-the-gambit-database">Download the GAMBIT database</h2>
 
-<p>Mash compares your genomes against a pre-built <em>sketch</em> of every genome in NCBI RefSeq. Download it into a <code class="language-plaintext highlighter-rouge">db</code> folder. The file is large, so this step can take a while.</p>
+<p>GAMBIT compares genomes against a curated database of RefSeq genomes. The database is two files; download both into a <code class="language-plaintext highlighter-rouge">db</code> folder. They are large, so this step can take a while.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> db
-curl <span class="nt">-L</span> <span class="nt">-o</span> db/refseq.genomes.k21s1000.msh <span class="se">\</span>
-  https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh
+<span class="k">for </span>f <span class="k">in </span>gambit-refseq-curated-1.0.gdb gambit-refseq-curated-1.0.gs<span class="p">;</span> <span class="k">do
+  </span>curl <span class="nt">-L</span> <span class="nt">-o</span> db/<span class="nv">$f</span> <span class="se">\</span>
+    https://storage.googleapis.com/jlumpe-gambit/public/databases/refseq-curated/1.0/<span class="nv">$f</span>
+<span class="k">done</span>
 </code></pre></div></div>
 
 <blockquote class="tip">
-  <p>If the download stops part-way, rerun the same <code class="language-plaintext highlighter-rouge">curl</code> command with <code class="language-plaintext highlighter-rouge">-C -</code> added to resume it.</p>
+  <p>If a download stops part-way, rerun the loop with <code class="language-plaintext highlighter-rouge">-C -</code> added to the <code class="language-plaintext highlighter-rouge">curl</code> command to resume it.</p>
 </blockquote>
 
 <h2 id="download-the-two-assemblies">Download the two assemblies</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">datasets</code> tool downloads genomes from NCBI by accession number. Download both assemblies in one package:</p>
+<p>The <code class="language-plaintext highlighter-rouge">datasets</code> tool downloads genomes from NCBI by accession number. Download both isolates in one package:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datasets download genome accession GCA_052160995.1 GCA_055444035.1 <span class="se">\</span>
   <span class="nt">--include</span> genome <span class="nt">--filename</span> genomes.zip
@@ -226,54 +228,75 @@ unzip <span class="nt">-o</span> genomes.zip
 
 <p><code class="language-plaintext highlighter-rouge">datasets</code> puts each assembly in its own folder under <code class="language-plaintext highlighter-rouge">ncbi_dataset/data/</code>. Copy them to short, simple names:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ncbi_dataset/data/GCA_052160995.1/<span class="k">*</span>_genomic.fna genome_A.fna
-<span class="nb">cp </span>ncbi_dataset/data/GCA_055444035.1/<span class="k">*</span>_genomic.fna genome_B.fna
-<span class="nb">ls</span> <span class="nt">-lh</span> genome_<span class="k">*</span>.fna
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ncbi_dataset/data/GCA_052160995.1/<span class="k">*</span>_genomic.fna isolate_A.fna
+<span class="nb">cp </span>ncbi_dataset/data/GCA_055444035.1/<span class="k">*</span>_genomic.fna isolate_B.fna
+<span class="nb">ls</span> <span class="nt">-lh</span> isolate_<span class="k">*</span>.fna
 </code></pre></div></div>
 
-<blockquote class="note">
-  <p>We won’t look at the species names attached to these assemblies yet. The point is to see what each method concludes on its own.</p>
-</blockquote>
+<h2 id="compare-the-two-isolates-with-fastani">Compare the two isolates with FastANI</h2>
 
-<h2 id="identify-the-species-with-mash">Identify the species with Mash</h2>
+<p>If both isolates are <em>S. flexneri</em>, their genomes should be very similar. Check with <strong>FastANI</strong>, which estimates average nucleotide identity (ANI). FastANI cuts the query genome into 3,000 bp fragments, finds the matching region for each one in the reference genome, and averages the identity of the matches.</p>
 
-<p>Compare each genome to every genome in the RefSeq sketch. <code class="language-plaintext highlighter-rouge">mash dist</code> reports the reference, the query, the Mash distance, a p-value, and the number of shared hashes. Sorting on the distance (column 3) puts the closest genomes first:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>g <span class="k">in </span>genome_A genome_B<span class="p">;</span> <span class="k">do
-  </span>mash dist db/refseq.genomes.k21s1000.msh <span class="nv">$g</span>.fna | <span class="nb">sort</span> <span class="nt">-gk3</span> <span class="o">&gt;</span> <span class="nv">$g</span>.mash.tsv
-<span class="k">done</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastANI <span class="nt">-q</span> isolate_A.fna <span class="nt">-r</span> isolate_B.fna <span class="nt">-o</span> isolates_ani.txt
+<span class="nb">cat </span>isolates_ani.txt
 </code></pre></div></div>
 
-<p>The reference IDs are file names, not species names. The species names are stored in the sketch’s metadata. Extract the metadata once, then print the five closest genomes for each assembly with their distance and description:</p>
+<p>The output has five columns: the query, the reference, the <strong>ANI</strong>, the number of fragments that matched, and the total number of fragments in the query.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mash info <span class="nt">-t</span> db/refseq.genomes.k21s1000.msh <span class="o">&gt;</span> db/refseq.info.tsv
-<span class="k">for </span>g <span class="k">in </span>genome_A genome_B<span class="p">;</span> <span class="k">do
-  </span><span class="nb">echo</span> <span class="s2">"== </span><span class="nv">$g</span><span class="s2">"</span>
-  <span class="nb">head</span> <span class="nt">-n</span> 5 <span class="nv">$g</span>.mash.tsv |
-    <span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">'\t'</span> <span class="s1">'NR == FNR { desc[$3] = $4; next } { print $3 "\t" desc[$1] }'</span> <span class="se">\</span>
-      db/refseq.info.tsv -
-<span class="k">done</span>
+<!-- TODO: paste the expected FastANI line here (scripts/test-ecoli-shigella.sh prints it) -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isolate_A.fna    isolate_B.fna    ...
 </code></pre></div></div>
 
-<!-- TODO: paste the expected top hits here (scripts/test-ecoli-shigella.sh prints them) -->
-<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>== genome_A
-0.00...    [...] NZ_... Shigella flexneri ...
-== genome_B
-...
-</code></pre></div></div>
+<p>For bacteria, genomes that share about <strong>95% ANI or more</strong> are usually considered the same species.</p>
 
-<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-mash" data-correct="2">
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-fastani" data-correct="1">
   <p class="question-label">Question</p>
-  <div class="question-text"><p>According to Mash, what species is the closest RefSeq genome to <strong>genome A</strong>?</p>
+  <div class="question-text"><p>Based on the ~95% ANI rule for bacteria, are the two isolates the same species?</p>
 </div><fieldset class="question-options">
     <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
-      <input type="radio" name="q-ecoli-shigella-mash" value="1" />
-      <span><em>Escherichia coli</em></span>
+      <input type="radio" name="q-ecoli-shigella-fastani" value="1" />
+      <span>Yes — they share more than 95% ANI</span>
     </label><label class="question-option">
-      <input type="radio" name="q-ecoli-shigella-mash" value="2" />
+      <input type="radio" name="q-ecoli-shigella-fastani" value="2" />
+      <span>No — they share less than 95% ANI</span>
+    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
+    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
+    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
+
+  <div class="question-feedback" role="status" aria-live="polite"></div>
+
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Yes — they share more than 95% ANI</p><div class="question-why"><p>The isolates share well over 95% ANI, so by the usual genomic definition they look like the same species. Keep that in mind for the next step.</p>
+</div></div>
+</div>
+
+<h2 id="identify-each-isolate-with-gambit">Identify each isolate with GAMBIT</h2>
+
+<p>FastANI tells you how similar the two isolates are to <em>each other</em>, but not what they are. To identify each one, classify them with <strong>GAMBIT</strong>, which compares each genome to its curated reference database and applies a separate distance threshold for every species:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gambit <span class="nt">-d</span> db query <span class="nt">-o</span> gambit.csv isolate_A.fna isolate_B.fna
+<span class="nb">cut</span> <span class="nt">-d</span>, <span class="nt">-f</span> 1-3 gambit.csv
+</code></pre></div></div>
+
+<p>The columns show the isolate (<code class="language-plaintext highlighter-rouge">query</code>), GAMBIT’s prediction (<code class="language-plaintext highlighter-rouge">predicted.name</code>), and how specific the prediction is (<code class="language-plaintext highlighter-rouge">predicted.rank</code>). The full <code class="language-plaintext highlighter-rouge">gambit.csv</code> also lists the closest reference genome for each isolate.</p>
+
+<!-- TODO: paste the expected GAMBIT output here (scripts/test-ecoli-shigella.sh prints it) -->
+<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>query,predicted.name,predicted.rank
+isolate_A,Escherichia coli,species
+isolate_B,...
+</code></pre></div></div>
+
+<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-gambit" data-correct="2">
+  <p class="question-label">Question</p>
+  <div class="question-text"><p>What does GAMBIT identify <strong>isolate A</strong> as?</p>
+</div><fieldset class="question-options">
+    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-gambit" value="1" />
       <span><em>Shigella flexneri</em></span>
     </label><label class="question-option">
-      <input type="radio" name="q-ecoli-shigella-mash" value="3" />
+      <input type="radio" name="q-ecoli-shigella-gambit" value="2" />
+      <span><em>Escherichia coli</em></span>
+    </label><label class="question-option">
+      <input type="radio" name="q-ecoli-shigella-gambit" value="3" />
       <span><em>Salmonella enterica</em></span>
     </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
     <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
@@ -281,13 +304,13 @@ unzip <span class="nt">-o</span> genomes.zip
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> <em>Shigella flexneri</em></p><div class="question-why"><p>The nearest RefSeq genome to genome A is labeled <em>Shigella flexneri</em>, so a top-hit approach would report genome A as <em>S. flexneri</em>. Keep this in mind as you run ShigaPass.</p>
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> <em>Escherichia coli</em></p><div class="question-why"><p>GAMBIT identifies isolate A as <em>E. coli</em>, even though it was reported as <em>S. flexneri</em> and shares more than 95% ANI with a <em>S. flexneri</em> isolate.</p>
 </div></div>
 </div>
 
-<h2 id="identify-the-species-with-shigapass">Identify the species with ShigaPass</h2>
+<h2 id="confirm-with-shigapass">Confirm with ShigaPass</h2>
 
-<p>ShigaPass is built specifically to tell <em>Shigella</em> apart from <em>E. coli</em>. Instead of comparing whole genomes, it looks for particular genes:</p>
+<p>Two tools now disagree about isolate A: by ANI it belongs with a <em>Shigella flexneri</em> isolate, but GAMBIT calls it <em>E. coli</em>. <strong>ShigaPass</strong> settles the question by looking for the genes that define <em>Shigella</em>, rather than overall similarity:</p>
 
 <ul>
   <li><strong><em>ipaH</em></strong>, an invasion gene carried by <em>Shigella</em> and by enteroinvasive <em>E. coli</em> (EIEC), but not by other <em>E. coli</em></li>
@@ -297,13 +320,13 @@ unzip <span class="nt">-o</span> genomes.zip
 
 <p>ShigaPass takes a text file listing the full paths to the assemblies. On the first run, add <code class="language-plaintext highlighter-rouge">-u</code> to build its internal databases:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">readlink</span> <span class="nt">-f</span> genome_A.fna genome_B.fna <span class="o">&gt;</span> shigapass_list.txt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">readlink</span> <span class="nt">-f</span> isolate_A.fna isolate_B.fna <span class="o">&gt;</span> shigapass_list.txt
 ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-l</span> shigapass_list.txt <span class="nt">-o</span> shigapass_results <span class="se">\</span>
   <span class="nt">-p</span> ShigaPass/SCRIPT/ShigaPass_DataBases <span class="nt">-u</span>
 <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">';'</span> <span class="nt">-f</span> 1,7,8,9 shigapass_results/ShigaPass_summary.csv
 </code></pre></div></div>
 
-<p>The last command shows the four columns that matter here: the genome (<code class="language-plaintext highlighter-rouge">Name</code>), whether <em>ipaH</em> was found, and the predicted serotype. The prediction is one of three kinds:</p>
+<p>The last command shows the four columns that matter here: the isolate (<code class="language-plaintext highlighter-rouge">Name</code>), whether <em>ipaH</em> was found, and the predicted serotype. The prediction is one of three kinds:</p>
 
 <table>
   <thead>
@@ -330,8 +353,8 @@ ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-l</span> shigapass_list.txt <spa
 
 <!-- TODO: paste the expected ShigaPass summary here (scripts/test-ecoli-shigella.sh prints it) -->
 <div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name;ipaH;Predicted_Serotype;Predicted_FlexSerotype
-genome_A;ipaH-;Not Shigella/EIEC;
-genome_B;ipaH+;...;...
+isolate_A;ipaH-;Not Shigella/EIEC;
+isolate_B;ipaH+;SF...;...
 </code></pre></div></div>
 
 <div class="question question--choice" data-question="choice" id="q-ecoli-shigella-ipah" data-correct="2">
@@ -359,14 +382,14 @@ genome_B;ipaH+;...;...
 
 <div class="question question--choice" data-question="choice" id="q-ecoli-shigella-which" data-correct="2">
   <p class="question-label">Question</p>
-  <div class="question-text"><p>Based on ShigaPass, which genome is <em>Shigella</em>?</p>
+  <div class="question-text"><p>Based on ShigaPass, which isolate is <em>Shigella</em>?</p>
 </div><fieldset class="question-options">
     <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
       <input type="radio" name="q-ecoli-shigella-which" value="1" />
-      <span>Genome A</span>
+      <span>Isolate A</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-shigella-which" value="2" />
-      <span>Genome B</span>
+      <span>Isolate B</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-shigella-which" value="3" />
       <span>Both</span>
@@ -379,67 +402,29 @@ genome_B;ipaH+;...;...
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Genome B</p><div class="question-why"><p>Only genome B carries <em>ipaH</em> and <em>Shigella</em> serotype genes. Genome A lacks them, so it is <em>E. coli</em> — even though its closest RefSeq genome is labeled <em>S. flexneri</em>.</p>
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Isolate B</p><div class="question-why"><p>Only isolate B carries <em>ipaH</em> and <em>Shigella</em> serotype genes. Isolate A lacks them, confirming GAMBIT’s call: it is <em>E. coli</em>.</p>
 </div></div>
 </div>
 
-<h2 id="measure-how-similar-the-genomes-really-are">Measure how similar the genomes really are</h2>
+<h2 class="no-step" id="what-happened">What happened?</h2>
 
-<p>So far, each tool has given a <em>label</em>. Now measure how similar the two genomes actually are with <strong>FastANI</strong>, which estimates average nucleotide identity (ANI). FastANI cuts the query genome into 3,000 bp fragments, finds the matching region for each one in the reference genome, and averages the identity of the matches.</p>
+<p>Both isolates were reported as <em>S. flexneri</em>, and FastANI placed them comfortably within the same species. Yet isolate A turned out to be <em>E. coli</em>: GAMBIT identified it as <em>E. coli</em>, and ShigaPass found none of the genes that define <em>Shigella</em>. Isolate B is the true <em>S. flexneri</em>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastANI <span class="nt">-q</span> genome_A.fna <span class="nt">-r</span> genome_B.fna <span class="nt">-o</span> ecoli_shigella_ani.txt
-<span class="nb">cat </span>ecoli_shigella_ani.txt
-</code></pre></div></div>
+<p><strong>Genome-wide, <em>Shigella</em> is <em>E. coli</em>.</strong> By whole-genome similarity, <em>E. coli</em> and the four <em>Shigella</em> species fall within a single species boundary, and <em>Shigella</em> lineages sit <em>within</em> the <em>E. coli</em> family tree. <em>Shigella</em> is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes — most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species, so <strong>an ANI above 95% cannot tell <em>E. coli</em> and <em>Shigella</em> apart</strong>.</p>
 
-<p>The output has five columns: the query, the reference, the <strong>ANI</strong>, the number of fragments that matched, and the total number of fragments in the query.</p>
+<p><strong>GAMBIT uses a curated database and species-specific thresholds.</strong> Rather than applying one cutoff to everything, GAMBIT sets a separate distance threshold for each species based on how diverse that species is, and its reference set is curated to keep names consistent. That lets it separate groups that overlap genome-wide, where a single ANI threshold cannot.</p>
 
-<!-- TODO: paste the expected FastANI line here (scripts/test-ecoli-shigella.sh prints it) -->
-<div class="language-text output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genome_A.fna    genome_B.fna    ...
-</code></pre></div></div>
-
-<div class="question question--choice" data-question="choice" id="q-ecoli-shigella-fastani" data-correct="1">
-  <p class="question-label">Question</p>
-  <div class="question-text"><p>Is the ANI between the two genomes above or below the ~95% threshold normally used to define a bacterial species?</p>
-</div><fieldset class="question-options">
-    <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
-      <input type="radio" name="q-ecoli-shigella-fastani" value="1" />
-      <span>Above — by genome-wide similarity they are the same species</span>
-    </label><label class="question-option">
-      <input type="radio" name="q-ecoli-shigella-fastani" value="2" />
-      <span>Below — they are clearly different species</span>
-    </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
-    <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
-    <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
-
-  <div class="question-feedback" role="status" aria-live="polite"></div>
-
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Above — by genome-wide similarity they are the same species</p><div class="question-why"><p>The two genomes share well over 95% ANI. By the usual genomic definition of a bacterial species, <em>E. coli</em> and <em>Shigella</em> are one species, even though they carry different genus names.</p>
-</div></div>
-</div>
-
-<blockquote class="note">
-  <p>For comparison, FastANI’s own documentation reports an ANI of about 97.8% between <em>Shigella flexneri</em> 2a and <em>E. coli</em> K-12 — well above the ~95% line normally used to separate bacterial species.</p>
-</blockquote>
-
-<h2 class="no-step" id="why-did-the-answers-disagree">Why did the answers disagree?</h2>
-
-<p>Mash’s closest RefSeq genome for genome A is labeled <em>Shigella flexneri</em>, yet ShigaPass found no <em>ipaH</em> and no <em>Shigella</em> serotype genes in it. Genome A is an <em>E. coli</em> that the nearest-genome approach misidentified as <em>S. flexneri</em>; genome B is the true <em>Shigella</em>. Neither tool is broken — they are answering different questions.</p>
-
-<p><strong>Genome-wide, <em>Shigella</em> is <em>E. coli</em>.</strong> As your FastANI result shows, by whole-genome similarity <em>E. coli</em> and the four <em>Shigella</em> species fall within a single species boundary (around 95% average nucleotide identity), and <em>Shigella</em> lineages sit <em>within</em> the <em>E. coli</em> family tree. <em>Shigella</em> is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes — most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species.</p>
-
-<p><strong>Mash reports the nearest labeled genome.</strong> A Mash top hit is simply the closest genome in the database, and the “species” is whatever name that reference genome carries. Because <em>E. coli</em> and <em>Shigella</em> are intermixed across the same family tree, the closest genome to an <em>E. coli</em> can easily be one labeled <em>Shigella</em> — and the reverse. The distance is small either way. Reference labels are also not always correct, which adds to the problem.</p>
-
-<p><strong>ShigaPass checks the genes that define the name.</strong> Because the <em>Shigella</em> label rests on specific genes rather than overall similarity, a targeted tool that looks for <em>ipaH</em> and the serotype-defining <em>rfb</em> genes is the right way to decide. Even <em>ipaH</em> alone is not enough, because EIEC carries it too; ShigaPass combines several markers to separate <em>Shigella</em> from EIEC.</p>
+<p><strong>ShigaPass checks the genes that define the name.</strong> Because the <em>Shigella</em> label rests on specific genes rather than overall similarity, a targeted tool that looks for <em>ipaH</em> and the serotype-defining <em>rfb</em> genes is the most direct way to confirm it. Even <em>ipaH</em> alone is not enough, because EIEC carries it too; ShigaPass combines several markers to separate <em>Shigella</em> from EIEC.</p>
 
 <div class="question question--open" data-question="open" id="q-ecoli-shigella-why">
   <p class="question-label">Question</p>
-  <div class="question-text"><p>In your own words, why did Mash call genome A <em>Shigella flexneri</em> when it is actually <em>E. coli</em>?</p>
+  <div class="question-text"><p>In your own words, why did FastANI suggest the two isolates were the same species, when one is <em>E. coli</em> and the other is <em>Shigella</em>?</p>
 </div><label class="visually-hidden" for="q-ecoli-shigella-why-input">Your notes</label>
   <textarea class="question-input question-notes" id="q-ecoli-shigella-why-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Across the whole genome, <em>E. coli</em> and <em>Shigella</em> are so similar that they fall inside one species boundary and are intermixed on the same family tree. Mash reports the name of the closest genome in RefSeq, and for this <em>E. coli</em> the closest genome happens to be labeled <em>S. flexneri</em>. The <em>Shigella</em> name depends on a few specific genes such as <em>ipaH</em> and the serotype genes, which a genome-wide distance does not single out — so a targeted tool like ShigaPass is needed to decide.</p>
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Across the whole genome, <em>E. coli</em> and <em>Shigella</em> are so similar that they fall within one species boundary — <em>Shigella</em> lineages sit inside the <em>E. coli</em> family tree. The <em>Shigella</em> name depends on a few specific genes, such as <em>ipaH</em> and the serotype-defining genes, which a genome-wide identity score does not single out. A curated classifier like GAMBIT, and a targeted tool like ShigaPass, are needed to tell them apart.</p>
 </div></div>
 </div>
 
@@ -447,9 +432,9 @@ genome_B;ipaH+;...;...
 
 <ul>
   <li>A species name is only as consistent as the definition behind it. <em>E. coli</em> and <em>Shigella</em> are separated by a few genes, not by genome-wide distance.</li>
-  <li>Nearest-genome methods are excellent for most species calls, but their answer is only as good as the reference labels behind them.</li>
-  <li>When a species call drives the public health response — shigellosis and <em>E. coli</em> infections are reported and investigated differently — confirm it with an organism-specific tool.</li>
-  <li>The species call decides what comes next: the reference genome, the typing scheme, and which samples are compared. An error here carries through every later step.</li>
+  <li>The ~95% ANI rule works for most bacteria, but not here: two isolates can pass it and still carry different genus names.</li>
+  <li>Classifiers built on curated references and species-specific thresholds, such as GAMBIT, handle these cases better than a single cutoff — but for organisms where a few genes define the name, confirm with an organism-specific tool like ShigaPass.</li>
+  <li>The species call drives the public health response — shigellosis and <em>E. coli</em> infections are reported and investigated differently — and decides what comes next: the reference genome, the typing scheme, and which samples are compared.</li>
 </ul>
 
   </div>

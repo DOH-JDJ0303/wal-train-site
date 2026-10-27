@@ -66,7 +66,7 @@ The basic approach is:
 2. **Calculate pairwise distances** between genomes from their shared k-mers.
 3. **Group genomes** that fall within a chosen distance threshold of one another.
 
-Because these methods need no scheme, they work for any organism with genome sequences, and they can be tuned to a finer or coarser resolution than a fixed scheme provides.
+Because these methods need no scheme or curated catalogue, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced — without waiting for anyone to assign it a name.
 
 | Tool | How it measures distance | Clustering and naming |
 |------|--------------------------|-----------------------|
@@ -101,4 +101,4 @@ Because these methods need no scheme, they work for any organism with genome seq
 - Subtyping groups closely related samples so that **genome-wide analysis** compares like with like.
 - The same subtype is **not evidence of an outbreak** on its own — that requires the higher-resolution methods in the next course.
 
-In the next two activities you'll put this into practice: first classifying influenza A segments and subtypes with LABEL, then typing a set of *Acinetobacter baumannii* genomes with both MLST and Floc.
+In the next two activities you'll put this into practice: first classifying influenza A segments and subtypes with LABEL, then typing a set of *E. coli* isolates with both MLST and Floc.
