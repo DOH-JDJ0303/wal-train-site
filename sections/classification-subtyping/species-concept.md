@@ -49,11 +49,21 @@ This works well for most bacteria, but there are well-known exceptions where nam
 
 ## Viruses: species can be very diverse
 
-Viral species are defined differently, and the ~95% identity idea does not carry over. A single viral species can contain viruses that are genetically very different from one another.
+Virus taxa are classified and named by the **International Committee on Taxonomy of Viruses (ICTV)**, which "is solely responsible for the classification of viruses into taxa and naming them" [1]. The ICTV defines a virus species as:
+
+> "a monophyletic group of viruses whose properties can be distinguished from those of other species by multiple criteria" [1]
+
+The definition does not say which criteria to use. Expert study groups for each virus family set their own, which can include sequence identity, host range, genome organization, and disease, and these criteria have not been applied consistently: there is "considerable variation in the way in which these criteria have been applied to viruses in different families" [1]. There is no single identity threshold like the ~95% ANI used for bacteria, and a single viral species can contain viruses that are genetically very different from one another.
 
 **Influenza A is a clear example.** All influenza A viruses belong to one species (*Alphainfluenzavirus influenzae* in current virus taxonomy), yet that species includes many hemagglutinin (HA) and neuraminidase (NA) subtypes, including H1N1, H3N2, and H5N1. HA genes from different subtypes differ far more than two bacteria of the same species would. Influenza viruses can also swap whole gene segments (reassortment), so different segments of the same virus can have different histories.
 
 For influenza, then, "species" tells us relatively little on its own. The useful information comes from the next level down: subtype, lineage, clade, and genotype.
+
+<details class="hint" markdown="1">
+<summary>References for this section</summary>
+
+1. Simmonds P, Adams MJ, Benkő M, *et al.* (2017). Consensus statement: Virus taxonomy in the age of metagenomics. *Nature Reviews Microbiology* 15:161–168. [doi:10.1038/nrmicro.2016.177](https://doi.org/10.1038/nrmicro.2016.177)
+</details>
 
 ## Fungi: phases, names, and hybrids
 
