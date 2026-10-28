@@ -6,7 +6,11 @@ title: Genome-Based Species Identification
 description: "From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short."
 ---
 
-## Single-gene identification: 16S rRNA
+## Single-gene identification
+
+Before whole genomes were routine, organisms were identified by sequencing a single **marker gene**: one that is found in every member of a group, is conserved enough to amplify with the same primers, and varies enough to tell taxa apart. Which marker works depends on the kind of organism, and for viruses there is no universal one.
+
+### Bacteria: 16S rRNA
 
 The 16S ribosomal RNA gene is present in all bacteria and contains conserved regions, which make it easy to amplify, alongside variable regions that differ between taxa. For decades it was the standard molecular method for bacterial identification, and it remains widely used for mixed-community (amplicon) studies.
 
@@ -34,7 +38,7 @@ Many genomes also carry several copies of the 16S gene (up to 15), and in most g
 9. Chun J, *et al.* (2018). Proposed minimal standards for the use of genome data for the taxonomy of prokaryotes. *International Journal of Systematic and Evolutionary Microbiology* 68:461–466. [doi:10.1099/ijsem.0.002516](https://doi.org/10.1099/ijsem.0.002516)
 </details>
 
-## Single-gene identification for fungi: ITS
+### Fungi: ITS
 
 Fungi do not have a 16S gene. Their ribosomal RNA genes are arranged differently, and the region most used for identification is the **internal transcribed spacer (ITS)**: two spacer regions (ITS1 and ITS2) that sit between the ribosomal RNA genes and are removed when the RNA is processed.
 
@@ -59,6 +63,18 @@ As with bacteria, whole-genome methods avoid most of these problems when a genom
 1. Schoch CL, *et al.* (2012). Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi. *PNAS* 109:6241–6246. [doi:10.1073/pnas.1117018109](https://doi.org/10.1073/pnas.1117018109)
 2. Geiser DM, *et al.* (2007). The current status of species recognition and identification in *Aspergillus*. *Studies in Mycology* 59:1–10. [doi:10.3114/sim.2007.59.01](https://doi.org/10.3114/sim.2007.59.01)
 3. Stengel A, Stanke KM, Quattrone AC, Herr JR (2022). Improving taxonomic delimitation of fungal species in the age of genomics and phenomics. *Frontiers in Microbiology* 13:847067. [doi:10.3389/fmicb.2022.847067](https://doi.org/10.3389/fmicb.2022.847067)
+</details>
+
+### Viruses: no universal marker gene
+
+Viruses have no equivalent of 16S rRNA or ITS. They do not have ribosomes of their own, and no gene is shared by all viruses: as a consensus statement on virus taxonomy puts it, "viruses lack universal genes that can be used to construct a unified phylogeny" [1].
+
+Conserved genes can still be useful **within** particular groups. Examples include the RNA-dependent RNA polymerase (RdRp) of RNA viruses and the replication-associated protein (Rep) of many small circular DNA viruses [1]. But no single gene can identify any virus, so viral identification relies on targets specific to a virus or virus family, or on the whole genome, followed by lower-level labels such as subtype or clade (as with influenza).
+
+<details class="hint" markdown="1">
+<summary>References for this section</summary>
+
+1. Simmonds P, Adams MJ, Benkő M, *et al.* (2017). Consensus statement: Virus taxonomy in the age of metagenomics. *Nature Reviews Microbiology* 15:161–168. [doi:10.1038/nrmicro.2016.177](https://doi.org/10.1038/nrmicro.2016.177)
 </details>
 
 ## Whole-genome identification with k-mers
