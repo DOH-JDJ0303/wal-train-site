@@ -35,7 +35,9 @@ As a result, two organisms in the "same species" may be far more different from 
 
 ## Bacteria: the ~95% ANI convention
 
-For bacteria, the most widely used genomic yardstick is **average nucleotide identity (ANI)**: the average identity of the regions two genomes share. Genomes that share roughly **95–96% ANI** or more are generally considered the same species.
+The names of bacteria (and archaea) follow the **International Code of Nomenclature of Prokaryotes**, which sets the rules for how names are formed, published, and used [1]. The Code governs *names*, not where species boundaries fall: it does not define what a species is, and it states that "Nothing in this Code may be construed to restrict the freedom of taxonomic thought or action" [1]. How bacterial species are defined is ultimately up to the scientific community, through published species descriptions and the methods that come into common use.
+
+Today, the most widely used genomic yardstick is **average nucleotide identity (ANI)**: the average identity of the regions two genomes share. Genomes that share roughly **95–96% ANI** or more are generally considered the same species [2]. Pairs of genomes between about 85% and 95% ANI are comparatively rare, which is why this threshold works for most species, but the authors of an ANI user's guide recommend adjusting it when a group's own ANI values show the gap in a different place [2].
 
 This works well for most bacteria, but there are well-known exceptions where names and genomes disagree:
 
@@ -46,6 +48,13 @@ This works well for most bacteria, but there are well-known exceptions where nam
 
 > The ANI threshold is a convention that fits most bacteria, not a law of nature. When a species call looks surprising, check whether the organism belongs to a group where names and genomic boundaries are known to disagree.
 {: .note}
+
+<details class="hint" markdown="1">
+<summary>References for this section</summary>
+
+1. Oren A, Arahal DR, Göker M, Moore ERB, Rosselló-Móra R, Sutcliffe IC (2023). International Code of Nomenclature of Prokaryotes. Prokaryotic Code (2022 Revision). *International Journal of Systematic and Evolutionary Microbiology* 73:005585. [doi:10.1099/ijsem.0.005585](https://doi.org/10.1099/ijsem.0.005585)
+2. Rodriguez-R LM, Viver T, Conrad RE, Aldeguer-Riquelme B, Hatt JK, Amann R, Rosselló-Móra R, Konstantinidis KT. A user's guide to the bioinformatic analysis of ANI and other genome sequence data for prokaryotic species description. In *Bergey's Manual of Systematics of Archaea and Bacteria*. [doi:10.1002/9781118960608.bm00056](https://doi.org/10.1002/9781118960608.bm00056)
+</details>
 
 ## Viruses: species can be very diverse
 
