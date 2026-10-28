@@ -774,8 +774,8 @@ hr {
 }
 
 .site-logo {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
 }
 
 .site-nav {
@@ -835,6 +835,20 @@ hr {
   margin: 1.1rem 0 0;
   font-size: 0.8rem;
   color: #6C6963;
+}
+
+.footer-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2E2B25;
+  margin: 0 0 0.8rem;
+}
+
+.site-nav .hub-link {
+  color: #8B651C;
+  font-weight: 600;
 }
 
 .btn-link {

@@ -3,31 +3,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Catalogued Names vs. Agnostic Clusters: MLST and Floc | Bioinformatics Training Course</title>
+<title>Cataloged Names vs. Agnostic Clusters: MLST and Floc | Microbial Population Genomics and Phylogenetics</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Catalogued Names vs. Agnostic Clusters: MLST and Floc" />
+<meta property="og:title" content="Cataloged Names vs. Agnostic Clusters: MLST and Floc" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared." />
 <meta name="twitter:description" property="og:description" content="Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared." />
-<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-mlst-floc/" />
-<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-mlst-floc/" />
-<meta property="og:site_name" content="Bioinformatics Training Course" />
+<link rel="canonical" href="http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/" />
+<meta property="og:url" content="http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/" />
+<meta property="og:site_name" content="Microbial Population Genomics and Phylogenetics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Catalogued Names vs. Agnostic Clusters: MLST and Floc" />
+<meta name="twitter:title" content="Cataloged Names vs. Agnostic Clusters: MLST and Floc" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared.","headline":"Catalogued Names vs. Agnostic Clusters: MLST and Floc","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/ecoli-mlst-floc/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared.","headline":"Cataloged Names vs. Agnostic Clusters: MLST and Floc","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/wal-train-site/assets/images/logo.png"}},"url":"http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/training-site/assets/main.css">
-  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
-    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/ecoli-mlst-floc/" };
+<link rel="stylesheet" href="/wal-train-site/assets/main.css">
+  <link rel="icon" type="image/png" href="/wal-train-site/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/wal-train-site/assets/images/logo-192.png">
+  <script>
+    window.COURSE = { baseurl: "/wal-train-site", page: "/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/" };
   </script>
-  <script src="/training-site/assets/js/course.js" defer></script>
+  <script src="/wal-train-site/assets/js/course.js" defer></script>
 </head>
 <body class="layout-activity">
     <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
   <div class="wrapper header-inner">
-    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    <a class="site-title" rel="author" href="/wal-train-site/"><img class="site-logo" src="/wal-train-site/assets/images/logo-192.png" alt=""><span>Microbial Population Genomics and Phylogenetics</span>
     </a>
 
     <nav class="site-nav" aria-label="Main">
@@ -35,7 +37,7 @@
       <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
         <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
       </label>
-      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+      <div class="trigger"><a class="page-link current" href="/wal-train-site/course/" aria-current="page">Course</a><a class="page-link" href="/wal-train-site/resources/">Resources</a><a class="page-link" href="/wal-train-site/about/">About</a></div>
     </nav>
   </div>
 </header>
@@ -45,7 +47,7 @@
   </button>
 
   <nav class="course-nav" id="course-nav" aria-label="Course contents">
-    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+    <a class="course-nav-home" href="/wal-train-site/course/">Course overview</a>
 
     <div class="course-progress-mini" data-course-progress hidden>
       <div class="progress-track"><div class="progress-fill"></div></div>
@@ -59,7 +61,7 @@
             <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/population-genomics/">Section overview</a>
+              <a href="/wal-train-site/sections/population-genomics/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -69,39 +71,39 @@
             <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
-              <a href="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-concept/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">What Is a Species?</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
-              <a href="/training-site/sections/classification-subtyping/species-identification/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-identification/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-identification/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Genome-Based Species Identification</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
-              <a href="/training-site/sections/classification-subtyping/subtyping/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/subtyping/">
+              <a href="/wal-train-site/sections/classification-subtyping/subtyping/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity current" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/" aria-current="page">
+            </li><li class="nav-item nav-item--activity current" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/" aria-current="page">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -115,7 +117,7 @@
             <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+              <a href="/wal-train-site/sections/genomic-relatedness/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -125,7 +127,7 @@
             <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenetic-methods/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -135,7 +137,7 @@
             <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenomic-evidence/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -145,17 +147,17 @@
             <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/case-studies/">Section overview</a>
+              <a href="/wal-train-site/sections/case-studies/">Section overview</a>
             </li></ul>
         </details>
       </li></ol>
   </nav>
 </aside>
 <main class="page-content course-main" id="main-content" aria-label="Content">
-        <article class="lesson lesson--activity" data-lesson-id="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
+        <article class="lesson lesson--activity" data-lesson-id="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
   <header class="lesson-header"><p class="lesson-eyebrow">
-    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
-  </p><h1 class="lesson-title">Catalogued Names vs. Agnostic Clusters: MLST and Floc</h1>
+    <a href="/wal-train-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+  </p><h1 class="lesson-title">Cataloged Names vs. Agnostic Clusters: MLST and Floc</h1>
   <div class="lesson-meta">
     <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Type three closely related E. coli isolates with MLST and cluster them with Floc, and see how a sequence type boundary can split isolates that should be compared.</p></header><div class="lesson-brief"><div class="brief-block">
     <h2 class="brief-heading">In this activity you will</h2>
@@ -178,7 +180,7 @@
 
 <p>Subtyping is often used as a first grouping step: isolates that share a type are compared in more detail, and isolates that don’t are set aside. In this activity you’ll see what happens when that first step gives the wrong answer.</p>
 
-<p>You have three <em>Escherichia coli</em> isolates from the <a href="https://www.ncbi.nlm.nih.gov/pathogens/">NCBI Pathogen Detection</a> project. NCBI’s genome-wide comparison shows that they are very closely related — only 10 to 18 single-nucleotide polymorphisms (SNPs) apart:</p>
+<p>You have three <em>Escherichia coli</em> isolates from the <a href="https://www.ncbi.nlm.nih.gov/pathogens/">NCBI Pathogen Detection</a> project. NCBI’s genome-wide comparison shows that they are very closely related, only 10 to 18 single-nucleotide polymorphisms (SNPs) apart:</p>
 
 <table>
   <thead>
@@ -192,21 +194,21 @@
   <tbody>
     <tr>
       <td>GCA_032856485.1</td>
-      <td style="text-align: center">—</td>
+      <td style="text-align: center">0</td>
       <td style="text-align: center">12</td>
       <td style="text-align: center">10</td>
     </tr>
     <tr>
       <td>GCA_040936765.1</td>
       <td style="text-align: center">12</td>
-      <td style="text-align: center">—</td>
+      <td style="text-align: center">0</td>
       <td style="text-align: center">18</td>
     </tr>
     <tr>
       <td>GCA_058079015.1</td>
       <td style="text-align: center">10</td>
       <td style="text-align: center">18</td>
-      <td style="text-align: center">—</td>
+      <td style="text-align: center">0</td>
     </tr>
   </tbody>
 </table>
@@ -214,8 +216,8 @@
 <p>Isolates this close together are the kind you would want to investigate as a possible cluster. You’ll describe them in two ways:</p>
 
 <ul>
-  <li><strong>MLST</strong>, which assigns each isolate a <strong>sequence type (ST)</strong> from seven housekeeping genes. ST numbers come from a curated, worldwide catalogue, so the same ST means the same thing in every laboratory.</li>
-  <li><strong>Floc</strong>, which groups isolates into <strong>clusters</strong> by comparing k-mers across the whole genome. No catalogue is involved: clusters are created directly from the data.</li>
+  <li><strong>MLST</strong>, which assigns each isolate a <strong>sequence type (ST)</strong> from seven housekeeping genes. ST numbers come from a curated, worldwide catalog, so the same ST means the same thing in every laboratory.</li>
+  <li><strong>Floc</strong>, which groups isolates into <strong>clusters</strong> by comparing k-mers across the whole genome. No catalog is involved: clusters are created directly from the data.</li>
 </ul>
 
 <h2 id="set-up-the-software">Set up the software</h2>
@@ -307,14 +309,14 @@ GCA_058079015.1.fna    ...
       <span>GCA_058079015.1</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-st-compare" value="4" />
-      <span>None — they all share an ST</span>
+      <span>None, they all share an ST</span>
     </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
     <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
     <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> GCA_040936765.1</p><div class="question-why"><p>GCA_040936765.1 has a different ST from the other two, so an ST-based grouping would set it aside — even though it is only 12 and 18 SNPs from them across the whole genome.</p>
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> GCA_040936765.1</p><div class="question-why"><p>GCA_040936765.1 has a different ST from the other two, so an ST-based grouping would set it aside, even though it is only 12 and 18 SNPs from them across the whole genome.</p>
 </div></div>
 </div>
 
@@ -330,17 +332,17 @@ GCA_058079015.1.fna    ...
 ...
 </code></pre></div></div>
 
-<p>Each allele number stands for one exact gene sequence. A single nucleotide change anywhere in one of the seven genes creates a different allele — and a different allele means a different ST. ST numbers are labels, not distances: two STs can differ by one SNP in one gene, or by many changes in all seven.</p>
+<p>Each allele number stands for one exact gene sequence. A single nucleotide change anywhere in one of the seven genes creates a different allele, and a different allele means a different ST. ST numbers are labels, not distances: two STs can differ by one SNP in one gene, or by many changes in all seven.</p>
 
 <div class="question question--open" data-question="open" id="q-ecoli-st-alleles">
   <p class="question-label">Question</p>
   <div class="question-text"><p>How many of the seven alleles differ between GCA_040936765.1 and the other two isolates? How can isolates that are only 12–18 SNPs apart have different STs?</p>
 </div><label class="visually-hidden" for="q-ecoli-st-alleles-input">Your notes</label>
-  <textarea class="question-input question-notes" id="q-ecoli-st-alleles-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
+  <textarea class="question-input question-notes" id="q-ecoli-st-alleles-input" rows="3" placeholder="Jot down your answer. It stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Only a small number of alleles differ — possibly just one. Each allele number stands for an exact gene sequence, so a single SNP in one of the seven MLST genes creates a new allele and therefore a new ST. ST numbers are labels for allele combinations, not measures of genome-wide distance.</p>
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Only a small number of alleles differ, possibly just one. Each allele number stands for an exact gene sequence, so a single SNP in one of the seven MLST genes creates a new allele and therefore a new ST. ST numbers are labels for allele combinations, not measures of genome-wide distance.</p>
 </div></div>
 </div>
 
@@ -389,7 +391,7 @@ GCA_058079015.1    ...   ...
       <span>In the same cluster as the other two isolates</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-floc-together" value="3" />
-      <span>Nowhere — Floc could not cluster it</span>
+      <span>Nowhere, Floc could not cluster it</span>
     </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
     <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
     <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
@@ -420,10 +422,10 @@ GCA_058079015.1    ...   ...
 </div><fieldset class="question-options">
     <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
       <input type="radio" name="q-ecoli-floc-name" value="1" />
-      <span>Yes — cluster numbers are fixed, like STs</span>
+      <span>Yes, cluster numbers are fixed, like STs</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-floc-name" value="2" />
-      <span>Not necessarily — numbers depend on each database’s history</span>
+      <span>Not necessarily, numbers depend on each database’s history</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-floc-name" value="3" />
       <span>Only if the isolates share an ST</span>
@@ -433,17 +435,17 @@ GCA_058079015.1    ...   ...
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Not necessarily — numbers depend on each database’s history</p><div class="question-why"><p>Floc numbers clusters in the order it finds them within one database. Another laboratory — or a rebuilt database, or a different distance threshold — can find the same group of genomes and give it a different number. That is what makes cluster names harder to communicate than STs.</p>
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Not necessarily, numbers depend on each database’s history</p><div class="question-why"><p>Floc numbers clusters in the order it finds them within one database. Another laboratory (or a rebuilt database, or a different distance threshold) can find the same group of genomes and give it a different number. That is what makes cluster names harder to communicate than STs.</p>
 </div></div>
 </div>
 
 <h2 class="no-step" id="what-this-shows">What this shows</h2>
 
-<p><strong>An ST boundary can split isolates that belong together.</strong> These three isolates are only 10–18 SNPs apart across the whole genome, but they don’t all share an ST. If you used ST to decide which isolates to compare, you would set GCA_040936765.1 aside — and miss that it is closely related to the other two.</p>
+<p><strong>An ST boundary can split isolates that belong together.</strong> These three isolates are only 10–18 SNPs apart across the whole genome, but they don’t all share an ST. If you used ST to decide which isolates to compare, you would set GCA_040936765.1 aside and miss that it is closely related to the other two.</p>
 
-<p><strong>MLST names are stable and easy to communicate, but they depend on a catalogue.</strong> An ST is defined once by curators and means the same thing everywhere, so “ST405” needs no further explanation. But STs are categories based on seven genes, not a measure of genome-wide distance: a single change in one gene gives a new ST. And when an isolate has a new allele or a new combination of alleles, it has no ST at all until someone submits it and a curator assigns one.</p>
+<p><strong>MLST names are stable and easy to communicate, but they depend on a catalog.</strong> An ST is defined once by curators and means the same thing everywhere, so “ST405” needs no further explanation. But STs are categories based on seven genes, not a measure of genome-wide distance: a single change in one gene gives a new ST. And when an isolate has a new allele or a new combination of alleles, it has no ST at all until someone submits it and a curator assigns one.</p>
 
-<p><strong>K-mer clustering is agnostic.</strong> Floc needs no catalogue and no curators. It compares genomes directly, so every genome is placed into a group as soon as it is sequenced, and isolates that are close across the genome end up together regardless of their ST. This makes k-mer clustering useful for any organism, with or without an established scheme.</p>
+<p><strong>K-mer clustering is agnostic.</strong> Floc needs no catalog and no curators. It compares genomes directly, so every genome is placed into a group as soon as it is sequenced, and isolates that are close across the genome end up together regardless of their ST. This makes k-mer clustering useful for any organism, with or without an established scheme.</p>
 
 <p><strong>But cluster names are harder to communicate.</strong> A cluster number is just a label in one database. It depends on which genomes the database has seen, in what order, and with what settings, so it is not stable across laboratories or over time unless everyone shares the same database. “Cluster 1” means nothing to a partner who hasn’t seen your data.</p>
 
@@ -463,7 +465,7 @@ GCA_058079015.1    ...   ...
     </tr>
     <tr>
       <td>Names come from</td>
-      <td>A curated, worldwide catalogue</td>
+      <td>A curated, worldwide catalog</td>
       <td>The order clusters are found in one database</td>
     </tr>
     <tr>
@@ -478,25 +480,25 @@ GCA_058079015.1    ...   ...
     </tr>
     <tr>
       <td>Communicating results</td>
-      <td>Easy — names mean the same thing everywhere</td>
-      <td>Harder — names are local and can change</td>
+      <td>Easy: names mean the same thing everywhere</td>
+      <td>Harder: names are local and can change</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Use both.</strong> Report the ST so partners know what you’re talking about. Use genome-wide grouping, such as k-mer clusters, to decide which isolates to compare — and don’t rule out a comparison just because the STs differ.</p>
+<p><strong>Use both.</strong> Report the ST so partners know what you’re talking about. Use genome-wide grouping, such as k-mer clusters, to decide which isolates to compare, and don’t rule out a comparison just because the STs differ.</p>
 
   </div>
 
   <div class="activity-done" data-activity-done hidden>
     <p class="activity-done-title"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity complete</p>
-    <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
+    <p>Nice work! Every step is checked off. Continue to the next item when you're ready.</p>
   </div>
 
-  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/subtyping/">
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/wal-train-site/sections/classification-subtyping/subtyping/">
     <span class="pager-dir">‹ Previous lecture</span>
     <span class="pager-title">Subtyping Below the Species Level</span>
-  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+  </a><a class="pager-link pager-next" href="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
     <span class="pager-dir">Next activity ›</span>
     <span class="pager-title">Optional: One Species, Many Subtypes: Influenza A</span></a></nav>
 
@@ -504,7 +506,8 @@ GCA_058079015.1    ...   ...
 
       </main>
     </div><footer class="site-footer">
-  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  <div class="wrapper footer-inner"><p class="footer-name">Western Region AMD Leads</p><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/DOH-JDJ0303/wal-train-site">Course source on GitHub</a></p>
+    <p class="footer-copy">&copy; 2026 Microbial Population Genomics and Phylogenetics. All rights reserved.</p>
   </div>
 </footer>
 </body>

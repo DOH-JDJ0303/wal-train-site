@@ -3,31 +3,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>When Names and Genomes Disagree: E. coli and Shigella | Bioinformatics Training Course</title>
+<title>When Names and Genomes Disagree: E. coli and Shigella | Microbial Population Genomics and Phylogenetics</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli." />
-<meta name="twitter:description" property="og:description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli." />
-<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
-<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/" />
-<meta property="og:site_name" content="Bioinformatics Training Course" />
+<meta name="description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI, until GAMBIT and ShigaPass show that one of them is E. coli." />
+<meta name="twitter:description" property="og:description" content="Two isolates thought to be Shigella flexneri look like the same species by FastANI, until GAMBIT and ShigaPass show that one of them is E. coli." />
+<link rel="canonical" href="http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-shigella/" />
+<meta property="og:url" content="http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-shigella/" />
+<meta property="og:site_name" content="Microbial Population Genomics and Phylogenetics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="When Names and Genomes Disagree: E. coli and Shigella" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli.","headline":"When Names and Genomes Disagree: E. coli and Shigella","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/ecoli-shigella/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Two isolates thought to be Shigella flexneri look like the same species by FastANI, until GAMBIT and ShigaPass show that one of them is E. coli.","headline":"When Names and Genomes Disagree: E. coli and Shigella","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/wal-train-site/assets/images/logo.png"}},"url":"http://localhost:4000/wal-train-site/sections/classification-subtyping/ecoli-shigella/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/training-site/assets/main.css">
-  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
-    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/ecoli-shigella/" };
+<link rel="stylesheet" href="/wal-train-site/assets/main.css">
+  <link rel="icon" type="image/png" href="/wal-train-site/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/wal-train-site/assets/images/logo-192.png">
+  <script>
+    window.COURSE = { baseurl: "/wal-train-site", page: "/wal-train-site/sections/classification-subtyping/ecoli-shigella/" };
   </script>
-  <script src="/training-site/assets/js/course.js" defer></script>
+  <script src="/wal-train-site/assets/js/course.js" defer></script>
 </head>
 <body class="layout-activity">
     <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
   <div class="wrapper header-inner">
-    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    <a class="site-title" rel="author" href="/wal-train-site/"><img class="site-logo" src="/wal-train-site/assets/images/logo-192.png" alt=""><span>Microbial Population Genomics and Phylogenetics</span>
     </a>
 
     <nav class="site-nav" aria-label="Main">
@@ -35,7 +37,7 @@
       <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
         <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
       </label>
-      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+      <div class="trigger"><a class="page-link current" href="/wal-train-site/course/" aria-current="page">Course</a><a class="page-link" href="/wal-train-site/resources/">Resources</a><a class="page-link" href="/wal-train-site/about/">About</a></div>
     </nav>
   </div>
 </header>
@@ -45,7 +47,7 @@
   </button>
 
   <nav class="course-nav" id="course-nav" aria-label="Course contents">
-    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+    <a class="course-nav-home" href="/wal-train-site/course/">Course overview</a>
 
     <div class="course-progress-mini" data-course-progress hidden>
       <div class="progress-track"><div class="progress-fill"></div></div>
@@ -59,7 +61,7 @@
             <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/population-genomics/">Section overview</a>
+              <a href="/wal-train-site/sections/population-genomics/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -69,39 +71,39 @@
             <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
-              <a href="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-concept/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">What Is a Species?</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
-              <a href="/training-site/sections/classification-subtyping/species-identification/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-identification/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-identification/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Genome-Based Species Identification</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity current" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/" aria-current="page">
+            </li><li class="nav-item nav-item--activity current" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/" aria-current="page">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
-              <a href="/training-site/sections/classification-subtyping/subtyping/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/subtyping/">
+              <a href="/wal-train-site/sections/classification-subtyping/subtyping/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -115,7 +117,7 @@
             <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+              <a href="/wal-train-site/sections/genomic-relatedness/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -125,7 +127,7 @@
             <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenetic-methods/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -135,7 +137,7 @@
             <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenomic-evidence/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -145,19 +147,19 @@
             <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/case-studies/">Section overview</a>
+              <a href="/wal-train-site/sections/case-studies/">Section overview</a>
             </li></ul>
         </details>
       </li></ol>
   </nav>
 </aside>
 <main class="page-content course-main" id="main-content" aria-label="Content">
-        <article class="lesson lesson--activity" data-lesson-id="/training-site/sections/classification-subtyping/ecoli-shigella/">
+        <article class="lesson lesson--activity" data-lesson-id="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
   <header class="lesson-header"><p class="lesson-eyebrow">
-    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+    <a href="/wal-train-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
   </p><h1 class="lesson-title">When Names and Genomes Disagree: E. coli and Shigella</h1>
   <div class="lesson-meta">
-    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Two isolates thought to be Shigella flexneri look like the same species by FastANI — until GAMBIT and ShigaPass show that one of them is E. coli.</p></header><div class="lesson-brief"><div class="brief-block">
+    <span class="type-badge type-badge--activity"><svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity</span></div><p class="lesson-lede">Two isolates thought to be Shigella flexneri look like the same species by FastANI, until GAMBIT and ShigaPass show that one of them is E. coli.</p></header><div class="lesson-brief"><div class="brief-block">
     <h2 class="brief-heading">In this activity you will</h2>
     <ul><li>Download genome assemblies from NCBI with the <code class="language-plaintext highlighter-rouge">datasets</code> command-line tool</li><li>Compare genomes with FastANI and interpret the ~95% ANI species threshold</li><li>Identify species with GAMBIT</li><li>Confirm <em>Shigella</em> identification and serotype with ShigaPass</li><li>Explain why genome-wide similarity cannot separate <em>E. coli</em> from <em>Shigella</em></li></ul>
   </div><div class="brief-block">
@@ -176,7 +178,7 @@
   <div class="lesson-body activity-body" data-steps>
     <!-- TODO (instructor): fill in the expected-output blocks marked TODO. -->
 
-<p>Two bacterial isolates have been reported as <strong><em>Shigella flexneri</em></strong>, and you’ve been asked to check whether they are the same species. In this activity you’ll compare them in three ways — overall genome similarity, a curated species classifier, and a check for the genes that define <em>Shigella</em> — and see why the first answer is misleading.</p>
+<p>Two bacterial isolates have been reported as <strong><em>Shigella flexneri</em></strong>, and you’ve been asked to check whether they are the same species. In this activity you’ll compare them in three ways (overall genome similarity, a curated species classifier, and a check for the genes that define <em>Shigella</em>) and see why the first answer is misleading.</p>
 
 <h2 id="set-up-the-software">Set up the software</h2>
 
@@ -254,17 +256,17 @@ unzip <span class="nt">-o</span> genomes.zip
 </div><fieldset class="question-options">
     <legend class="visually-hidden">Choose one answer</legend><label class="question-option">
       <input type="radio" name="q-ecoli-shigella-fastani" value="1" />
-      <span>Yes — they share more than 95% ANI</span>
+      <span>Yes, they share more than 95% ANI</span>
     </label><label class="question-option">
       <input type="radio" name="q-ecoli-shigella-fastani" value="2" />
-      <span>No — they share less than 95% ANI</span>
+      <span>No, they share less than 95% ANI</span>
     </label></fieldset><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-check="">Check</button>
     <button type="button" class="btn-link btn-quiet btn-small" data-q-reveal="">Show answer</button>
     <button type="button" class="btn-link btn-text btn-small" data-q-reset="">Reset</button></div>
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Yes — they share more than 95% ANI</p><div class="question-why"><p>The isolates share well over 95% ANI, so by the usual genomic definition they look like the same species. Keep that in mind for the next step.</p>
+  <div class="question-explanation" hidden=""><p class="question-answer"><strong>Answer:</strong> Yes, they share more than 95% ANI</p><div class="question-why"><p>The isolates share well over 95% ANI, so by the usual genomic definition they look like the same species. Keep that in mind for the next step.</p>
 </div></div>
 </div>
 
@@ -341,11 +343,11 @@ ShigaPass/SCRIPT/ShigaPass.sh <span class="nt">-l</span> shigapass_list.txt <spa
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EIEC</code></td>
-      <td><em>ipaH</em> is present but no <em>Shigella</em> serotype matches — most likely enteroinvasive <em>E. coli</em></td>
+      <td><em>ipaH</em> is present but no <em>Shigella</em> serotype matches; most likely enteroinvasive <em>E. coli</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Not Shigella/EIEC</code></td>
-      <td><em>ipaH</em> is absent — not <em>Shigella</em> and not EIEC</td>
+      <td><em>ipaH</em> is absent; not <em>Shigella</em> and not EIEC</td>
     </tr>
   </tbody>
 </table>
@@ -409,7 +411,7 @@ isolate_B;ipaH+;SF...;...
 
 <p>Both isolates were reported as <em>S. flexneri</em>, and FastANI placed them comfortably within the same species. Yet isolate A turned out to be <em>E. coli</em>: GAMBIT identified it as <em>E. coli</em>, and ShigaPass found none of the genes that define <em>Shigella</em>. Isolate B is the true <em>S. flexneri</em>.</p>
 
-<p><strong>Genome-wide, <em>Shigella</em> is <em>E. coli</em>.</strong> By whole-genome similarity, <em>E. coli</em> and the four <em>Shigella</em> species fall within a single species boundary, and <em>Shigella</em> lineages sit <em>within</em> the <em>E. coli</em> family tree. <em>Shigella</em> is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes — most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species, so <strong>an ANI above 95% cannot tell <em>E. coli</em> and <em>Shigella</em> apart</strong>.</p>
+<p><strong>Genome-wide, <em>Shigella</em> is <em>E. coli</em>.</strong> By whole-genome similarity, <em>E. coli</em> and the four <em>Shigella</em> species fall within a single species boundary, and <em>Shigella</em> lineages sit <em>within</em> the <em>E. coli</em> family tree. <em>Shigella</em> is named as a separate genus because of its clinical history and the disease it causes, which depend on a small set of genes, most importantly a large plasmid carrying the invasion genes. That is not how we usually define bacterial species, so <strong>an ANI above 95% cannot tell <em>E. coli</em> and <em>Shigella</em> apart</strong>.</p>
 
 <p><strong>GAMBIT uses a curated database and species-specific thresholds.</strong> Rather than applying one cutoff to everything, GAMBIT sets a separate distance threshold for each species based on how diverse that species is, and its reference set is curated to keep names consistent. That lets it separate groups that overlap genome-wide, where a single ANI threshold cannot.</p>
 
@@ -419,11 +421,11 @@ isolate_B;ipaH+;SF...;...
   <p class="question-label">Question</p>
   <div class="question-text"><p>In your own words, why did FastANI suggest the two isolates were the same species, when one is <em>E. coli</em> and the other is <em>Shigella</em>?</p>
 </div><label class="visually-hidden" for="q-ecoli-shigella-why-input">Your notes</label>
-  <textarea class="question-input question-notes" id="q-ecoli-shigella-why-input" rows="3" placeholder="Jot down your answer — it stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
+  <textarea class="question-input question-notes" id="q-ecoli-shigella-why-input" rows="3" placeholder="Jot down your answer. It stays in this browser only."></textarea><div class="question-actions"><button type="button" class="btn-link btn-primary btn-small" data-q-reveal="">Show sample answer</button></div>
 
   <div class="question-feedback" role="status" aria-live="polite"></div>
 
-  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Across the whole genome, <em>E. coli</em> and <em>Shigella</em> are so similar that they fall within one species boundary — <em>Shigella</em> lineages sit inside the <em>E. coli</em> family tree. The <em>Shigella</em> name depends on a few specific genes, such as <em>ipaH</em> and the serotype-defining genes, which a genome-wide identity score does not single out. A curated classifier like GAMBIT, and a targeted tool like ShigaPass, are needed to tell them apart.</p>
+  <div class="question-explanation" hidden=""><div class="question-sample"><strong>Sample answer:</strong> <p>Across the whole genome, <em>E. coli</em> and <em>Shigella</em> are so similar that they fall within one species boundary, and <em>Shigella</em> lineages sit inside the <em>E. coli</em> family tree. The <em>Shigella</em> name depends on a few specific genes, such as <em>ipaH</em> and the serotype-defining genes, which a genome-wide identity score does not single out. A curated classifier like GAMBIT, and a targeted tool like ShigaPass, are needed to tell them apart.</p>
 </div></div>
 </div>
 
@@ -432,21 +434,21 @@ isolate_B;ipaH+;SF...;...
 <ul>
   <li>A species name is only as consistent as the definition behind it. <em>E. coli</em> and <em>Shigella</em> are separated by a few genes, not by genome-wide distance.</li>
   <li>The ~95% ANI rule works for most bacteria, but not here: two isolates can pass it and still carry different genus names.</li>
-  <li>Classifiers built on curated references and species-specific thresholds, such as GAMBIT, handle these cases better than a single cutoff — but for organisms where a few genes define the name, confirm with an organism-specific tool like ShigaPass.</li>
-  <li>The species call drives the public health response — shigellosis and <em>E. coli</em> infections are reported and investigated differently — and decides what comes next: the reference genome, the typing scheme, and which samples are compared.</li>
+  <li>Classifiers built on curated references and species-specific thresholds, such as GAMBIT, handle these cases better than a single cutoff, but for organisms where a few genes define the name, confirm with an organism-specific tool like ShigaPass.</li>
+  <li>The species call drives the public health response (shigellosis and <em>E. coli</em> infections are reported and investigated differently) and decides what comes next: the reference genome, the typing scheme, and which samples are compared.</li>
 </ul>
 
   </div>
 
   <div class="activity-done" data-activity-done hidden>
     <p class="activity-done-title"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Activity complete</p>
-    <p>Nice work — every step is checked off. Continue to the next item when you're ready.</p>
+    <p>Nice work! Every step is checked off. Continue to the next item when you're ready.</p>
   </div>
 
-  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/species-identification/">
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/wal-train-site/sections/classification-subtyping/species-identification/">
     <span class="pager-dir">‹ Previous lecture</span>
     <span class="pager-title">Genome-Based Species Identification</span>
-  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/subtyping/">
+  </a><a class="pager-link pager-next" href="/wal-train-site/sections/classification-subtyping/subtyping/">
     <span class="pager-dir">Next lecture ›</span>
     <span class="pager-title">Subtyping Below the Species Level</span></a></nav>
 
@@ -454,7 +456,8 @@ isolate_B;ipaH+;SF...;...
 
       </main>
     </div><footer class="site-footer">
-  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  <div class="wrapper footer-inner"><p class="footer-name">Western Region AMD Leads</p><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/DOH-JDJ0303/wal-train-site">Course source on GitHub</a></p>
+    <p class="footer-copy">&copy; 2026 Microbial Population Genomics and Phylogenetics. All rights reserved.</p>
   </div>
 </footer>
 </body>

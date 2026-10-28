@@ -3,7 +3,7 @@ layout: lecture
 section: classification-subtyping
 order: 2
 title: Genome-Based Species Identification
-description: From a single marker gene to whole-genome k-mer methods: how each approach works and where it falls short.
+description: "From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short."
 ---
 
 ## Single-gene identification: 16S rRNA
@@ -32,6 +32,33 @@ Many genomes also carry several copies of the 16S gene (up to 15), and in most g
 7. Richter M, Rosselló-Móra R (2009). Shifting the genomic gold standard for the prokaryotic species definition. *PNAS* 106:19126–19131. [doi:10.1073/pnas.0906412106](https://doi.org/10.1073/pnas.0906412106)
 8. Jain C, *et al.* (2018). High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. *Nature Communications* 9:5114. [doi:10.1038/s41467-018-07641-9](https://doi.org/10.1038/s41467-018-07641-9)
 9. Chun J, *et al.* (2018). Proposed minimal standards for the use of genome data for the taxonomy of prokaryotes. *International Journal of Systematic and Evolutionary Microbiology* 68:461–466. [doi:10.1099/ijsem.0.002516](https://doi.org/10.1099/ijsem.0.002516)
+</details>
+
+## Single-gene identification for fungi: ITS
+
+Fungi do not have a 16S gene. Their ribosomal RNA genes are arranged differently, and the region most used for identification is the **internal transcribed spacer (ITS)**: two spacer regions (ITS1 and ITS2) that sit between the ribosomal RNA genes and are removed when the RNA is processed.
+
+```text
+... 18S rRNA | ITS1 | 5.8S rRNA | ITS2 | 28S rRNA ...
+             \_________ ITS region _________/
+```
+
+Because the spacers are not part of the final ribosome, they change faster than the ribosomal genes around them, which helps separate species. In a large comparison of candidate markers, ITS had the highest probability of successful identification across the broadest range of fungi, and it was proposed as the primary DNA barcode for fungi in 2012 [1].
+
+ITS has limitations that mirror those of 16S:
+
+- **Some species share identical ITS sequences.** In *Aspergillus*, for example, ITS sequences are identical within several species complexes, so additional markers are needed [1]. Protein-coding genes such as β-tubulin and calmodulin are commonly used for *Aspergillus* [2].
+- **ITS copies within one genome can differ**, much like 16S copies in bacteria [3].
+- **No single marker works for every fungus** [1]. Combining ITS with protein-coding genes is often more effective for species-level identification [3].
+
+As with bacteria, whole-genome methods avoid most of these problems when a genome sequence is available, but the hybrids and naming history described in the previous lecture can still complicate the answer.
+
+<details class="hint" markdown="1">
+<summary>References for this section</summary>
+
+1. Schoch CL, *et al.* (2012). Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi. *PNAS* 109:6241–6246. [doi:10.1073/pnas.1117018109](https://doi.org/10.1073/pnas.1117018109)
+2. Geiser DM, *et al.* (2007). The current status of species recognition and identification in *Aspergillus*. *Studies in Mycology* 59:1–10. [doi:10.3114/sim.2007.59.01](https://doi.org/10.3114/sim.2007.59.01)
+3. Stengel A, Stanke KM, Quattrone AC, Herr JR (2022). Improving taxonomic delimitation of fungal species in the age of genomics and phenomics. *Frontiers in Microbiology* 13:847067. [doi:10.3389/fmicb.2022.847067](https://doi.org/10.3389/fmicb.2022.847067)
 </details>
 
 ## Whole-genome identification with k-mers

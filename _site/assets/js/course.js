@@ -272,7 +272,7 @@
         }
         if (reveal) reveal.addEventListener("click", function () {
           if (expl && expl.children.length) { expl.hidden = !expl.hidden; }
-          else { say("Saved — discuss your answer with the group.", "is-correct"); }
+          else { say("Saved. Discuss your answer with the group.", "is-correct"); }
           q.classList.add("is-solved");
         });
         return;
@@ -286,7 +286,7 @@
       function wrong() {
         attempts++;
         if (hint && attempts >= 2) say("Hint: " + hint, "is-hint");
-        else say("Not quite — try again.", "is-wrong");
+        else say("Not quite. Try again.", "is-wrong");
       }
 
       function doCheck() {

@@ -3,31 +3,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Subtyping Below the Species Level | Bioinformatics Training Course</title>
+<title>Subtyping Below the Species Level | Microbial Population Genomics and Phylogenetics</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Subtyping Below the Species Level" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis." />
-<meta name="twitter:description" property="og:description" content="Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis." />
-<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/subtyping/" />
-<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/subtyping/" />
-<meta property="og:site_name" content="Bioinformatics Training Course" />
+<meta name="description" content="Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering, and why subtyping comes before genome-wide analysis." />
+<meta name="twitter:description" property="og:description" content="Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering, and why subtyping comes before genome-wide analysis." />
+<link rel="canonical" href="http://localhost:4000/wal-train-site/sections/classification-subtyping/subtyping/" />
+<meta property="og:url" content="http://localhost:4000/wal-train-site/sections/classification-subtyping/subtyping/" />
+<meta property="og:site_name" content="Microbial Population Genomics and Phylogenetics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Subtyping Below the Species Level" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis.","headline":"Subtyping Below the Species Level","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/subtyping/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering, and why subtyping comes before genome-wide analysis.","headline":"Subtyping Below the Species Level","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/wal-train-site/assets/images/logo.png"}},"url":"http://localhost:4000/wal-train-site/sections/classification-subtyping/subtyping/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/training-site/assets/main.css">
-  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
-    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/subtyping/" };
+<link rel="stylesheet" href="/wal-train-site/assets/main.css">
+  <link rel="icon" type="image/png" href="/wal-train-site/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/wal-train-site/assets/images/logo-192.png">
+  <script>
+    window.COURSE = { baseurl: "/wal-train-site", page: "/wal-train-site/sections/classification-subtyping/subtyping/" };
   </script>
-  <script src="/training-site/assets/js/course.js" defer></script>
+  <script src="/wal-train-site/assets/js/course.js" defer></script>
 </head>
 <body class="layout-lecture">
     <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
   <div class="wrapper header-inner">
-    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    <a class="site-title" rel="author" href="/wal-train-site/"><img class="site-logo" src="/wal-train-site/assets/images/logo-192.png" alt=""><span>Microbial Population Genomics and Phylogenetics</span>
     </a>
 
     <nav class="site-nav" aria-label="Main">
@@ -35,7 +37,7 @@
       <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
         <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
       </label>
-      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+      <div class="trigger"><a class="page-link current" href="/wal-train-site/course/" aria-current="page">Course</a><a class="page-link" href="/wal-train-site/resources/">Resources</a><a class="page-link" href="/wal-train-site/about/">About</a></div>
     </nav>
   </div>
 </header>
@@ -45,7 +47,7 @@
   </button>
 
   <nav class="course-nav" id="course-nav" aria-label="Course contents">
-    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+    <a class="course-nav-home" href="/wal-train-site/course/">Course overview</a>
 
     <div class="course-progress-mini" data-course-progress hidden>
       <div class="progress-track"><div class="progress-fill"></div></div>
@@ -59,7 +61,7 @@
             <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/population-genomics/">Section overview</a>
+              <a href="/wal-train-site/sections/population-genomics/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -69,39 +71,39 @@
             <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
-              <a href="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-concept/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">What Is a Species?</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
-              <a href="/training-site/sections/classification-subtyping/species-identification/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-identification/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-identification/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Genome-Based Species Identification</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture current" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
-              <a href="/training-site/sections/classification-subtyping/subtyping/" aria-current="page">
+            </li><li class="nav-item nav-item--lecture current" data-lesson="/wal-train-site/sections/classification-subtyping/subtyping/">
+              <a href="/wal-train-site/sections/classification-subtyping/subtyping/" aria-current="page">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -115,7 +117,7 @@
             <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+              <a href="/wal-train-site/sections/genomic-relatedness/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -125,7 +127,7 @@
             <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenetic-methods/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -135,7 +137,7 @@
             <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenomic-evidence/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -145,19 +147,19 @@
             <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/case-studies/">Section overview</a>
+              <a href="/wal-train-site/sections/case-studies/">Section overview</a>
             </li></ul>
         </details>
       </li></ol>
   </nav>
 </aside>
 <main class="page-content course-main" id="main-content" aria-label="Content">
-        <article class="lesson lesson--lecture" data-lesson-id="/training-site/sections/classification-subtyping/subtyping/">
+        <article class="lesson lesson--lecture" data-lesson-id="/wal-train-site/sections/classification-subtyping/subtyping/">
   <header class="lesson-header"><p class="lesson-eyebrow">
-    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+    <a href="/wal-train-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
   </p><h1 class="lesson-title">Subtyping Below the Species Level</h1>
   <div class="lesson-meta">
-    <span class="type-badge type-badge--lecture"><svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg> Lecture</span></div><p class="lesson-lede">Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering — and why subtyping comes before genome-wide analysis.</p></header><div class="lesson-body">
+    <span class="type-badge type-badge--lecture"><svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg> Lecture</span></div><p class="lesson-lede">Influenza subtypes and genotypes, bacterial MLST, C. auris clades, and k-mer clustering, and why subtyping comes before genome-wide analysis.</p></header><div class="lesson-body">
     <h2 id="why-subtype">Why subtype?</h2>
 
 <p>Once the species is known, <strong>subtyping</strong> divides it into smaller, named groups using a defined, shared method. Subtyping serves two main purposes.</p>
@@ -213,7 +215,7 @@
 
 <h2 id="bacteria-multilocus-sequence-typing-mlst">Bacteria: multilocus sequence typing (MLST)</h2>
 
-<p><strong>MLST</strong> characterizes a bacterial isolate by the sequences of a small set of housekeeping genes — usually <strong>seven</strong>. Each distinct sequence of a gene is given an allele number, and the combination of seven allele numbers defines a <strong>sequence type (ST)</strong>.</p>
+<p><strong>MLST</strong> characterizes a bacterial isolate by the sequences of a small set of housekeeping genes, usually <strong>seven</strong>. Each distinct sequence of a gene is given an allele number, and the combination of seven allele numbers defines a <strong>sequence type (ST)</strong>.</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gene:     adk  fumC  gyrB  icd  mdh  purA  recA
 Allele:    53    40    47   13   36    28    29    →  ST131
@@ -227,7 +229,7 @@ Allele:    53    40    47   13   36    28    29    →  ST131
 
 <h2 id="fungi-candida-auris-clades">Fungi: <em>Candida auris</em> clades</h2>
 
-<p><em>Candida auris</em> (recently renamed <em>Candidozyma auris</em>) is divided into <strong>clades</strong> — six have been described — that are strongly associated with geography. Isolates from different clades differ by tens of thousands of SNPs, whereas isolates within an outbreak typically differ by only a handful. This makes the clade both a useful epidemiological label and a natural first grouping step: genome-wide comparisons are usually performed within a clade, against a reference from the same clade.</p>
+<p><em>Candida auris</em> (recently renamed <em>Candidozyma auris</em>) is divided into <strong>clades</strong> (six have been described) that are strongly associated with geography. Isolates from different clades differ by tens of thousands of SNPs, whereas isolates within an outbreak typically differ by only a handful. This makes the clade both a useful epidemiological label and a natural first grouping step: genome-wide comparisons are usually performed within a clade, against a reference from the same clade.</p>
 
 <p><strong>AuriClass</strong> predicts the <em>C. auris</em> clade from either sequencing reads or an assembly by computing Mash distances to a set of reference genomes from each clade. It runs in seconds to minutes and reports the clade prediction, the closest reference, and quality checks.</p>
 
@@ -243,7 +245,7 @@ Allele:    53    40    47   13   36    28    29    →  ST131
   <li><strong>Group genomes</strong> that fall within a chosen distance threshold of one another.</li>
 </ol>
 
-<p>Because these methods need no scheme or curated catalogue, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced — without waiting for anyone to assign it a name.</p>
+<p>Because these methods need no scheme or curated catalog, they work for any organism with genome sequences, and a new genome can be placed into a group as soon as it is sequenced, without waiting for anyone to assign it a name.</p>
 
 <table>
   <thead>
@@ -325,7 +327,7 @@ Allele:    53    40    47   13   36    28    29    →  ST131
   <li>Subtyping gives a <strong>shared language</strong> for describing organisms below the species level.</li>
   <li><strong>K-mer clustering</strong> offers scheme-free grouping for any organism, but thresholds and cluster names need care.</li>
   <li>Subtyping groups closely related samples so that <strong>genome-wide analysis</strong> compares like with like.</li>
-  <li>The same subtype is <strong>not evidence of an outbreak</strong> on its own — that requires the higher-resolution methods in the next course.</li>
+  <li>The same subtype is <strong>not evidence of an outbreak</strong> on its own; that requires the higher-resolution methods in the next course.</li>
 </ul>
 
 <p>In the next activity you’ll put this into practice by typing a set of <em>E. coli</em> isolates with both MLST and Floc. An optional activity at the end of the section classifies influenza A segments and subtypes with LABEL.</p>
@@ -338,18 +340,19 @@ Allele:    53    40    47   13   36    28    29    →  ST131
     </button>
   </div>
 
-  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
     <span class="pager-dir">‹ Previous activity</span>
     <span class="pager-title">When Names and Genomes Disagree: E. coli and Shigella</span>
-  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
+  </a><a class="pager-link pager-next" href="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
     <span class="pager-dir">Next activity ›</span>
-    <span class="pager-title">Catalogued Names vs. Agnostic Clusters: MLST and Floc</span></a></nav>
+    <span class="pager-title">Cataloged Names vs. Agnostic Clusters: MLST and Floc</span></a></nav>
 
 </article>
 
       </main>
     </div><footer class="site-footer">
-  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  <div class="wrapper footer-inner"><p class="footer-name">Western Region AMD Leads</p><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/DOH-JDJ0303/wal-train-site">Course source on GitHub</a></p>
+    <p class="footer-copy">&copy; 2026 Microbial Population Genomics and Phylogenetics. All rights reserved.</p>
   </div>
 </footer>
 </body>

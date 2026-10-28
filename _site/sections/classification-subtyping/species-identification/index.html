@@ -3,31 +3,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Genome-Based Species Identification | Bioinformatics Training Course</title>
+<title>Genome-Based Species Identification | Microbial Population Genomics and Phylogenetics</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Genome-Based Species Identification" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="From a single marker gene to whole-genome k-mer methods — how each approach works and where it falls short." />
-<meta name="twitter:description" property="og:description" content="From a single marker gene to whole-genome k-mer methods — how each approach works and where it falls short." />
-<link rel="canonical" href="http://localhost:4000/training-site/sections/classification-subtyping/species-identification/" />
-<meta property="og:url" content="http://localhost:4000/training-site/sections/classification-subtyping/species-identification/" />
-<meta property="og:site_name" content="Bioinformatics Training Course" />
+<meta name="description" content="From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short." />
+<meta name="twitter:description" property="og:description" content="From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short." />
+<link rel="canonical" href="http://localhost:4000/wal-train-site/sections/classification-subtyping/species-identification/" />
+<meta property="og:url" content="http://localhost:4000/wal-train-site/sections/classification-subtyping/species-identification/" />
+<meta property="og:site_name" content="Microbial Population Genomics and Phylogenetics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Genome-Based Species Identification" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"From a single marker gene to whole-genome k-mer methods — how each approach works and where it falls short.","headline":"Genome-Based Species Identification","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/training-site/assets/images/logo.svg"}},"url":"http://localhost:4000/training-site/sections/classification-subtyping/species-identification/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short.","headline":"Genome-Based Species Identification","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/wal-train-site/assets/images/logo.png"}},"url":"http://localhost:4000/wal-train-site/sections/classification-subtyping/species-identification/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/training-site/assets/main.css">
-  <link rel="icon" type="image/svg+xml" href="/training-site/assets/images/logo.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/training-site/feed.xml" title="Bioinformatics Training Course" /><script>
-    window.COURSE = { baseurl: "/training-site", page: "/training-site/sections/classification-subtyping/species-identification/" };
+<link rel="stylesheet" href="/wal-train-site/assets/main.css">
+  <link rel="icon" type="image/png" href="/wal-train-site/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/wal-train-site/assets/images/logo-192.png">
+  <script>
+    window.COURSE = { baseurl: "/wal-train-site", page: "/wal-train-site/sections/classification-subtyping/species-identification/" };
   </script>
-  <script src="/training-site/assets/js/course.js" defer></script>
+  <script src="/wal-train-site/assets/js/course.js" defer></script>
 </head>
 <body class="layout-lecture">
     <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
   <div class="wrapper header-inner">
-    <a class="site-title" rel="author" href="/training-site/"><img class="site-logo" src="/training-site/assets/images/logo.svg" alt=""><span>Bioinformatics Training Course</span>
+    <a class="site-title" rel="author" href="/wal-train-site/"><img class="site-logo" src="/wal-train-site/assets/images/logo-192.png" alt=""><span>Microbial Population Genomics and Phylogenetics</span>
     </a>
 
     <nav class="site-nav" aria-label="Main">
@@ -35,7 +37,7 @@
       <label for="nav-trigger" class="menu-icon" aria-label="Toggle menu">
         <svg viewBox="0 0 18 15" width="18" height="15" aria-hidden="true"><path fill="currentColor" d="M18 1.48c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48zm0 6.02c0 .82-.66 1.48-1.48 1.48H1.48a1.48 1.48 0 0 1 0-2.96h15.04c.82 0 1.48.66 1.48 1.48z"/></svg>
       </label>
-      <div class="trigger"><a class="page-link current" href="/training-site/course/" aria-current="page">Course</a><a class="page-link" href="/training-site/schedule/">Schedule</a><a class="page-link" href="/training-site/resources/">Resources</a><a class="page-link" href="/training-site/about/">About</a></div>
+      <div class="trigger"><a class="page-link current" href="/wal-train-site/course/" aria-current="page">Course</a><a class="page-link" href="/wal-train-site/resources/">Resources</a><a class="page-link" href="/wal-train-site/about/">About</a></div>
     </nav>
   </div>
 </header>
@@ -45,7 +47,7 @@
   </button>
 
   <nav class="course-nav" id="course-nav" aria-label="Course contents">
-    <a class="course-nav-home" href="/training-site/course/">Course overview</a>
+    <a class="course-nav-home" href="/wal-train-site/course/">Course overview</a>
 
     <div class="course-progress-mini" data-course-progress hidden>
       <div class="progress-track"><div class="progress-fill"></div></div>
@@ -59,7 +61,7 @@
             <span class="nav-section-title">Foundations of Microbial Population Genomics</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/population-genomics/">Section overview</a>
+              <a href="/wal-train-site/sections/population-genomics/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -69,39 +71,39 @@
             <span class="nav-section-title">Taxonomic Classification and Genomic Subtyping</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/classification-subtyping/">Section overview</a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/species-concept/">
-              <a href="/training-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/">Section overview</a>
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/species-concept/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-concept/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">What Is a Species?</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture current" data-lesson="/training-site/sections/classification-subtyping/species-identification/">
-              <a href="/training-site/sections/classification-subtyping/species-identification/" aria-current="page">
+            </li><li class="nav-item nav-item--lecture current" data-lesson="/wal-train-site/sections/classification-subtyping/species-identification/">
+              <a href="/wal-train-site/sections/classification-subtyping/species-identification/" aria-current="page">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Genome-Based Species Identification</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-shigella/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: E. coli vs. Shigella</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--lecture" data-lesson="/training-site/sections/classification-subtyping/subtyping/">
-              <a href="/training-site/sections/classification-subtyping/subtyping/">
+            </li><li class="nav-item nav-item--lecture" data-lesson="/wal-train-site/sections/classification-subtyping/subtyping/">
+              <a href="/wal-train-site/sections/classification-subtyping/subtyping/">
                 <svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg>
                 <span class="nav-item-title">Subtyping Below the Species Level</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
-              <a href="/training-site/sections/classification-subtyping/ecoli-mlst-floc/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
+              <a href="/wal-train-site/sections/classification-subtyping/ecoli-mlst-floc/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Activity: MLST vs. Floc</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-            </li><li class="nav-item nav-item--activity" data-lesson="/training-site/sections/classification-subtyping/influenza-subtypes/">
-              <a href="/training-site/sections/classification-subtyping/influenza-subtypes/">
+            </li><li class="nav-item nav-item--activity" data-lesson="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
+              <a href="/wal-train-site/sections/classification-subtyping/influenza-subtypes/">
                 <svg class="icon icon-activity" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8l2.5 2-2.5 2M10 12.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="nav-item-title">Optional activity: Influenza A</span>
                 <span class="nav-done" title="Completed"><svg class="icon icon-check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -115,7 +117,7 @@
             <span class="nav-section-title">High-Resolution Genomic Relatedness</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/genomic-relatedness/">Section overview</a>
+              <a href="/wal-train-site/sections/genomic-relatedness/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -125,7 +127,7 @@
             <span class="nav-section-title">Phylogenetic Methods and Tree Building</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenetic-methods/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenetic-methods/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -135,7 +137,7 @@
             <span class="nav-section-title">Interpreting Phylogenomic Evidence in Outbreak Investigations</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/phylogenomic-evidence/">Section overview</a>
+              <a href="/wal-train-site/sections/phylogenomic-evidence/">Section overview</a>
             </li></ul>
         </details>
       </li><li class="nav-section">
@@ -145,32 +147,80 @@
             <span class="nav-section-title">Integrated Genomic Epidemiology Case Studies</span>
           </summary>
           <ul class="nav-items"><li class="nav-item nav-item--overview">
-              <a href="/training-site/sections/case-studies/">Section overview</a>
+              <a href="/wal-train-site/sections/case-studies/">Section overview</a>
             </li></ul>
         </details>
       </li></ol>
   </nav>
 </aside>
 <main class="page-content course-main" id="main-content" aria-label="Content">
-        <article class="lesson lesson--lecture" data-lesson-id="/training-site/sections/classification-subtyping/species-identification/">
+        <article class="lesson lesson--lecture" data-lesson-id="/wal-train-site/sections/classification-subtyping/species-identification/">
   <header class="lesson-header"><p class="lesson-eyebrow">
-    <a href="/training-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
+    <a href="/wal-train-site/sections/classification-subtyping/">Section 2 · Taxonomic Classification and Genomic Subtyping</a>
   </p><h1 class="lesson-title">Genome-Based Species Identification</h1>
   <div class="lesson-meta">
-    <span class="type-badge type-badge--lecture"><svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg> Lecture</span></div><p class="lesson-lede">From a single marker gene to whole-genome k-mer methods — how each approach works and where it falls short.</p></header><div class="lesson-body">
+    <span class="type-badge type-badge--lecture"><svg class="icon icon-lecture" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v3M6.5 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 6.5v4l3.5-2z" fill="currentColor"/></svg> Lecture</span></div><p class="lesson-lede">From single marker genes (16S rRNA and ITS) to whole-genome k-mer methods: how each approach works and where it falls short.</p></header><div class="lesson-body">
     <h2 id="single-gene-identification-16s-rrna">Single-gene identification: 16S rRNA</h2>
 
 <p>The 16S ribosomal RNA gene is present in all bacteria and contains conserved regions, which make it easy to amplify, alongside variable regions that differ between taxa. For decades it was the standard molecular method for bacterial identification, and it remains widely used for mixed-community (amplicon) studies.</p>
 
-<p>Its main limitation is resolution. <strong>16S does not always resolve organisms to the species level</strong>, because closely related species can have identical or nearly identical 16S sequences. Examples include:</p>
+<p>Its main limitation is resolution. <strong>16S does not always resolve organisms to the species level</strong>, because closely related species can have identical or nearly identical 16S sequences, and short partial-gene sequences resolve even less than the full gene [1]. Examples include:</p>
 
 <ul>
-  <li><em>Escherichia coli</em> and <em>Shigella</em> spp.</li>
-  <li>Members of the <em>Bacillus cereus</em> group, including <em>B. anthracis</em></li>
-  <li><em>Streptococcus pneumoniae</em> and <em>S. mitis</em></li>
+  <li><em>Escherichia coli</em> and <em>Shigella</em> spp.: 16S sequences are more than 99.5% similar and cannot separate them [2]</li>
+  <li>Members of the <em>Bacillus cereus</em> group, including <em>B. anthracis</em>: some strains differ by a single nucleotide [3]</li>
+  <li><em>Streptococcus pneumoniae</em> and <em>S. mitis</em>: 16S sequences are more than 99% identical [4]</li>
 </ul>
 
-<p>Many genomes also carry several copies of the 16S gene that are not identical to one another. A single gene captures only a tiny fraction of the genome, so whole-genome methods are generally preferred when a genome sequence is available.</p>
+<p><img src="/wal-train-site/assets/images/16s-genome.svg" alt="A circular bacterial genome of about 5 million base pairs, with seven short marks for the 16S rRNA gene copies, each about 1,500 base pairs" /></p>
+
+<p>Many genomes also carry several copies of the 16S gene (up to 15), and in most genomes the copies are not identical to one another [5, 6]. A single gene captures only a tiny fraction of the genome, so whole-genome methods such as average nucleotide identity (ANI) are generally preferred when a genome sequence is available [7–9].</p>
+
+<details class="hint">
+  <summary>References for this section</summary>
+
+  <ol>
+    <li>Johnson JS, <em>et al.</em> (2019). Evaluation of 16S rRNA gene sequencing for species and strain-level microbiome analysis. <em>Nature Communications</em> 10:5029. <a href="https://doi.org/10.1038/s41467-019-13036-1">doi:10.1038/s41467-019-13036-1</a></li>
+    <li>Devanga Ragupathi NK, <em>et al.</em> (2018). Accurate differentiation of <em>Escherichia coli</em> and <em>Shigella</em> serogroups: challenges and strategies. <em>New Microbes and New Infections</em> 21:58–62. <a href="https://doi.org/10.1016/j.nmni.2017.09.003">doi:10.1016/j.nmni.2017.09.003</a></li>
+    <li>Ash C, <em>et al.</em> (1991). Comparative analysis of <em>Bacillus anthracis</em>, <em>Bacillus cereus</em>, and related species on the basis of reverse transcriptase sequencing of 16S rRNA. <em>International Journal of Systematic Bacteriology</em> 41:343–346. <a href="https://doi.org/10.1099/00207713-41-3-343">doi:10.1099/00207713-41-3-343</a></li>
+    <li>Scholz CFP, Poulsen K, Kilian M (2012). Novel molecular method for identification of <em>Streptococcus pneumoniae</em> applicable to clinical microbiology and 16S rRNA sequence-based microbiome studies. <em>Journal of Clinical Microbiology</em> 50:1968–1973. <a href="https://doi.org/10.1128/JCM.00365-12">doi:10.1128/JCM.00365-12</a></li>
+    <li>Větrovský T, Baldrian P (2013). The variability of the 16S rRNA gene in bacterial genomes and its consequences for bacterial community analyses. <em>PLoS ONE</em> 8:e57923. <a href="https://doi.org/10.1371/journal.pone.0057923">doi:10.1371/journal.pone.0057923</a></li>
+    <li>Pei AY, <em>et al.</em> (2010). Diversity of 16S rRNA genes within individual prokaryotic genomes. <em>Applied and Environmental Microbiology</em> 76:3886–3897. <a href="https://pubmed.ncbi.nlm.nih.gov/20418441/">PMID 20418441</a></li>
+    <li>Richter M, Rosselló-Móra R (2009). Shifting the genomic gold standard for the prokaryotic species definition. <em>PNAS</em> 106:19126–19131. <a href="https://doi.org/10.1073/pnas.0906412106">doi:10.1073/pnas.0906412106</a></li>
+    <li>Jain C, <em>et al.</em> (2018). High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. <em>Nature Communications</em> 9:5114. <a href="https://doi.org/10.1038/s41467-018-07641-9">doi:10.1038/s41467-018-07641-9</a></li>
+    <li>Chun J, <em>et al.</em> (2018). Proposed minimal standards for the use of genome data for the taxonomy of prokaryotes. <em>International Journal of Systematic and Evolutionary Microbiology</em> 68:461–466. <a href="https://doi.org/10.1099/ijsem.0.002516">doi:10.1099/ijsem.0.002516</a></li>
+  </ol>
+</details>
+
+<h2 id="single-gene-identification-for-fungi-its">Single-gene identification for fungi: ITS</h2>
+
+<p>Fungi do not have a 16S gene. Their ribosomal RNA genes are arranged differently, and the region most used for identification is the <strong>internal transcribed spacer (ITS)</strong>: two spacer regions (ITS1 and ITS2) that sit between the ribosomal RNA genes and are removed when the RNA is processed.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>... 18S rRNA | ITS1 | 5.8S rRNA | ITS2 | 28S rRNA ...
+             \_________ ITS region _________/
+</code></pre></div></div>
+
+<p>Because the spacers are not part of the final ribosome, they change faster than the ribosomal genes around them, which helps separate species. In a large comparison of candidate markers, ITS had the highest probability of successful identification across the broadest range of fungi, and it was proposed as the primary DNA barcode for fungi in 2012 [1].</p>
+
+<p>ITS has limitations that mirror those of 16S:</p>
+
+<ul>
+  <li><strong>Some species share identical ITS sequences.</strong> In <em>Aspergillus</em>, for example, ITS sequences are identical within several species complexes, so additional markers are needed [1]. Protein-coding genes such as β-tubulin and calmodulin are commonly used for <em>Aspergillus</em> [2].</li>
+  <li><strong>ITS copies within one genome can differ</strong>, much like 16S copies in bacteria [3].</li>
+  <li><strong>No single marker works for every fungus</strong> [1]. Combining ITS with protein-coding genes is often more effective for species-level identification [3].</li>
+</ul>
+
+<p>As with bacteria, whole-genome methods avoid most of these problems when a genome sequence is available, but the hybrids and naming history described in the previous lecture can still complicate the answer.</p>
+
+<details class="hint">
+  <summary>References for this section</summary>
+
+  <ol>
+    <li>Schoch CL, <em>et al.</em> (2012). Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi. <em>PNAS</em> 109:6241–6246. <a href="https://doi.org/10.1073/pnas.1117018109">doi:10.1073/pnas.1117018109</a></li>
+    <li>Geiser DM, <em>et al.</em> (2007). The current status of species recognition and identification in <em>Aspergillus</em>. <em>Studies in Mycology</em> 59:1–10. <a href="https://doi.org/10.3114/sim.2007.59.01">doi:10.3114/sim.2007.59.01</a></li>
+    <li>Stengel A, Stanke KM, Quattrone AC, Herr JR (2022). Improving taxonomic delimitation of fungal species in the age of genomics and phenomics. <em>Frontiers in Microbiology</em> 13:847067. <a href="https://doi.org/10.3389/fmicb.2022.847067">doi:10.3389/fmicb.2022.847067</a></li>
+  </ol>
+</details>
 
 <h2 id="whole-genome-identification-with-k-mers">Whole-genome identification with k-mers</h2>
 
@@ -200,7 +250,7 @@
 
 <h2 id="mash-with-a-refseq-sketch">Mash with a RefSeq sketch</h2>
 
-<p><strong>Mash</strong> reduces each genome to a small “sketch”: a random subset of its k-mers chosen with a technique called MinHash. Comparing two sketches gives the <strong>Mash distance</strong>, which approximates how different the two genomes are — a Mash distance of about 0.05 roughly corresponds to 95% ANI.</p>
+<p><strong>Mash</strong> reduces each genome to a small “sketch”: a random subset of its k-mers chosen with a technique called MinHash. Comparing two sketches gives the <strong>Mash distance</strong>, which approximates how different the two genomes are; a Mash distance of about 0.05 roughly corresponds to 95% ANI.</p>
 
 <p>A common approach is to compare a sample against a pre-built sketch of the NCBI <strong>RefSeq</strong> genome collection and look at the closest hits.</p>
 
@@ -220,7 +270,7 @@
 
 <h2 id="gambit">GAMBIT</h2>
 
-<p><strong>GAMBIT</strong> (Genomic Approximation Method for Bacterial Identification and Tracking) was designed for species identification of bacterial isolates in public health and clinical laboratories. It compares a fixed, targeted subset of each genome’s k-mers — those that immediately follow a specific short sequence — against a curated database of about 50,000 RefSeq genomes.</p>
+<p><strong>GAMBIT</strong> (Genomic Approximation Method for Bacterial Identification and Tracking) was designed for species identification of bacterial isolates in public health and clinical laboratories. It compares a fixed, targeted subset of each genome’s k-mers (those that immediately follow a specific short sequence) against a curated database of about 50,000 RefSeq genomes.</p>
 
 <p>Its key difference from a simple closest-match approach is that it uses <strong>species-specific thresholds</strong>. Each species has its own cutoff, based on how diverse that species is in the database. If a sample is too far from every species to fall within a threshold, GAMBIT reports a less specific answer (for example, the genus) instead of forcing a species call.</p>
 
@@ -236,7 +286,7 @@
 <ul>
   <li>Use a <strong>whole-genome method</strong> (Mash, GAMBIT) for the species call on an isolate.</li>
   <li>Use a <strong>read-level classifier</strong> (Kraken2) to check for contamination or mixed samples.</li>
-  <li>When methods disagree, or the call is unexpected for the specimen, investigate before moving on — check sample quality, contamination, and whether the organism belongs to a group with known naming problems.</li>
+  <li>When methods disagree, or the call is unexpected for the specimen, investigate before moving on: check sample quality, contamination, and whether the organism belongs to a group with known naming problems.</li>
 </ul>
 
 <blockquote class="tip">
@@ -253,10 +303,10 @@
     </button>
   </div>
 
-  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/training-site/sections/classification-subtyping/species-concept/">
+  <nav class="lesson-pager" aria-label="Previous and next"><a class="pager-link pager-prev" href="/wal-train-site/sections/classification-subtyping/species-concept/">
     <span class="pager-dir">‹ Previous lecture</span>
     <span class="pager-title">What Is a Species?</span>
-  </a><a class="pager-link pager-next" href="/training-site/sections/classification-subtyping/ecoli-shigella/">
+  </a><a class="pager-link pager-next" href="/wal-train-site/sections/classification-subtyping/ecoli-shigella/">
     <span class="pager-dir">Next activity ›</span>
     <span class="pager-title">When Names and Genomes Disagree: E. coli and Shigella</span></a></nav>
 
@@ -264,7 +314,8 @@
 
       </main>
     </div><footer class="site-footer">
-  <div class="wrapper footer-inner"><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/your-username/training-site">Course source on GitHub</a></p><p class="footer-copy">&copy; 2026 Bioinformatics Training Course. All rights reserved.</p>
+  <div class="wrapper footer-inner"><p class="footer-name">Western Region AMD Leads</p><p class="footer-disclaimer">Course materials are provided for training purposes only.</p><p class="footer-funding">This work is supported by [Funding Source] under award number [Grant/Cooperative Agreement Number].</p><p class="footer-links"><a href="https://github.com/DOH-JDJ0303/wal-train-site">Course source on GitHub</a></p>
+    <p class="footer-copy">&copy; 2026 Microbial Population Genomics and Phylogenetics. All rights reserved.</p>
   </div>
 </footer>
 </body>
